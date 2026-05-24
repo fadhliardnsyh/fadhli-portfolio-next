@@ -11,7 +11,13 @@ const poppins = Poppins({
   style: ['normal', 'italic'],
   display: 'swap',
 });
-
+export const metadata = {
+  title: 'Fadhli Ardiansyah — UI/UX Designer',
+  description: 'Portfolio of Fadhli Ardiansyah, UI/UX Designer based in Indonesia.',
+  icons: {
+    icon: '/assets/logo.svg',
+  },
+};
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={poppins.className}>
