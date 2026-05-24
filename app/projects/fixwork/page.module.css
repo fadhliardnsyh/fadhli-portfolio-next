@@ -1,0 +1,418 @@
+/* ============================================================
+   Fixwork Case Study — page.module.css
+   ============================================================ */
+
+/* ── HERO ──────────────────────────────────────────────────── */
+.caseHero {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.caseHeroBg {
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.caseHeroBg img {
+  width: 100%;
+  height: clamp(320px, 48vw, 560px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.caseHeroBg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(8,8,8,.45) 0%, transparent 30%, transparent 50%, var(--bg) 100%);
+  pointer-events: none;
+}
+
+.caseHeroContent {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem var(--pad) 3rem;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--y);
+  margin-bottom: 1.25rem;
+  opacity: 0;
+  animation: fadeUp .7s .2s ease forwards;
+}
+
+.eyebrow i {
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--y);
+  font-style: normal;
+}
+
+.caseTitle {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .8s .35s ease forwards;
+}
+
+.metaRow {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp .8s .5s ease forwards;
+}
+
+.metaLabel {
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: .3rem;
+}
+
+.metaValue {
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ── CONTENT WRAPPER ───────────────────────────────────────── */
+.content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 5rem var(--pad);
+}
+
+.divider {
+  border: none;
+  height: .5px;
+  background: var(--line);
+  margin: 4rem 0;
+}
+
+/* ── SECTION ───────────────────────────────────────────────── */
+.section {
+  margin-bottom: 5rem;
+}
+
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--y);
+  margin-bottom: 1.25rem;
+}
+
+.sectionLabel i {
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--y);
+  font-style: normal;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.body {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.9;
+  max-width: 720px;
+}
+
+.body p + p {
+  margin-top: 1.25rem;
+}
+
+/* ── STATS ─────────────────────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 3rem 0;
+}
+
+.statCard {
+  background: var(--bg2);
+  border: .5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: border-color .3s;
+}
+
+.statCard:hover {
+  border-color: rgba(245,197,24,.3);
+}
+
+.statNum {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--y);
+  line-height: 1;
+  margin-bottom: .4rem;
+}
+
+.statLabel {
+  font-size: .78rem;
+  font-weight: 400;
+  color: var(--muted2);
+}
+
+/* ── CHALLENGES ────────────────────────────────────────────── */
+.challenges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.challengeCard {
+  background: var(--bg2);
+  border: .5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: border-color .3s, transform .3s;
+}
+
+.challengeCard:hover {
+  border-color: rgba(245,197,24,.2);
+  transform: translateY(-3px);
+}
+
+.challengeNum {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  color: var(--y);
+  margin-bottom: .75rem;
+}
+
+.challengeTitle {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .5rem;
+}
+
+.challengeDesc {
+  font-size: .82rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.75;
+}
+
+/* ── SOLUTIONS ─────────────────────────────────────────────── */
+.solutions {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2rem;
+  border-top: .5px solid var(--line);
+}
+
+.solution {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: .5px solid var(--line);
+}
+
+.solutionNum {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(245,197,24,.15);
+  line-height: 1;
+  letter-spacing: -.05em;
+  padding-top: .25rem;
+}
+
+.solutionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .5rem;
+}
+
+.solutionDesc {
+  font-size: .875rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+}
+
+/* ── IMAGE BLOCK ───────────────────────────────────────────── */
+.imgBlock {
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 3rem 0;
+  border: .5px solid var(--line);
+}
+
+.imgBlock img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── RESULTS ───────────────────────────────────────────────── */
+.results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.resultCard {
+  background: var(--bg2);
+  border: .5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: border-color .3s;
+}
+
+.resultCard:hover {
+  border-color: rgba(245,197,24,.25);
+}
+
+.resultIcon {
+  font-size: 1.5rem;
+  margin-bottom: .875rem;
+}
+
+.resultTitle {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .4rem;
+}
+
+.resultDesc {
+  font-size: .82rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.75;
+}
+
+/* ── NEXT PROJECT ──────────────────────────────────────────── */
+.next {
+  background: var(--bg2);
+  border: .5px solid var(--line);
+  border-radius: 20px;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  text-decoration: none;
+  transition: border-color .35s, transform .35s;
+  margin-top: 5rem;
+}
+
+.next:hover {
+  border-color: rgba(245,197,24,.3);
+  transform: translateY(-4px);
+}
+
+.nextLabel {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: .5rem;
+}
+
+.nextTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nextArrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--y);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nextArrow svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--bg);
+}
+
+/* ── REVEAL ────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .75s ease, transform .75s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── KEYFRAMES ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .challenges { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) {
+  .caseHeroBg img { height: clamp(200px, 52vw, 300px); }
+  .metaRow { gap: 1.5rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stats .statCard:last-child { grid-column: 1 / -1; }
+  .challenges { grid-template-columns: 1fr; }
+  .results { grid-template-columns: 1fr; }
+  .solution { grid-template-columns: 1fr; gap: .75rem; }
+  .solutionNum { font-size: 2rem; }
+  .next { flex-direction: column; align-items: flex-start; padding: 2rem; }
+}

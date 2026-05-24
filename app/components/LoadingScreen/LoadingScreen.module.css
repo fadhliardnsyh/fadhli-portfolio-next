@@ -1,0 +1,91 @@
+/* ============================================================
+   LoadingScreen.module.css
+   ============================================================ */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ── LOGO ──────────────────────────────────────────────────── */
+.logoWrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  clip-path: inset(100% 0 0 0);
+  animation: fillUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+.logoWrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background: var(--y);
+  border-radius: 100px;
+  box-shadow: 0 0 20px 4px rgba(245, 197, 24, 0.5);
+  animation: glowIn 0.8s ease 0.3s both;
+}
+
+/* ── PROGRESS BAR ──────────────────────────────────────────── */
+.barWrap {
+  width: 140px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 0;
+  background: var(--y);
+  border-radius: 100px;
+  animation: loadBar 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+/* ── KEYFRAMES ─────────────────────────────────────────────── */
+@keyframes fillUp {
+  0%   { clip-path: inset(100% 0 0 0); }
+  100% { clip-path: inset(0% 0 0 0); }
+}
+
+@keyframes glowIn {
+  from { opacity: 0; width: 0; }
+  to   { opacity: 1; width: 70px; }
+}
+
+@keyframes loadBar {
+  0%   { width: 0; }
+  60%  { width: 80%; }
+  100% { width: 100%; }
+}
