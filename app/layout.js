@@ -1,7 +1,7 @@
 import { Poppins } from 'next/font/google';
 import Script from 'next/script';
 import Footer from './components/Footer/Footer';
-import LoadingScreen from './components/LoadingScreen/LoadingScreen';
+import Preloader from './components/Preloader/Preloader';
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import './globals.css';
 
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={poppins.className}>
       <body>
         <CustomCursor />
-        <LoadingScreen />
+        <Preloader />
         <Script
           src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
           strategy="beforeInteractive"

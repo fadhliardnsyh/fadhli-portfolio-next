@@ -21,7 +21,7 @@ export default function LoadingScreen() {
         <div className={styles.logoWrap}>
           <img
             className={styles.logo}
-            src="/assets/logo.svg"
+            src="/favicon.ico"
             alt="Fadhli Logo"
           />
         </div>

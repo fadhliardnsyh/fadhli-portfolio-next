@@ -1,0 +1,103 @@
+/* ============================================================
+   Preloader.module.css — fromanother-style counter loader
+   ============================================================ */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  overflow: hidden;
+}
+
+/* ── TOP LABEL ─────────────────────────────────────────────── */
+.label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted2);
+}
+
+/* ── CENTER WORD ───────────────────────────────────────────── */
+.center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wordRow {
+  display: flex;
+  overflow: hidden;
+}
+
+.char {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 7vw, 5rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  will-change: transform;
+}
+
+/* ── BIG COUNTER ───────────────────────────────────────────── */
+.counterWrap {
+  position: absolute;
+  bottom: clamp(2.5rem, 6vw, 4rem);
+  right: clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  align-items: flex-start;
+  line-height: 0.8;
+  color: var(--y);
+}
+
+.counter {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(4rem, 15vw, 11rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.percent {
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  font-weight: 500;
+  margin-top: 0.5em;
+  margin-left: 0.1em;
+}
+
+/* ── PROGRESS LINE ─────────────────────────────────────────── */
+.progressTrack {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--y);
+  box-shadow: 0 0 16px 2px rgba(245, 197, 24, 0.5);
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .counterWrap {
+    right: 1.25rem;
+    bottom: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .char { transition: none; }
+}
