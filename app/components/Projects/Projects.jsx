@@ -9,114 +9,145 @@ const PROJECTS = [
     id: "fixwork",
     href: "/projects/fixwork",
     img: "/assets/fixwork_card.png",
-    alt: "Fixwork HRIS Mobile App",
-    tags: ["Mobile App", "HRIS"],
-    title: "Fixwork — HRIS Mobile App",
-    meta: "Product Design · End-to-end UX/UI for a human resource information system.",
+    color: "#f5c518",
+    title: "Fixwork",
+    cat: "Product · Mobile",
+    year: "'25",
   },
   {
     id: "garuda",
     href: "/projects/garuda",
     img: "/assets/garuda_eleven.png",
-    alt: "Garuda Eleven Metaleague",
-    tags: ["Web App", "Game UI"],
+    color: "#1f6fe2",
     title: "Garuda Eleven Metaleague",
-    meta: "Game UI/UX · Web-based competitive football management game.",
+    cat: "Game UI/UX · Web",
+    year: "'25",
   },
   {
     id: "evermore",
     href: "/projects/evermore",
     img: "/assets/evermore_knights.png",
-    alt: "Evermore Knights",
-    tags: ["Landing Page", "UI Design"],
+    color: "#7c3fe2",
     title: "Evermore Knights",
-    meta: "UI Design · Immersive game landing page for a mobile RPG title.",
+    cat: "UI Design · Landing Page",
+    year: "'24",
   },
   {
     id: "vehicle",
     href: "/projects/vehicle",
     img: null,
-    emoji: "🚗",
-    tags: ["Dashboard", "IoT"],
-    title: "Vehicle Tracker Dashboard",
-    meta: "UI/UX Design · Real-time fleet monitoring with map integration and analytics.",
+    color: "#e2511f",
+    title: "Vehicle Tracker",
+    cat: "UX · Dashboard",
+    year: "'24",
   },
 ];
 
 export default function Projects() {
-  const headerRef = useRef(null);
-  const gridRef = useRef(null);
+  const previewRef = useRef(null);
+  const thumbRef = useRef(null);
+  const px = useRef(0);
+  const py = useRef(0);
+  const tx = useRef(0);
+  const ty = useRef(0);
+  const raf = useRef(null);
+  const rowsRef = useRef([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    tx.current = window.innerWidth / 2;
+    ty.current = window.innerHeight / 2;
+    px.current = tx.current;
+    py.current = ty.current;
+
+    const onMove = (e) => {
+      tx.current = e.clientX;
+      ty.current = e.clientY;
+    };
+    window.addEventListener("mousemove", onMove);
+
+    const loop = () => {
+      px.current += (tx.current - px.current) * 0.12;
+      py.current += (ty.current - py.current) * 0.12;
+      if (previewRef.current) {
+        previewRef.current.style.left = px.current + "px";
+        previewRef.current.style.top = py.current + "px";
+      }
+      raf.current = requestAnimationFrame(loop);
+    };
+    raf.current = requestAnimationFrame(loop);
+
+    // Scroll reveal for rows
+    const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add(styles.visible);
+          if (e.isIntersecting) {
+            e.target.classList.add(styles.visible);
+            io.unobserve(e.target);
+          }
         }),
-      { threshold: 0.07, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1 }
     );
-    if (headerRef.current) observer.observe(headerRef.current);
-    if (gridRef.current) observer.observe(gridRef.current);
-    return () => observer.disconnect();
+    rowsRef.current.forEach((el) => el && io.observe(el));
+
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf.current);
+      io.disconnect();
+    };
   }, []);
+
+  const handleEnter = (p) => {
+    const thumb = thumbRef.current;
+    if (p.img) {
+      thumb.style.backgroundImage = `url(${p.img})`;
+      thumb.style.backgroundSize = "cover";
+      thumb.style.backgroundPosition = "center";
+    } else {
+      thumb.style.backgroundImage = `linear-gradient(150deg, ${p.color}, var(--bg) 130%)`;
+    }
+    previewRef.current?.classList.add(styles.previewShow);
+  };
+
+  const handleLeave = () => {
+    previewRef.current?.classList.remove(styles.previewShow);
+  };
 
   return (
     <section className={styles.section} id="projects">
+      <div className={styles.preview} ref={previewRef}>
+        <div className={styles.previewThumb} ref={thumbRef} />
+      </div>
+
       <div className={styles.inner}>
-        {/* Header */}
-        <div className={`${styles.header} ${styles.reveal}`} ref={headerRef}>
-          <div>
-            <div className={styles.sectionLabel}>
-              <i />
-              Selected Work
-            </div>
-            <h2 className={styles.sectionTitle}>Projects I'm proud of</h2>
-          </div>
-          <Link href="#" className={styles.seeAll}>
-            View all works
-            <svg
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
+        <div className={styles.sectionLabel}>
+          <i />
+          Selected Work
         </div>
 
-        {/* Grid */}
-        <div
-          className={`${styles.grid} ${styles.reveal} ${styles.revealD1}`}
-          ref={gridRef}
-        >
-          {PROJECTS.map((p) => (
-            <Link key={p.id} href={p.href} className={styles.card}>
-              <div className={styles.imgWrap}>
-                {p.img ? (
-                  <img className={styles.img} src={p.img} alt={p.alt} />
-                ) : (
-                  <div className={`${styles.img} ${styles.imgPlaceholder}`}>
-                    {p.emoji}
-                  </div>
-                )}
-              </div>
-              <div className={styles.overlay} />
-              <div className={styles.body}>
-                <div className={styles.tags}>
-                  {p.tags.map((t) => (
-                    <span key={t} className={styles.tag}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className={styles.title}>{p.title}</div>
-                <div className={styles.meta}>{p.meta}</div>
-              </div>
+        <div className={styles.list}>
+          {PROJECTS.map((p, i) => (
+            <Link
+              key={p.id}
+              href={p.href}
+              className={styles.row}
+              ref={(el) => (rowsRef.current[i] = el)}
+              onMouseEnter={() => handleEnter(p)}
+              onMouseLeave={handleLeave}
+              style={{ transitionDelay: `${i * 0.07}s` }}
+            >
+              <span className={styles.idx}>0{i + 1}</span>
+              <span className={styles.title}>{p.title}</span>
+              <span className={styles.cat}>{p.cat}</span>
+              <span className={styles.yr}>{p.year}</span>
             </Link>
           ))}
+        </div>
+
+        <div className={styles.footer}>
+          <Link href="/projects" className={styles.viewAll}>
+            View all my works
+            <span className={styles.viewAllArrow}>↗</span>
+          </Link>
         </div>
       </div>
     </section>

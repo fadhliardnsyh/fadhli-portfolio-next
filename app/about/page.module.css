@@ -1,0 +1,530 @@
+/* ============================================================
+   About page — Digital CV
+   ============================================================ */
+
+.main {
+  padding-top: clamp(5rem, 10vh, 7rem);
+  background: var(--bg);
+  min-height: 100svh;
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+/* ── REVEAL ────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.revealD1 { transition-delay: 0.15s; }
+
+/* ── HERO ──────────────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  min-height: 92svh;
+  padding: 0 var(--pad) clamp(4rem, 8vw, 6rem);
+  max-width: calc(var(--max) + 2 * clamp(1.25rem, 5vw, 5rem));
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--y);
+  margin-bottom: 1.5rem;
+}
+.eyebrow i {
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--y);
+  font-style: normal;
+}
+
+.heroName {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(3.2rem, 9vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.heroRole {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 1.5rem;
+}
+
+.heroSummary {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 300;
+  color: var(--muted2);
+  line-height: 1.85;
+  max-width: 44ch;
+}
+
+/* ── PHOTO ─────────────────────────────────────────────────── */
+.heroRight {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photoAccent {
+  position: absolute;
+  width: min(340px, 75vw);
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  border: 1.5px solid var(--y);
+  top: 18px;
+  left: 50%;
+  transform: translateX(calc(-50% + 18px));
+  z-index: 0;
+}
+
+.photoFrame {
+  width: min(340px, 75vw);
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 0.5px solid var(--line);
+  position: relative;
+  z-index: 1;
+}
+.photoFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--muted);
+}
+
+/* ── SECTION SHELL ─────────────────────────────────────────── */
+.section {
+  padding: clamp(4rem, 8vw, 7rem) var(--pad);
+  border-top: 0.5px solid var(--line);
+}
+
+.secHead {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.secNum {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--y);
+}
+.secLabel {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted2);
+}
+
+/* ── BIODATA ───────────────────────────────────────────────── */
+.biodataGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 0.5px solid var(--line);
+}
+.infoRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.25rem 0;
+  border-bottom: 0.5px solid var(--line);
+}
+.infoKey {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.infoVal {
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  font-weight: 400;
+  color: var(--text);
+}
+
+/* ── RUNNING PHOTOS ─────────────────────────────────────────── */
+.runningGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.75rem;
+}
+
+.runningPhoto {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg2);
+  border: 0.5px solid var(--line);
+}
+.runningPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.runningPhoto:hover img { transform: scale(1.04); }
+
+/* 3 foto: foto pertama span 2 kolom */
+.run0 {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 7;
+}
+.run1, .run2 {
+  aspect-ratio: 1 / 1;
+}
+
+/* ── EXPERIENCE ────────────────────────────────────────────── */
+.expList {
+  border-top: 0.5px solid var(--line);
+}
+.expItem {
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+  border-bottom: 0.5px solid var(--line);
+  transition: padding-left 0.35s ease;
+}
+.expItem:hover {
+  padding-left: 0.75rem;
+}
+
+.expHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.expLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.expLogo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--bg2);
+  border: 0.5px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.expLogo img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+.expCompany {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+.expPosition {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--y);
+}
+.expMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+.expPeriod {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.expLocation {
+  font-size: 0.68rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.expBullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.expBullets li {
+  font-size: clamp(0.82rem, 1.3vw, 0.9rem);
+  font-weight: 300;
+  color: var(--muted2);
+  line-height: 1.75;
+  padding-left: 1rem;
+  position: relative;
+}
+.expBullets li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--y);
+}
+
+/* ── EDUCATION ─────────────────────────────────────────────── */
+.eduCategory {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 1.25rem;
+}
+.eduCategoryGap {
+  margin-top: 3rem;
+}
+
+.eduGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.eduCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: var(--bg2);
+  border: 0.5px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.3s;
+}
+.eduCard:hover {
+  border-color: rgba(245, 197, 24, 0.3);
+}
+
+.eduLogo {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: var(--bg3);
+  border: 0.5px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.eduLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+}
+.eduLogo span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted2);
+  letter-spacing: 0.05em;
+}
+
+.eduInfo { flex: 1; }
+.eduInst {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+.eduMajor {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--muted2);
+  margin-bottom: 0.5rem;
+}
+.eduPeriod {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--y);
+}
+
+/* ── SKILLS & TOOLS ────────────────────────────────────────── */
+.stGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+.stTitle {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 1.25rem;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.skillTag {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--bg2);
+  border: 0.5px solid var(--line);
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.skillTag:hover {
+  border-color: rgba(245, 197, 24, 0.4);
+  color: var(--y);
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 0.875rem;
+}
+.toolCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.toolLogo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  border: 0.5px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+.toolCard:hover .toolLogo {
+  transform: translateY(-4px);
+}
+.toolLogo img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.toolLogo span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.toolName {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--muted2);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .stGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 2rem;
+    gap: 3rem;
+  }
+  .heroRight {
+    order: -1;
+  }
+  .photoFrame, .photoAccent {
+    width: min(280px, 70vw);
+  }
+  .heroName {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+  }
+  .biodataGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .runningGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .run0 {
+    grid-column: 1 / -1;
+  }
+  .expHeader {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .toolsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  }
+}

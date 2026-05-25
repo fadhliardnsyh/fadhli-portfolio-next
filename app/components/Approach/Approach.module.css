@@ -1,5 +1,5 @@
 /* ============================================================
-   Approach.module.css
+   Approach.module.css — Horizontal step navigator
    ============================================================ */
 
 .section {
@@ -59,109 +59,153 @@
   font-weight: 300;
   color: var(--muted2);
   line-height: 1.8;
-  max-width: 520px;
 }
 
-/* ── ACCORDION ─────────────────────────────────────────────── */
-.accordion {
-  border-top: 0.5px solid var(--line);
+/* ── STEPS WRAP ────────────────────────────────────────────── */
+.stepsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 2.5rem);
 }
 
-.accItem {
-  border-bottom: 0.5px solid var(--line);
-}
-
-.accHeader {
+/* ── STEP NAV ──────────────────────────────────────────────── */
+.stepNav {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+}
+
+.track {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  right: 9px;
+  height: 1px;
+  background: var(--line);
+  z-index: 0;
+}
+
+.trackFill {
+  height: 100%;
+  background: var(--y);
+  box-shadow: 0 0 10px rgba(245, 197, 24, 0.6);
+  transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stepBtn {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 1.4rem 0;
-  cursor: pointer;
-  width: 100%;
+  gap: 0.55rem;
   background: none;
   border: none;
-  -webkit-tap-highlight-color: transparent;
-  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
-.accLeft {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--muted);
+  background: var(--bg2);
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  display: block;
+  flex-shrink: 0;
 }
 
-.accNum {
-  font-size: 0.7rem;
-  font-weight: 700;
+.stepPast .dot {
+  background: rgba(245, 197, 24, 0.35);
+  border-color: var(--y);
+}
+
+.stepActive .dot {
+  background: var(--y);
+  border-color: var(--y);
+  box-shadow: 0 0 0 5px rgba(245, 197, 24, 0.18);
+}
+
+.stepNum {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--muted);
-  min-width: 2rem;
-  transition: color 0.2s;
+  transition: color 0.3s;
 }
 
-.accName {
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
-  font-weight: 500;
+.stepActive .stepNum,
+.stepPast .stepNum {
+  color: var(--y);
+}
+
+.stepLabel {
+  font-size: 0.7rem;
+  font-weight: 400;
   color: var(--muted2);
-  transition: color 0.2s;
+  text-align: center;
+  max-width: 72px;
+  line-height: 1.35;
+  transition: color 0.3s;
 }
 
-.accItem.open .accName { color: var(--text); }
-.accItem.open .accNum  { color: var(--y); }
+.stepActive .stepLabel {
+  color: var(--text);
+  font-weight: 500;
+}
 
-.accIcon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+/* ── PANEL ─────────────────────────────────────────────────── */
+.panel {
+  background: var(--bg);
   border: 0.5px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.3s;
-}
-
-.accIcon svg {
-  width: 12px;
-  height: 12px;
-  stroke: var(--muted2);
-  transition: transform 0.35s, stroke 0.2s;
-}
-
-.accItem.open .accIcon {
-  border-color: var(--y);
-  background: rgba(245, 197, 24, 0.08);
-}
-
-.accItem.open .accIcon svg {
-  transform: rotate(45deg);
-  stroke: var(--y);
-}
-
-/* ── ACCORDION BODY (smooth expand) ───────────────────────── */
-.accBody {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s ease;
-}
-
-.accItem.open .accBody {
-  grid-template-rows: 1fr;
-}
-
-.accBodyInner {
+  border-top: 2px solid var(--y);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: clamp(2rem, 4vw, 3rem);
+  position: relative;
   overflow: hidden;
+  min-height: 210px;
 }
 
-.accText {
-  padding: 0.25rem 0 1.5rem 3.25rem;
-  font-size: clamp(0.82rem, 1.4vw, 0.9rem);
+.panelInner {
+  position: relative;
+}
+
+.panelBg {
+  position: absolute;
+  top: -0.25em;
+  right: -0.15em;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(6rem, 14vw, 10rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.panelName {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.panelText {
+  font-size: clamp(0.875rem, 1.4vw, 0.95rem);
   font-weight: 300;
   color: var(--muted2);
-  line-height: 1.8;
+  line-height: 1.85;
+  max-width: 52ch;
 }
 
-/* ── REVEAL ANIMATION ──────────────────────────────────────── */
+/* ── REVEAL ────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -188,11 +232,24 @@
   }
 }
 
-@media (max-width: 767px) {
-  .accText {
-    padding-left: 2rem;
+@media (max-width: 600px) {
+  .stepLabel {
+    display: none;
   }
-  .accName {
-    font-size: 0.92rem;
+  .stepNum {
+    font-size: 0.6rem;
   }
+  .dot {
+    width: 14px;
+    height: 14px;
+  }
+  .track {
+    top: 7px;
+    left: 7px;
+    right: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trackFill { transition: none; }
 }

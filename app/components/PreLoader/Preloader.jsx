@@ -1,22 +1,26 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import styles from "./Preloader.module.css";
 
+const WELCOME_LINES = ["Hey, glad", "you're here."];
+
 export default function Preloader() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   const [count, setCount] = useState(0);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    // Counter 0 → 100 with easing (slows near the end)
     let raf;
     const start = performance.now();
     const duration = 2200;
 
     const tick = (now) => {
       const t = Math.min((now - start) / duration, 1);
-      // easeOutExpo
       const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
       setCount(Math.round(eased * 100));
       if (t < 1) {
@@ -27,7 +31,6 @@ export default function Preloader() {
     };
     raf = requestAnimationFrame(tick);
 
-    // Lock scroll while loading
     document.body.style.overflow = "hidden";
     return () => {
       cancelAnimationFrame(raf);
@@ -59,25 +62,49 @@ export default function Preloader() {
             <span>©2026</span>
           </motion.div>
 
-          {/* Center word */}
+          {/* Center — welcome (home) or crafting (other pages) */}
           <div className={styles.center}>
-            <div className={styles.wordRow}>
-              {"PORTFOLIO".split("").map((char, i) => (
-                <motion.span
-                  key={i}
-                  className={styles.char}
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: "0%", opacity: 1 }}
-                  transition={{
-                    delay: 0.15 + i * 0.04,
-                    duration: 0.7,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  {char}
-                </motion.span>
-              ))}
-            </div>
+            {isHome ? (
+              <div className={styles.welcomeWrap}>
+                {WELCOME_LINES.map((line, li) => (
+                  <div key={li} className={styles.wordRow}>
+                    {line.split("").map((char, i) => (
+                      <motion.span
+                        key={i}
+                        className={styles.charWelcome}
+                        initial={{ y: "105%", opacity: 0 }}
+                        animate={{ y: "0%", opacity: 1 }}
+                        transition={{
+                          delay: 0.2 + li * 0.18 + i * 0.03,
+                          duration: 0.75,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                      >
+                        {char === " " ? " " : char}
+                      </motion.span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className={styles.wordRow}>
+                {"CRAFTING".split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    className={styles.charPage}
+                    initial={{ y: "100%", opacity: 0 }}
+                    animate={{ y: "0%", opacity: 1 }}
+                    transition={{
+                      delay: 0.15 + i * 0.04,
+                      duration: 0.7,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Big counter */}

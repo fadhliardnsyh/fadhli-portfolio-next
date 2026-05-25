@@ -21,7 +21,8 @@ const fade = {
   show: (d = 0) => ({ opacity: 1, transition: { duration: 1, delay: d } }),
 };
 
-export default function Hero({ onConnectClick }) {
+export default function Hero() {
+  const onConnectClick = () => window.dispatchEvent(new CustomEvent("openContactModal"));
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,

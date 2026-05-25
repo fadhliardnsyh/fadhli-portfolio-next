@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import styles from './Approach.module.css';
 
 const STEPS = [
@@ -27,11 +28,9 @@ const STEPS = [
 ];
 
 export default function Approach() {
-  const [openIndex, setOpenIndex] = useState(0);
-
-  // ── Reveal on scroll ───────────────────────────────────────
+  const [activeIndex, setActiveIndex] = useState(0);
   const stickyRef = useRef(null);
-  const accordionRef = useRef(null);
+  const rightRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,68 +39,71 @@ export default function Approach() {
       }),
       { threshold: 0.07, rootMargin: '0px 0px -40px 0px' }
     );
-    if (stickyRef.current)   observer.observe(stickyRef.current);
-    if (accordionRef.current) observer.observe(accordionRef.current);
+    if (stickyRef.current) observer.observe(stickyRef.current);
+    if (rightRef.current) observer.observe(rightRef.current);
     return () => observer.disconnect();
   }, []);
 
-  function toggle(i) {
-    setOpenIndex(openIndex === i ? null : i);
-  }
+  const progress = (activeIndex / (STEPS.length - 1)) * 100;
 
   return (
     <section className={styles.section} id="approach">
       <div className={styles.inner}>
         <div className={styles.layout}>
 
-          {/* ── LEFT: sticky heading ── */}
+          {/* LEFT sticky */}
           <div className={`${styles.sticky} ${styles.reveal}`} ref={stickyRef}>
-            <div className={styles.sectionLabel}>
-              <i />
-              My Process
-            </div>
+            <div className={styles.sectionLabel}><i />My Process</div>
             <h2 className={styles.sectionTitle}>How I design with purpose</h2>
             <p className={styles.sectionSub}>
-              A structured approach that turns ambiguity into clarity — and
-              clarity into products people love.
+              A structured approach that turns ambiguity into clarity — and clarity into products people love.
             </p>
           </div>
 
-          {/* ── RIGHT: accordion ── */}
-          <div
-            className={`${styles.accordion} ${styles.reveal} ${styles.revealD2}`}
-            ref={accordionRef}
-          >
-            {STEPS.map((step, i) => (
-              <div
-                key={step.num}
-                className={`${styles.accItem} ${openIndex === i ? styles.open : ''}`}
-              >
-                <button
-                  className={styles.accHeader}
-                  onClick={() => toggle(i)}
-                  aria-expanded={openIndex === i}
-                >
-                  <div className={styles.accLeft}>
-                    <span className={styles.accNum}>{step.num}</span>
-                    <span className={styles.accName}>{step.name}</span>
-                  </div>
-                  <div className={styles.accIcon}>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M12 5v14M5 12h14" />
-                    </svg>
-                  </div>
-                </button>
+          {/* RIGHT: horizontal steps + panel */}
+          <div className={`${styles.stepsWrap} ${styles.reveal} ${styles.revealD2}`} ref={rightRef}>
 
-                <div className={styles.accBody}>
-                  <div className={styles.accBodyInner}>
-                    <p className={styles.accText}>{step.text}</p>
-                  </div>
-                </div>
+            {/* Step nav */}
+            <div className={styles.stepNav}>
+              <div className={styles.track}>
+                <div className={styles.trackFill} style={{ width: `${progress}%` }} />
               </div>
-            ))}
-          </div>
+              {STEPS.map((step, i) => (
+                <button
+                  key={step.num}
+                  className={[
+                    styles.stepBtn,
+                    i === activeIndex ? styles.stepActive : '',
+                    i < activeIndex ? styles.stepPast : '',
+                  ].join(' ')}
+                  onClick={() => setActiveIndex(i)}
+                >
+                  <span className={styles.dot} />
+                  <span className={styles.stepNum}>{step.num}</span>
+                  <span className={styles.stepLabel}>{step.name}</span>
+                </button>
+              ))}
+            </div>
 
+            {/* Content panel */}
+            <div className={styles.panel}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  className={styles.panelInner}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <span className={styles.panelBg}>{STEPS[activeIndex].num}</span>
+                  <h3 className={styles.panelName}>{STEPS[activeIndex].name}</h3>
+                  <p className={styles.panelText}>{STEPS[activeIndex].text}</p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>

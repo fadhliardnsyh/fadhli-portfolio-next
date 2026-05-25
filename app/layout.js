@@ -3,6 +3,7 @@ import Script from 'next/script';
 import Footer from './components/Footer/Footer';
 import Preloader from './components/Preloader/Preloader';
 import CustomCursor from './components/CustomCursor/CustomCursor';
+import NavbarWrapper from './components/NavbarWrapper/NavbarWrapper';
 import './globals.css';
 
 const poppins = Poppins({
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={poppins.className}>
       <body>
         <CustomCursor />
+        <NavbarWrapper />
         <Preloader />
         <Script
           src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"

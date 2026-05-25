@@ -7,7 +7,7 @@ import styles from './Navbar.module.css';
 
 // Nav links config — sesuaikan href kalau struktur routing berubah
 const NAV_LINKS = [
-  { label: 'About Me',  href: '/#about'    },
+  { label: 'About Me',  href: '/about'      },
   { label: 'Projects',  href: '/#projects' },
   { label: 'Reviews',   href: '/#reviews'  },
 ];
