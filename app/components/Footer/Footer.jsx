@@ -101,7 +101,7 @@ export default function Footer() {
                 />
               </div>
               <p className={styles.desc}>
-                UI/UX Designer crafting digital experiences that balance
+                Product & UI/UX Designer crafting digital experiences that balance
                 business goals with human needs. Based in Indonesia, working
                 globally.
               </p>
