@@ -132,7 +132,7 @@ export default function FixworkPage() {
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>
             <i />
-            Case Study · HRIS Mobile App
+            Project · HRIS Mobile App
           </div>
           <h1 className={styles.caseTitle}>Fixwork</h1>
           <div className={styles.metaRow}>
