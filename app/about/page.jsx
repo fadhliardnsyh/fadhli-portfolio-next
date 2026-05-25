@@ -23,7 +23,7 @@ const EXPERIENCE = [
     position: "UI/UX Designer",
     period: "Nov 2024 – Present",
     location: "Tangerang",
-    logo: "https://logo.clearbit.com/treffix.id",
+    logo: "/assets/treffix-logo.png",
     bullets: [
       "Designed UI for web dashboards including HRMS, Fleet Management, and Warehouse Management systems.",
       "Conducted UAT directly with end users using positive and negative test scenarios.",
@@ -36,7 +36,7 @@ const EXPERIENCE = [
     position: "UI/UX Designer",
     period: "Apr 2024 – Jul 2024",
     location: "South Tangerang, Banten",
-    logo: "https://logo.clearbit.com/tekuton.com",
+    logo: "/assets/tekuton-logo.png",
     bullets: [
       "Created UI designs for Creoplay, a Web3 marketplace.",
       "Conducted client interviews to understand needs and provided design recommendations.",
@@ -48,7 +48,7 @@ const EXPERIENCE = [
     position: "UI/UX Designer",
     period: "Nov 2022 – Nov 2023",
     location: "South Tangerang, Banten",
-    logo: "https://logo.clearbit.com/nominagames.com",
+    logo: "/assets/nomina-logo.png",
     bullets: [
       "Created UI designs for landing pages, dashboards, mobile apps, Web3 marketplace, and game UI.",
       "Developed user flows and information architecture for both users and product teams.",
@@ -60,7 +60,7 @@ const EXPERIENCE = [
     position: "UI/UX Designer",
     period: "May 2022 – Oct 2022",
     location: "Jakarta Metropolitan Area",
-    logo: "https://logo.clearbit.com/djubli.com",
+    logo: "/assets/djubli-logo.png",
     bullets: [
       "Created UI design for DjuBli website and mobile apps (marketplace).",
       "Developed a new design system for website and mobile apps.",
@@ -72,7 +72,7 @@ const EXPERIENCE = [
     position: "IT Support · Laboratory Assistant",
     period: "Oct 2018 – Oct 2020",
     location: "Depok, West Java",
-    logo: "https://logo.clearbit.com/gunadarma.ac.id",
+    logo: "/assets/logo-gunadarma-alt.png",
     bullets: [
       "Conducted maintenance and troubleshooting on laboratory computers.",
       "Provided technical support for lab users.",
@@ -80,43 +80,42 @@ const EXPERIENCE = [
   },
 ];
 
-const EDU_FORMAL = [
+const EDU = [
   {
-    institution: "University Name",        // ← update
-    major: "Visual Communication Design",
-    period: "2019 – 2023",
-    logo: null,                            // ← update: "/assets/edu/univ.png"
-  },
-];
-
-const EDU_INFORMAL = [
-  {
-    institution: "Bootcamp / Course Name", // ← update
-    program: "UI/UX Design Intensive",
-    period: "2022",
-    logo: null,
+    institution: "Universitas Gunadarma",
+    major: "Bachelor's of Engineering, Computer Science",
+    period: "2016 – 2020",
+    logo: "/assets/logo-gunadarma-alt.png",
+    bullets: [
+      "Served as a lab assistant for 2 years in IT Support for the Intermediate Accounting laboratory.",
+      "Final project: an Android-based learning app using Augmented Reality, allowing users to explore historical buildings worldwide in 3D with audio and text explanations. Received an A grade.",
+    ],
   },
   {
-    institution: "Platform / Institution",
-    program: "Product Design",
-    period: "2023",
-    logo: null,
+    institution: "Purwadhika Digital Technology School",
+    major: "UI/UX Designer Job Connector",
+    period: "Oct 2021 – Apr 2022",
+    logo: "/assets/logo-purwadhika-icon.jfif",
+    bullets: [
+      "Studied all aspects of UI/UX Design including fundamentals, UX Research, Ideate & Define, and design execution.",
+      "Completed real-case projects and a final graduation project.",
+    ],
   },
 ];
 
 const SKILLS = [
-  "UI Design", "UX Research", "Wireframing", "Prototyping",
-  "Design System", "User Testing", "Design Thinking",
-  "Information Architecture", "Usability Testing", "User Flows",
-  "Interaction Design", "Product Strategy", "Heuristic Evaluation",
+  "UI Design", "UX Design", "User Research", "Wireframing",
+  "Comparative Research", "Qualitative Research", "Game User Interface",
+  "Product Design", "Usability Testing", "Slicing",
+  "User Acceptance Testing", "Product Management", "3D Design",
 ];
 
 const TOOLS = [
-  { name: "Figma",   logo: null, color: "#1ABCFE" },
-  { name: "Jira",    logo: null, color: "#0052CC" },
-  { name: "Maze",    logo: null, color: "#FF4747" },
-  { name: "Miro",    logo: null, color: "#FFDD00" },
-  { name: "Blender", logo: null, color: "#EA7600" },
+  { name: "Figma",   logo: "/assets/logo-figma.png",   color: "#1ABCFE" },
+  { name: "Jira",    logo: "/assets/logo-jira.png",    color: "#0052CC" },
+  { name: "Maze",    logo: "/assets/logo-maze.png",    color: "#FF4747" },
+  { name: "Miro",    logo: "/assets/logo-miro.png",    color: "#FFDD00" },
+  { name: "Blender", logo: "/assets/logo-blender.png", color: "#EA7600" },
 ];
 
 /* ─────────────────────────────────────────────────────────── */
@@ -151,7 +150,7 @@ export default function AboutPage() {
           <h1 className={styles.heroName}>
             Fadhli<br />Ardiansyah
           </h1>
-          <p className={styles.heroRole}>Product Designer · UI/UX Designer · Jakarta, Indonesia</p>
+          <p className={styles.heroRole}>Product Designer · UI/UX Designer · Bekasi, Indonesia</p>
           <p className={styles.heroSummary}>
             I'm a product designer who bridges the gap between business goals
             and human needs. With 3+ years of experience across mobile and web,
@@ -248,38 +247,30 @@ export default function AboutPage() {
             <span className={styles.secLabel}>Education</span>
           </div>
 
-          <h4 className={styles.eduCategory}>Formal Education</h4>
-          <div className={styles.eduGrid}>
-            {EDU_FORMAL.map((e, i) => (
-              <div key={i} className={styles.eduCard}>
-                <div className={styles.eduLogo}>
-                  {e.logo
-                    ? <img src={e.logo} alt={e.institution} />
-                    : <span>{e.institution.slice(0, 2).toUpperCase()}</span>}
+          <div className={styles.expList}>
+            {EDU.map((e, i) => (
+              <div key={i} className={styles.expItem}>
+                <div className={styles.expHeader}>
+                  <div className={styles.expLeft}>
+                    <div className={styles.expLogo}>
+                      <img src={e.logo} alt={e.institution}
+                        onError={(ev) => { ev.target.style.display = "none"; }}
+                      />
+                    </div>
+                    <div>
+                      <h3 className={styles.expCompany}>{e.institution}</h3>
+                      <p className={styles.expPosition}>{e.major}</p>
+                    </div>
+                  </div>
+                  <div className={styles.expMeta}>
+                    <span className={styles.expPeriod}>{e.period}</span>
+                  </div>
                 </div>
-                <div className={styles.eduInfo}>
-                  <p className={styles.eduInst}>{e.institution}</p>
-                  <p className={styles.eduMajor}>{e.major}</p>
-                  <p className={styles.eduPeriod}>{e.period}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <h4 className={`${styles.eduCategory} ${styles.eduCategoryGap}`}>Non-Formal Education</h4>
-          <div className={styles.eduGrid}>
-            {EDU_INFORMAL.map((e, i) => (
-              <div key={i} className={styles.eduCard}>
-                <div className={styles.eduLogo}>
-                  {e.logo
-                    ? <img src={e.logo} alt={e.institution} />
-                    : <span>{e.institution.slice(0, 2).toUpperCase()}</span>}
-                </div>
-                <div className={styles.eduInfo}>
-                  <p className={styles.eduInst}>{e.institution}</p>
-                  <p className={styles.eduMajor}>{e.program}</p>
-                  <p className={styles.eduPeriod}>{e.period}</p>
-                </div>
+                <ul className={styles.expBullets}>
+                  {e.bullets.map((b, j) => (
+                    <li key={j}>{b}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
