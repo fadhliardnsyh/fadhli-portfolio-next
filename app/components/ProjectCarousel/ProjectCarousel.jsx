@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "./ProjectCarousel.module.css";
 
 // Semua projects — filter otomatis berdasarkan `currentId`
-const PROJECTS = [
+const ALL_PROJECTS = [
   {
     id: "fixwork",
     href: "/projects/fixwork",
