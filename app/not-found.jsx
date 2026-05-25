@@ -1,3 +1,5 @@
+"use client";
+
 import ComingSoon from "./components/ComingSoon/ComingSoon";
 
 export default function NotFound() {
