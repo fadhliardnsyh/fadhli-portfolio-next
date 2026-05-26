@@ -81,11 +81,10 @@ const SOLUTIONS = [
 ];
 
 const V2_SCREENS = [
-  { overlay: 0.08 },
-  { overlay: 0.28 },
-  { overlay: 0.52 },
-  { overlay: 0.72 },
-  { overlay: 0.88 },
+  "/assets/fixwork-v2-1.png",
+  "/assets/fixwork-v2-2.png",
+  "/assets/fixwork-v2-3.png",
+  "/assets/fixwork-v2-4.png",
 ];
 
 const UI_SCREENS = [
@@ -181,6 +180,7 @@ function useReveal() {
 
 export default function FixworkPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [lightbox, setLightbox] = useState(null);
 
   const overviewRef = useReveal();
   const problemRef = useReveal();
@@ -409,10 +409,9 @@ export default function FixworkPage() {
           </p>
         </div>
         <div className={styles.v2Screens}>
-          {V2_SCREENS.map((s, i) => (
-            <div key={i} className={styles.v2Phone}>
-              <div className={styles.v2PhoneBg} />
-              <div className={styles.v2PhoneVeil} style={{ opacity: s.overlay }} />
+          {V2_SCREENS.map((src, i) => (
+            <div key={i} className={styles.v2Phone} onClick={() => setLightbox(src)}>
+              <img src={src} alt={`Fixwork V2 screen ${i + 1}`} className={styles.v2PhoneImg} />
             </div>
           ))}
         </div>
@@ -421,6 +420,18 @@ export default function FixworkPage() {
 
       {/* CAROUSEL */}
       <ProjectCarousel currentId="fixwork" />
+
+      {lightbox && (
+        <div className={styles.lightboxOverlay} onClick={() => setLightbox(null)}>
+          <button className={styles.lightboxClose} onClick={() => setLightbox(null)}>✕</button>
+          <img
+            src={lightbox}
+            alt="Fixwork V2 preview"
+            className={styles.lightboxImg}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
