@@ -7,16 +7,16 @@ import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
 import styles from "./page.module.css";
 
 const META = [
-  { label: "Role", value: "UI/UX Designer" },
+  { label: "Role", value: "Product & UI/UX Designer" },
   { label: "Type", value: "Mobile App" },
   { label: "Active Users", value: "500+ Daily" },
   { label: "Platform", value: "iOS & Android" },
 ];
 
 const STATS = [
-  { num: "500+", label: "Active daily users" },
-  { num: "8+", label: "Core features designed" },
-  { num: "2", label: "User roles (Admin & Employee)" },
+  { value: 500, suffix: "+", label: "Active daily users" },
+  { value: 8, suffix: "+", label: "Core features designed" },
+  { value: 3, suffix: "", label: "Companies trust Fixwork" },
 ];
 
 const CHALLENGES = [
@@ -50,24 +50,45 @@ const CHALLENGES = [
 const SOLUTIONS = [
   {
     num: "01",
-    title: "Simplified attendance with face recognition",
-    desc: "Designed a one-tap attendance flow with real-time face scan feedback and geofence indicator. Users know exactly where they are and what they need to do — no confusion, no extra steps.",
+    title: "Digitized attendance via smartphone",
+    desc: "Attendance is powered by face recognition and geofencing to prevent fraud. The system is also tied to each employee's work schedule — so clock-ins outside their shift hours are automatically flagged.",
   },
   {
     num: "02",
-    title: "Role-based dashboard architecture",
-    desc: "Built separate information architectures for admin and employee roles. Admins get a high-level overview with pending approvals; employees see their personal daily tasks and status.",
+    title: "Full attendance history at a glance",
+    desc: "Employees can view their complete clock-in and clock-out history directly from their smartphone — no more asking HR for data that should've always been theirs.",
   },
   {
     num: "03",
-    title: "Progressive disclosure for feature density",
-    desc: "Instead of showing all 8+ features upfront, the home screen surfaces the 4 most-used actions with a clear grid. Secondary features are one tap away, reducing overwhelm while keeping everything accessible.",
+    title: "Leave & permit requests without the hassle",
+    desc: "Employees can submit leave or permit requests in seconds, without going through long manual procedures. They can also check their remaining leave balance anytime, right from the app.",
   },
   {
     num: "04",
-    title: "Clear approval status system",
-    desc: "Designed a consistent status indicator system (pending, approved, rejected) across all request types with color coding and timeline views — so users always know the state of their requests at a glance.",
+    title: "Visit feature with multi-location support",
+    desc: "Employees can log visits with full location history. Multi-location support means field teams and those with back-to-back client visits can track every stop in a single session — no manual logging required.",
   },
+  {
+    num: "05",
+    title: "Overtime requests made simple",
+    desc: "Submitting overtime no longer means filling out forms or messaging supervisors manually. Employees can raise a request from their phone and track its approval status and history in one place.",
+  },
+  {
+    num: "06",
+    title: "Real-time notifications for everything",
+    desc: "Employees receive instant updates on every request status — approved, pending, or rejected. On top of that, reminders for clock-in and clock-out keep them on track, while company-wide announcements, holiday notices, and broadcasts are all delivered through the same notification system.",
+  },
+];
+
+const UI_SCREENS = [
+  { num: "01", label: "Attendance" },
+  { num: "02", label: "Dashboard" },
+  { num: "03", label: "Leave Request" },
+  { num: "04", label: "Visit" },
+  { num: "05", label: "Overtime" },
+  { num: "06", label: "Notification" },
+  { num: "07", label: "Attendance History" },
+  { num: "08", label: "Permit" },
 ];
 
 const RESULTS = [
@@ -92,6 +113,46 @@ const RESULTS = [
     desc: "Built a consistent component library that enabled faster development cycles and easier handoff to the engineering team.",
   },
 ];
+
+function AnimatedStat({ value, suffix, label }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const triggered = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !triggered.current) {
+          triggered.current = true;
+          obs.disconnect();
+          const duration = 1600;
+          const start = performance.now();
+          const animate = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(eased * value));
+            if (progress < 1) requestAnimationFrame(animate);
+            else setCount(value);
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [value]);
+
+  return (
+    <div ref={ref} className={styles.statCard}>
+      <div className={styles.statNum}>{count}{suffix}</div>
+      <div className={styles.statLabel}>{label}</div>
+    </div>
+  );
+}
 
 function useReveal() {
   const ref = useRef(null);
@@ -163,23 +224,20 @@ export default function FixworkPage() {
           </h2>
           <div className={styles.body}>
             <p>
-              Fixwork is a client-based HRIS mobile application designed to
-              streamline workforce management for companies of all sizes. The
-              app handles everything from attendance tracking and leave
-              management to payroll and asset requests — all in one place.
+              Fixwork is an HRIS mobile application that makes it easy for
+              employees to handle attendance, leave requests, permits, and other
+              work-related needs — all from their phone. Designed to fit
+              companies of any scale, from small startups to large enterprises.
             </p>
             <p>
-              With over 500+ active daily users, the challenge was to create an
-              interface that's powerful enough for HR administrators, yet
-              intuitive enough for everyday employees to use without training.
+              Today, Fixwork has over 500+ active users engaging with the app
+              every single day — a testament to how intuitive and essential it
+              has become in their daily work life.
             </p>
           </div>
           <div className={styles.stats}>
             {STATS.map((s) => (
-              <div key={s.num} className={styles.statCard}>
-                <div className={styles.statNum}>{s.num}</div>
-                <div className={styles.statLabel}>{s.label}</div>
-              </div>
+              <AnimatedStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
             ))}
           </div>
         </section>
@@ -255,10 +313,41 @@ export default function FixworkPage() {
           </div>
         </section>
 
-        <div className={`${styles.imgBlock} ${styles.reveal}`} ref={imgRef}>
-          <img src="/assets/fixwork_card.png" alt="Fixwork App Screens" />
-        </div>
+      </div>
 
+      {/* UI SHOWCASE */}
+      <section className={styles.uiShowcase}>
+        <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={imgRef}>
+          <div className={styles.sectionLabel}><i />UI Preview</div>
+          <h2 className={styles.sectionTitle}>
+            Designed for real<br />everyday use
+          </h2>
+        </div>
+        <div className={styles.marqueeWrap}>
+          <div className={styles.marqueeRow}>
+            <div className={styles.marqueeTrack}>
+              {[...UI_SCREENS, ...UI_SCREENS].map((s, i) => (
+                <div key={i} className={styles.phoneCard}>
+                  <div className={styles.phoneCardNum}>{s.num}</div>
+                  <div className={styles.phoneCardLabel}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={`${styles.marqueeRow} ${styles.marqueeReverse}`}>
+            <div className={styles.marqueeTrack}>
+              {[...UI_SCREENS, ...UI_SCREENS].map((s, i) => (
+                <div key={i} className={styles.phoneCard}>
+                  <div className={styles.phoneCardNum}>{s.num}</div>
+                  <div className={styles.phoneCardLabel}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className={styles.content}>
         <hr className={styles.divider} />
 
         {/* Results */}
