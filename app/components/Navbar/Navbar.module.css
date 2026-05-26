@@ -188,6 +188,10 @@
   border-top: 0.5px solid var(--line);
 }
 
+.mobLinkActive {
+  color: var(--y);
+}
+
 .mobCta {
   color: var(--y) !important;
 }

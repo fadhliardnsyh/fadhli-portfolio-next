@@ -102,17 +102,6 @@
   border-color: rgba(245, 197, 24, 0.2);
 }
 
-/* ── STARS ─────────────────────────────────────────────────── */
-.stars {
-  display: flex;
-  gap: 0.2rem;
-}
-
-.stars span {
-  color: var(--y);
-  font-size: 0.75rem;
-}
-
 /* ── QUOTE ─────────────────────────────────────────────────── */
 .quote {
   font-size: clamp(0.82rem, 1.4vw, 0.9rem);

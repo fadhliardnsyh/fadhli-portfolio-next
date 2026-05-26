@@ -3,10 +3,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
 
 // Nav links config — sesuaikan href kalau struktur routing berubah
 const NAV_LINKS = [
+  { label: 'Home',      href: '/'         },
   { label: 'About Me',  href: '/about'    },
   { label: 'Projects',  href: '/projects' },
   { label: 'Reviews',   href: '/reviews'  },
@@ -21,6 +23,10 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Navbar({ onConnectClick }) {
+  const pathname = usePathname();
+  const isActive = (href) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
+
   const [scrolled,    setScrolled]    = useState(false);
   const [hidden,      setHidden]      = useState(false);
   const [menuOpen,    setMenuOpen]    = useState(false);
@@ -84,7 +90,11 @@ export default function Navbar({ onConnectClick }) {
         {/* Center pill */}
         <div className={styles.navPill} role="navigation" aria-label="Main navigation">
           {NAV_LINKS.map(({ label, href }) => (
-            <Link key={href} href={href} className={styles.navPillLink}>
+            <Link
+              key={href}
+              href={href}
+              className={`${styles.navPillLink} ${isActive(href) ? styles.active : ''}`}
+            >
               {label}
             </Link>
           ))}
@@ -127,7 +137,7 @@ export default function Navbar({ onConnectClick }) {
           <Link
             key={href}
             href={href}
-            className={styles.mobLink}
+            className={`${styles.mobLink} ${isActive(href) ? styles.mobLinkActive : ''}`}
             style={{ animationDelay: `${0.05 + i * 0.05}s` }}
             onClick={closeMenu}
           >

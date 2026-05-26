@@ -1,0 +1,289 @@
+.main {
+  padding-top: clamp(5rem, 10vh, 7rem);
+  background: var(--bg);
+  min-height: 100svh;
+}
+
+/* ── REVEAL ────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── HERO ──────────────────────────────────────────────────── */
+.hero {
+  padding: clamp(3rem, 6vw, 5rem) var(--pad) clamp(2rem, 4vw, 3rem);
+}
+
+.heroInner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--y);
+  margin-bottom: 1.25rem;
+}
+.eyebrow i {
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--y);
+  font-style: normal;
+}
+
+.heroTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+.heroTitle em {
+  font-style: italic;
+  color: var(--y);
+}
+
+.heroSub {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 300;
+  color: var(--muted2);
+  line-height: 1.85;
+  max-width: 52ch;
+  margin-bottom: 1.75rem;
+}
+
+.heroBadges {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  background: var(--bg2);
+  border: 0.5px solid var(--line);
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+}
+
+/* ── FILTER ────────────────────────────────────────────────── */
+.filterWrap {
+  padding: 0 var(--pad);
+  border-bottom: 0.5px solid var(--line);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.filterInner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filterInner::-webkit-scrollbar { display: none; }
+
+.filterBtn {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.875rem 1.25rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+  margin-bottom: -0.5px;
+}
+.filterBtn:hover {
+  color: var(--text);
+}
+.filterActive {
+  color: var(--y);
+  border-bottom-color: var(--y);
+}
+
+/* ── GRID ──────────────────────────────────────────────────── */
+.gridSection {
+  padding: 0 var(--pad) clamp(4rem, 8vw, 7rem);
+}
+
+.grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.875rem, 1.5vw, 1.25rem);
+}
+
+/* ── CARD ──────────────────────────────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg2);
+  border: 0.5px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  animation: cardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition:
+    border-color 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+.card:hover {
+  border-color: var(--accent, var(--y));
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* ── CARD IMAGE ─────────────────────────────────────────────── */
+.cardImg {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+}
+.card:hover .cardImg img {
+  transform: scale(1.05);
+}
+
+.cardImgFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cardImgFallback span {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  opacity: 0.4;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.25) 100%);
+  transition: opacity 0.3s;
+}
+
+/* ── CARD BODY ──────────────────────────────────────────────── */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.cardTags {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg);
+  border: 0.5px solid var(--line);
+  padding: 0.15rem 0.5rem;
+  border-radius: 100px;
+  transition: color 0.25s, border-color 0.25s;
+}
+.card:hover .tag {
+  color: var(--accent, var(--y));
+  border-color: var(--accent, var(--y));
+  opacity: 0.8;
+}
+
+.cardYear {
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.cardBottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.cardTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.arrow {
+  font-size: 1rem;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: color 0.25s, transform 0.25s;
+  line-height: 1;
+}
+.card:hover .arrow {
+  color: var(--accent, var(--y));
+  transform: translate(2px, -2px);
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .heroTitle { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+}

@@ -97,11 +97,6 @@ export default function Testimonials() {
         <div className={styles.track}>
           {CARDS.map((t, i) => (
             <div key={i} className={styles.card}>
-              <div className={styles.stars}>
-                {"★★★★★".split("").map((s, j) => (
-                  <span key={j}>{s}</span>
-                ))}
-              </div>
               <p className={styles.quote}>"{t.quote}"</p>
               <div className={styles.person}>
                 <div className={styles.avatar}>{t.avatar}</div>
