@@ -90,7 +90,6 @@
   height: 100%;
   background: var(--y);
   box-shadow: 0 0 10px rgba(245, 197, 24, 0.6);
-  transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .stepBtn {

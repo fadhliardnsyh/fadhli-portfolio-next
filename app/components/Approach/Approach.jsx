@@ -27,10 +27,14 @@ const STEPS = [
   },
 ];
 
+const DURATION = 5000;
+
 export default function Approach() {
   const [activeIndex, setActiveIndex] = useState(0);
   const stickyRef = useRef(null);
   const rightRef = useRef(null);
+  const trackFillRef = useRef(null);
+  const activeIdxRef = useRef(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,7 +48,37 @@ export default function Approach() {
     return () => observer.disconnect();
   }, []);
 
-  const progress = (activeIndex / (STEPS.length - 1)) * 100;
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const start = Date.now();
+    let raf;
+
+    const tick = () => {
+      const t = Math.min((Date.now() - start) / DURATION, 1);
+      const raw = ((activeIdxRef.current + t) / (STEPS.length - 1)) * 100;
+
+      if (trackFillRef.current) {
+        trackFillRef.current.style.width = `${Math.min(raw, 100)}%`;
+      }
+
+      if (t < 1) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        const next = (activeIdxRef.current + 1) % STEPS.length;
+        activeIdxRef.current = next;
+        setActiveIndex(next);
+      }
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [activeIndex]);
+
+  const handleClick = (i) => {
+    activeIdxRef.current = i;
+    setActiveIndex(i);
+  };
 
   return (
     <section className={styles.section} id="approach">
@@ -66,7 +100,7 @@ export default function Approach() {
             {/* Step nav */}
             <div className={styles.stepNav}>
               <div className={styles.track}>
-                <div className={styles.trackFill} style={{ width: `${progress}%` }} />
+                <div className={styles.trackFill} ref={trackFillRef} />
               </div>
               {STEPS.map((step, i) => (
                 <button
@@ -76,7 +110,7 @@ export default function Approach() {
                     i === activeIndex ? styles.stepActive : '',
                     i < activeIndex ? styles.stepPast : '',
                   ].join(' ')}
-                  onClick={() => setActiveIndex(i)}
+                  onClick={() => handleClick(i)}
                 >
                   <span className={styles.dot} />
                   <span className={styles.stepNum}>{step.num}</span>

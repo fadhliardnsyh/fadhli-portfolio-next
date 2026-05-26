@@ -11,7 +11,7 @@ const PROJECTS = [
     img: "/assets/fixwork_card.png",
     color: "#f5c518",
     title: "Fixwork",
-    cat: "Product · Mobile",
+    cat: "Mobile · HRIS",
     year: "'25",
   },
   {
@@ -20,7 +20,7 @@ const PROJECTS = [
     img: "/assets/garuda_eleven.png",
     color: "#1f6fe2",
     title: "Garuda Eleven Metaleague",
-    cat: "Game UI/UX · Web",
+    cat: "Web-Based Game · Football Manager",
     year: "'25",
   },
   {
@@ -29,7 +29,7 @@ const PROJECTS = [
     img: "/assets/evermore_knights.png",
     color: "#7c3fe2",
     title: "Evermore Knights",
-    cat: "UI Design · Landing Page",
+    cat: "Web · Landing Page",
     year: "'24",
   },
   {
@@ -38,7 +38,7 @@ const PROJECTS = [
     img: null,
     color: "#e2511f",
     title: "Vehicle Tracker",
-    cat: "UX · Dashboard",
+    cat: "Mobile · IoT",
     year: "'24",
   },
 ];

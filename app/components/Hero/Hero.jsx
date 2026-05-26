@@ -44,7 +44,7 @@ export default function Hero() {
         animate="show"
         custom={0.3}
       >
-        Jakarta, ID — {new Date().getFullYear()}
+        Bekasi, ID — {new Date().getFullYear()}
       </motion.div>
 
       {/* main */}
@@ -69,7 +69,7 @@ export default function Hero() {
               initial="hidden"
               animate="show"
             >
-              <em className={styles.serif}>designer</em> &amp; maker
+              &amp; <em className={styles.serif}>UI/UX</em> designer
             </motion.span>
           </span>
           <span className={styles.row}>
@@ -95,8 +95,8 @@ export default function Hero() {
         custom={1.3}
       >
         <p className={styles.bio}>
-          I'm Fadhli — I design interfaces that balance what businesses need
-          with what people actually want to use.
+          I'm Fadhli — a Product &amp; UI/UX Designer crafting digital
+          experiences that balance business goals with human needs.
         </p>
         <button className={styles.cta} onClick={onConnectClick}>
           <span>Get in touch</span>
