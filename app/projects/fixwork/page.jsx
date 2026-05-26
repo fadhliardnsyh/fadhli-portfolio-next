@@ -80,6 +80,14 @@ const SOLUTIONS = [
   },
 ];
 
+const V2_SCREENS = [
+  { overlay: 0.08 },
+  { overlay: 0.28 },
+  { overlay: 0.52 },
+  { overlay: 0.72 },
+  { overlay: 0.88 },
+];
+
 const UI_SCREENS = [
   { num: "01", label: "Attendance" },
   { num: "02", label: "Dashboard" },
@@ -179,6 +187,7 @@ export default function FixworkPage() {
   const solutionRef = useReveal();
   const imgRef = useReveal();
   const resultsRef = useReveal();
+  const v2Ref = useReveal();
 
   return (
     <>
@@ -383,6 +392,32 @@ export default function FixworkPage() {
           </div>
         </section>
       </div>
+
+      {/* V2 SNEAK PEEK */}
+      <section className={styles.v2Section}>
+        <div className={`${styles.v2Inner} ${styles.reveal}`} ref={v2Ref}>
+          <div className={styles.v2Badge}>
+            <span className={styles.v2Pulse} />
+            Coming Soon
+          </div>
+          <h2 className={styles.v2Title}>
+            Fixwork is getting<br />a major upgrade.
+          </h2>
+          <p className={styles.v2Sub}>
+            A complete redesign with smarter flows, a more intuitive experience,
+            and major improvements across every feature.
+          </p>
+        </div>
+        <div className={styles.v2Screens}>
+          {V2_SCREENS.map((s, i) => (
+            <div key={i} className={styles.v2Phone}>
+              <div className={styles.v2PhoneBg} />
+              <div className={styles.v2PhoneVeil} style={{ opacity: s.overlay }} />
+            </div>
+          ))}
+        </div>
+        <div className={styles.v2BottomFade} />
+      </section>
 
       {/* CAROUSEL */}
       <ProjectCarousel currentId="fixwork" />

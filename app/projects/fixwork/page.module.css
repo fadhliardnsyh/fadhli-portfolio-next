@@ -417,6 +417,108 @@
   line-height: 1.75;
 }
 
+/* ── V2 SNEAK PEEK ─────────────────────────────────────────── */
+.v2Section {
+  position: relative;
+  padding: 6rem 0 0;
+  overflow: hidden;
+  background: var(--bg2);
+  border-top: .5px solid var(--line);
+}
+
+.v2Inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad) 4rem;
+}
+
+.v2Badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--y);
+  border: 1px solid rgba(245,197,24,.25);
+  border-radius: 100px;
+  padding: .3rem .9rem;
+  margin-bottom: 1.75rem;
+}
+
+.v2Pulse {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--y);
+  border-radius: 50%;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.v2Title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.v2Sub {
+  font-size: .95rem;
+  font-weight: 300;
+  color: rgba(255,255,255,.5);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+.v2Screens {
+  display: flex;
+  gap: 1rem;
+  padding: 0 var(--pad);
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.v2Phone {
+  flex: 1;
+  min-width: 0;
+  height: 440px;
+  border-radius: 24px;
+  background: var(--bg);
+  border: .5px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.v2PhoneBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(245,197,24,.12) 0%, transparent 65%);
+}
+
+.v2PhoneVeil {
+  position: absolute;
+  inset: 0;
+  background: var(--bg2);
+}
+
+.v2BottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 260px;
+  background: linear-gradient(to bottom, transparent, var(--bg2));
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(0.75); }
+}
+
 /* ── NEXT PROJECT ──────────────────────────────────────────── */
 .next {
   background: var(--bg2);

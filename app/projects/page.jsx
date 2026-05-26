@@ -123,6 +123,24 @@ const PROJECTS = [
     cat: "Web · Web3",
     year: "2023",
   },
+  {
+    id: "djubli-app",
+    href: "/projects/djubli-app",
+    img: null,
+    color: "#e63946",
+    title: "DjuBli App",
+    cat: "Mobile · Marketplace",
+    year: "2024",
+  },
+  {
+    id: "djubli-web",
+    href: "/projects/djubli-web",
+    img: null,
+    color: "#e63946",
+    title: "DjuBli Marketplace",
+    cat: "Web · Marketplace",
+    year: "2024",
+  },
 ];
 
 const ALL_FILTERS = ["All", ...Array.from(new Set(

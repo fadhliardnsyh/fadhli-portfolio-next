@@ -1,36 +1,35 @@
 /* ============================================================
-   CustomCursor.module.css
+   CustomCursor — dot + lagging glow shadow
    ============================================================ */
 
-.cursor,
-.ring {
+.dot {
   position: fixed;
+  width: 7px;
+  height: 7px;
+  background: var(--y);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s;
 }
 
-.cursor {
-  width: 10px;
-  height: 10px;
+.shadow {
+  position: fixed;
+  width: 28px;
+  height: 28px;
   background: var(--y);
-  mix-blend-mode: difference;
-}
-
-.ring {
-  width: 38px;
-  height: 38px;
-  border: 1px solid rgba(245, 197, 24, 0.4);
-  transition: width 0.25s, height 0.25s;
-  background: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  filter: blur(10px);
 }
 
 /* Hide on touch devices */
 @media (hover: none) {
-  .cursor,
-  .ring {
+  .dot,
+  .shadow {
     display: none;
   }
 }
