@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import Navbar from "../../components/Navbar/Navbar";
 import ContactModal from "../../components/ContactModal/ContactModal";
 import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
@@ -134,7 +133,7 @@ export default function FixworkPage() {
             <i />
             Project · Mobile · HRIS
           </div>
-          <h1 className={styles.caseTitle}>Fixwork</h1>
+          <h1 className={styles.caseTitle}>Fixwork App</h1>
           <div className={styles.metaRow}>
             {META.map((m) => (
               <div key={m.label} className={styles.metaItem}>
