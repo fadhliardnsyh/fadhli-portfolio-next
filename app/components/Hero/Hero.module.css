@@ -13,16 +13,75 @@
     background: var(--bg);
   }
   
-  .glow {
+  .hero::after {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120vw;
-    height: 80vh;
-    background: radial-gradient(ellipse at center, rgba(245, 197, 24, 0.06) 0%, transparent 60%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 320px;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .orb1 {
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,197,24,0.18) 0%, transparent 70%);
+    filter: blur(60px);
+    top: -15%;
+    left: -10%;
     pointer-events: none;
     z-index: 0;
+    animation: orbFloat1 18s ease-in-out infinite;
+  }
+
+  .orb2 {
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,197,24,0.1) 0%, transparent 70%);
+    filter: blur(80px);
+    bottom: -10%;
+    right: -5%;
+    pointer-events: none;
+    z-index: 0;
+    animation: orbFloat2 24s ease-in-out infinite;
+  }
+
+  .orb3 {
+    position: absolute;
+    width: 35vw;
+    height: 35vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,160,20,0.08) 0%, transparent 70%);
+    filter: blur(50px);
+    top: 40%;
+    left: 55%;
+    pointer-events: none;
+    z-index: 0;
+    animation: orbFloat3 20s ease-in-out infinite;
+  }
+
+  @keyframes orbFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%       { transform: translate(4%, 6%) scale(1.08); }
+    66%       { transform: translate(-3%, 3%) scale(0.96); }
+  }
+
+  @keyframes orbFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40%       { transform: translate(-5%, -4%) scale(1.1); }
+    70%       { transform: translate(3%, -6%) scale(0.95); }
+  }
+
+  @keyframes orbFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%       { transform: translate(-6%, 5%) scale(1.12); }
   }
   
   .noise {

@@ -33,7 +33,9 @@ export default function Hero() {
 
   return (
     <section className={styles.hero} ref={ref} id="home">
-      <div className={styles.glow} />
+      <div className={styles.orb1} />
+      <div className={styles.orb2} />
+      <div className={styles.orb3} />
       <div className={styles.noise} />
 
       {/* top corners */}
