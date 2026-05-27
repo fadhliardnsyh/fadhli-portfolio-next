@@ -1,5 +1,6 @@
 /* ============================================================
-   Fixwork Project — page.module.css
+   BiTrack Project — page.module.css
+   Accent: #D84040 (orange-red)
    ============================================================ */
 
 /* ── HERO ──────────────────────────────────────────────────── */
@@ -15,6 +16,7 @@
   position: relative;
   width: 100%;
   z-index: 0;
+  background: #1a0e08;
 }
 
 .caseHeroBg img {
@@ -50,7 +52,7 @@
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: #286FF3;
+  color: #D84040;
   margin-bottom: 1.25rem;
   opacity: 0;
   animation: fadeUp .7s .2s ease forwards;
@@ -60,7 +62,7 @@
   display: block;
   width: 2rem;
   height: 1px;
-  background: #286FF3;
+  background: #D84040;
   font-style: normal;
 }
 
@@ -82,6 +84,8 @@
   opacity: 0;
   animation: fadeUp .8s .5s ease forwards;
 }
+
+.metaItem {}
 
 .metaLabel {
   font-size: .65rem;
@@ -125,7 +129,7 @@
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: #286FF3;
+  color: #D84040;
   margin-bottom: 1.25rem;
 }
 
@@ -133,7 +137,7 @@
   display: block;
   width: 1.5rem;
   height: 1px;
-  background: #286FF3;
+  background: #D84040;
   font-style: normal;
 }
 
@@ -176,13 +180,13 @@
 }
 
 .statCard:hover {
-  border-color: rgba(40,111,243,.3);
+  border-color: rgba(216,64,64,.3);
 }
 
 .statNum {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #286FF3;
+  color: #D84040;
   line-height: 1;
   margin-bottom: .4rem;
 }
@@ -210,7 +214,7 @@
 }
 
 .challengeCard:hover {
-  border-color: rgba(40,111,243,.2);
+  border-color: rgba(216,64,64,.2);
   transform: translateY(-3px);
 }
 
@@ -218,7 +222,7 @@
   font-size: .65rem;
   font-weight: 700;
   letter-spacing: .15em;
-  color: #286FF3;
+  color: #D84040;
   margin-bottom: .75rem;
 }
 
@@ -257,7 +261,7 @@
 .solutionNum {
   font-size: 3rem;
   font-weight: 700;
-  color: rgba(40,111,243,.15);
+  color: rgba(216,64,64,.15);
   line-height: 1;
   letter-spacing: -.05em;
   padding-top: .25rem;
@@ -275,20 +279,6 @@
   font-weight: 300;
   color: rgba(255,255,255,0.5);
   line-height: 1.8;
-}
-
-/* ── IMAGE BLOCK ───────────────────────────────────────────── */
-.imgBlock {
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 3rem 0;
-  border: .5px solid var(--line);
-}
-
-.imgBlock img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
 }
 
 /* ── UI SHOWCASE ───────────────────────────────────────────── */
@@ -321,7 +311,6 @@
   gap: 1.25rem;
   width: max-content;
   will-change: transform;
-  /* 3× items → animate ⅓ of track width = 1 set width */
   animation: scrollLeft 36s linear infinite;
 }
 
@@ -329,7 +318,6 @@
   animation: scrollRight 36s linear infinite;
 }
 
-/* Pause on hover */
 .marqueeWrap:hover .marqueeTrack {
   animation-play-state: paused;
 }
@@ -349,8 +337,8 @@
 }
 
 .phoneCard:hover {
-  border-color: rgba(40,111,243,.5);
-  box-shadow: 0 0 0 1px rgba(40,111,243,.15), 0 8px 32px rgba(0,0,0,.4);
+  border-color: rgba(216,64,64,.5);
+  box-shadow: 0 0 0 1px rgba(216,64,64,.15), 0 8px 32px rgba(0,0,0,.4);
 }
 
 .phoneCard img {
@@ -367,7 +355,6 @@
   filter: brightness(1.08);
 }
 
-/* Overlay label + zoom icon — muncul saat hover */
 .phoneCardOverlay {
   position: absolute;
   bottom: 0;
@@ -397,7 +384,6 @@
   text-align: center;
 }
 
-/* Zoom icon di pojok kanan atas */
 .phoneCardZoom {
   position: absolute;
   top: .75rem;
@@ -421,7 +407,6 @@
   opacity: 1;
 }
 
-/* Animasi: 3 set → tiap set = 33.33% track → animate dari 0 ke -33.33% */
 @keyframes scrollLeft {
   from { transform: translateX(0); }
   to   { transform: translateX(-33.333%); }
@@ -440,7 +425,6 @@
   margin-top: 2rem;
 }
 
-
 .resultCard {
   background: var(--bg2);
   border: .5px solid var(--line);
@@ -453,19 +437,19 @@
 }
 
 .resultCard:hover {
-  border-color: rgba(40,111,243,.25);
+  border-color: rgba(216,64,64,.25);
 }
 
 .resultIcon {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(40,111,243,.08);
-  border: .5px solid rgba(40,111,243,.15);
+  background: rgba(216,64,64,.08);
+  border: .5px solid rgba(216,64,64,.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #286FF3;
+  color: #D84040;
   flex-shrink: 0;
 }
 
@@ -480,119 +464,6 @@
   font-weight: 300;
   color: rgba(255,255,255,0.5);
   line-height: 1.75;
-}
-
-/* ── V2 SNEAK PEEK ─────────────────────────────────────────── */
-.v2Section {
-  position: relative;
-  padding: 6rem 0 0;
-  overflow: hidden;
-  background: var(--bg2);
-  border-top: .5px solid var(--line);
-}
-
-.v2Inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--pad) 4rem;
-}
-
-.v2Badge {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  font-size: .62rem;
-  font-weight: 700;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: #286FF3;
-  border: 1px solid rgba(40,111,243,.25);
-  border-radius: 100px;
-  padding: .3rem .9rem;
-  margin-bottom: 1.75rem;
-}
-
-.v2Pulse {
-  display: block;
-  width: 6px;
-  height: 6px;
-  background: #286FF3;
-  border-radius: 50%;
-  animation: pulse 1.6s ease-in-out infinite;
-}
-
-.v2Title {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -.03em;
-  line-height: 1.1;
-  color: var(--text);
-  margin-bottom: 1rem;
-}
-
-.v2Sub {
-  font-size: .95rem;
-  font-weight: 300;
-  color: rgba(255,255,255,.5);
-  line-height: 1.75;
-  max-width: 520px;
-}
-
-.v2Screens {
-  display: flex;
-  gap: 1rem;
-  padding: 0 var(--pad);
-  max-width: var(--max);
-  margin: 0 auto;
-}
-
-.v2Phone {
-  flex: 1;
-  min-width: 0;
-  height: 440px;
-  border-radius: 24px;
-  background: var(--bg);
-  border: .5px solid var(--line);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform .25s ease, border-color .25s ease;
-}
-
-.v2Phone:hover {
-  transform: translateY(-6px);
-  border-color: rgba(40,111,243,.35);
-}
-
-.v2PhoneImg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-}
-
-.v2PhoneVeil {
-  position: absolute;
-  inset: 0;
-  background: var(--bg2);
-}
-
-.v2BottomFade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 260px;
-  background: linear-gradient(to bottom, transparent, var(--bg2));
-  pointer-events: none;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.35; transform: scale(0.75); }
 }
 
 /* ── LIGHTBOX ──────────────────────────────────────────────── */
@@ -649,7 +520,6 @@
   background: rgba(255,255,255,.22);
 }
 
-/* Prev / Next nav */
 .lightboxNav {
   position: absolute;
   top: 50%;
@@ -672,18 +542,11 @@
   background: rgba(255,255,255,.22);
 }
 
-.lightboxPrev {
-  left: 1.5rem;
-}
-
-.lightboxNext {
-  right: 1.5rem;
-}
-
+.lightboxPrev { left: 1.5rem; }
+.lightboxNext { right: 1.5rem; }
 .lightboxPrev:hover { transform: translateY(-50%) translateX(-2px); }
 .lightboxNext:hover { transform: translateY(-50%) translateX(2px); }
 
-/* Label + counter di bawah gambar */
 .lightboxMeta {
   position: absolute;
   bottom: 1.75rem;
@@ -717,83 +580,6 @@
   border-left: .5px solid rgba(255,255,255,.15);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes lightboxIn {
-  from { opacity: 0; backdrop-filter: blur(0px); }
-  to   { opacity: 1; backdrop-filter: blur(10px); }
-}
-
-@keyframes lightboxOut {
-  from { opacity: 1; backdrop-filter: blur(10px); }
-  to   { opacity: 0; backdrop-filter: blur(0px); }
-}
-
-@keyframes scaleIn {
-  from { transform: scale(0.92); opacity: 0; }
-  to   { transform: scale(1);    opacity: 1; }
-}
-
-@keyframes imgSwitch {
-  from { opacity: 0; transform: scale(0.96) translateY(10px); }
-  to   { opacity: 1; transform: scale(1)    translateY(0);    }
-}
-
-/* ── NEXT PROJECT ──────────────────────────────────────────── */
-.next {
-  background: var(--bg2);
-  border: .5px solid var(--line);
-  border-radius: 20px;
-  padding: 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  text-decoration: none;
-  transition: border-color .35s, transform .35s;
-  margin-top: 5rem;
-}
-
-.next:hover {
-  border-color: rgba(40,111,243,.3);
-  transform: translateY(-4px);
-}
-
-.nextLabel {
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: var(--muted2);
-  margin-bottom: .5rem;
-}
-
-.nextTitle {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.nextArrow {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #286FF3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.nextArrow svg {
-  width: 18px;
-  height: 18px;
-  stroke: var(--bg);
-}
-
 /* ── REVEAL ────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
@@ -812,6 +598,26 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes lightboxIn {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to   { opacity: 1; backdrop-filter: blur(10px); }
+}
+
+@keyframes lightboxOut {
+  from { opacity: 1; backdrop-filter: blur(10px); }
+  to   { opacity: 0; backdrop-filter: blur(0px); }
+}
+
+@keyframes imgSwitch {
+  from { opacity: 0; transform: scale(0.96) translateY(10px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
 /* ── RESPONSIVE ────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .challenges { grid-template-columns: 1fr; }
@@ -826,5 +632,4 @@
   .results { grid-template-columns: 1fr; }
   .solution { grid-template-columns: 1fr; gap: .75rem; }
   .solutionNum { font-size: 2rem; }
-  .next { flex-direction: column; align-items: flex-start; padding: 2rem; }
 }

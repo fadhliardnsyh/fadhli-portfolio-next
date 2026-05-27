@@ -28,11 +28,13 @@ export default function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
-  const op = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const y          = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  const op         = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const patternY   = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
 
   return (
     <section className={styles.hero} ref={ref} id="home">
+      <motion.div className={styles.pattern} style={{ y: patternY }} />
       <div className={styles.orb1} />
       <div className={styles.orb2} />
       <div className={styles.orb3} />

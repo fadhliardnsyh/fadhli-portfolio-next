@@ -7,112 +7,101 @@ import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
 import styles from "./page.module.css";
 
 const META = [
-  { label: "Role", value: "Product & UI/UX Designer" },
+  { label: "Role", value: "UI/UX Designer" },
   { label: "Type", value: "Mobile App" },
-  { label: "Active Users", value: "500+ Daily" },
+  { label: "Category", value: "IoT · Vehicle Tracking" },
+  { label: "Year", value: "2025" },
   { label: "Platform", value: "iOS & Android" },
 ];
 
 const STATS = [
-  { value: 500, suffix: "+", label: "Active daily users" },
-  { value: 8, suffix: "+", label: "Core features designed" },
-  { value: 3, suffix: "", label: "Companies trust Fixwork" },
+  { value: 3000, suffix: "+", label: "GPS devices connected" },
+  { value: 6, suffix: "", label: "Core features" },
+  { display: "99.9%", label: "Tracking accuracy" },
 ];
 
 const CHALLENGES = [
   {
     num: "01 — Challenge",
-    title: "Still relying on conventional fingerprint attendance",
-    desc: "Companies using Fixwork previously relied on fingerprint scanners for attendance. In larger organizations, this created long queues — employees who arrived on time were marked late simply because of the line.",
+    title: "Vehicle monitoring was locked to a desktop dashboard",
+    desc: "All fleet monitoring could only be done through a desktop-based dashboard. Operators had to sit in front of a PC to see vehicle conditions — there was simply no other way.",
   },
   {
     num: "02 — Challenge",
-    title: "No visibility into personal attendance data",
-    desc: "Attendance data was held exclusively by HR. Employees had no way to check their own records, which frequently led to conflicts over disputed tardiness that could have been avoided with simple transparency.",
+    title: "Real-time alerts went unnoticed",
+    desc: "GPS alerts and notifications only appeared on the desktop dashboard. If no one was at the PC when an alert came in, the response was delayed — and critical moments were missed entirely.",
   },
   {
     num: "03 — Challenge",
-    title: "Manual and fragmented leave & permit requests",
-    desc: "Leave and permit requests were still handled manually — employees had to personally approach their supervisor, then HR, going through multiple steps just to get approval.",
+    title: "Operators had to stay glued to their PC",
+    desc: "There was no mobility. Operators' ability to monitor the fleet was completely tied to being at a computer. Remote monitoring or checking in while on the field was simply not possible.",
   },
   {
     num: "04 — Challenge",
-    title: "Tedious manual process for out-of-office visits",
-    desc: "When employees needed to visit a client or attend an external meeting, the process was painfully manual — they had to take a photo with GPS metadata enabled, then manually send it to HR as proof of location.",
+    title: "Registering new vehicles was an awkward process",
+    desc: "Adding a new unit to the system required access to the desktop dashboard — but the vehicle being registered was out in the field. Two things that couldn't be done at the same place at the same time.",
   },
   {
     num: "05 — Challenge",
-    title: "Overtime requests still done the old-fashioned way",
-    desc: "Overtime requests were handled conventionally — through paper forms or direct messages to supervisors. There was no centralized system to track, approve, or monitor overtime.",
+    title: "Checking trip data required going back to the desk",
+    desc: "Viewing trip history or real-time trip status meant accessing the dashboard. There was no quick way to check vehicle movement while away from the computer.",
   },
 ];
 
 const SOLUTIONS = [
   {
     num: "01",
-    title: "Digitized attendance via smartphone",
-    desc: "Attendance is powered by face recognition and geofencing to prevent fraud. The system is also tied to each employee's work schedule — so clock-ins outside their shift hours are automatically flagged.",
+    title: "Live GPS tracking on an interactive map",
+    desc: "Every vehicle's real-time location is displayed on a live map with route tracing, giving fleet managers instant visibility at any time — from the office or on the go.",
   },
   {
     num: "02",
-    title: "Full attendance history at a glance",
-    desc: "Employees can view their complete clock-in and clock-out history directly from their smartphone — no more asking HR for data that should've always been theirs.",
+    title: "Driver behavior monitoring",
+    desc: "The app tracks key metrics like speed, harsh braking, rapid acceleration, and idle time — helping companies identify risky drivers, reduce fuel waste, and improve road safety.",
   },
   {
     num: "03",
-    title: "Leave & permit requests without the hassle",
-    desc: "Employees can submit leave or permit requests in seconds, without going through long manual procedures. They can also check their remaining leave balance anytime, right from the app.",
+    title: "Automated trip recording",
+    desc: "Every trip is automatically recorded with timestamps, routes, distance, and duration. No manual input needed — drivers focus on driving, managers get accurate data instantly.",
   },
   {
     num: "04",
-    title: "Visit feature with multi-location support",
-    desc: "Employees can log visits with full location history. Multi-location support means field teams and those with back-to-back client visits can track every stop in a single session — no manual logging required.",
+    title: "Geofencing with instant alerts",
+    desc: "Managers can draw custom zones on the map. The app triggers push notifications the moment a vehicle enters or exits a defined area — without having to check manually.",
   },
   {
     num: "05",
-    title: "Overtime requests made simple",
-    desc: "Submitting overtime no longer means filling out forms or messaging supervisors manually. Employees can raise a request from their phone and track its approval status and history in one place.",
+    title: "Fleet analytics and reports",
+    desc: "A built-in analytics module summarizes trips, driving scores, fuel efficiency trends, and fleet utilization — turning raw GPS data into actionable insights, all from a single screen.",
   },
   {
     num: "06",
-    title: "Real-time notifications for everything",
-    desc: "Employees receive instant updates on every request status — approved, pending, or rejected. On top of that, reminders for clock-in and clock-out keep them on track, while company-wide announcements, holiday notices, and broadcasts are all delivered through the same notification system.",
+    title: "Real-time notifications for critical events",
+    desc: "Get alerted for overspeeding, geofence violations, unauthorized usage, and more — instantly delivered to the manager's device so nothing slips through the cracks.",
   },
 ];
 
-const V2_SCREENS = [
-  "/assets/fixwork-v2-1.png",
-  "/assets/fixwork-v2-2.png",
-  "/assets/fixwork-v2-3.png",
-  "/assets/fixwork-v2-4.png",
-];
-
 const UI_SCREENS = [
-  { src: "/assets/Fixwork-UI01.png", label: "Login" },
-  { src: "/assets/Fixwork-UI02.png", label: "Home" },
-  { src: "/assets/Fixwork-UI03.png", label: "Clock In" },
-  { src: "/assets/Fixwork-UI04.png", label: "Self Onboarding" },
-  { src: "/assets/Fixwork-UI05.png", label: "Attendance" },
-  { src: "/assets/Fixwork-UI06.png", label: "Leave" },
-  { src: "/assets/Fixwork-UI07.png", label: "Payslip" },
-  { src: "/assets/Fixwork-UI08.png", label: "Profile" },
-  { src: "/assets/Fixwork-UI09.png", label: "Schedule" },
-  { src: "/assets/Fixwork-UI10.png", label: "Notification" },
-  { src: "/assets/Fixwork-UI11.png", label: "Overtime" },
-  { src: "/assets/Fixwork-UI12.png", label: "Visit" },
+  { src: "/assets/BiTrack-App-UI01.png", label: "Live Map" },
+  { src: "/assets/BiTrack-App-UI02.png", label: "Vehicle List" },
+  { src: "/assets/BiTrack-App-UI03.png", label: "Trip History" },
+  { src: "/assets/BiTrack-App-UI04.png", label: "Driver Profile" },
+  { src: "/assets/BiTrack-App-UI05.png", label: "Analytics" },
+  { src: "/assets/BiTrack-App-UI06.png", label: "Geofence" },
+  { src: "/assets/BiTrack-App-UI07.png", label: "Notifications" },
+  { src: "/assets/BiTrack-App-UI08.png", label: "Settings" },
 ];
 
 const RESULTS = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-        <polyline points="16 17 20 21 24 17"/><line x1="20" y1="21" x2="20" y2="13"/>
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4l3 3"/>
       </svg>
     ),
-    title: "500+ Active Users & Growing",
-    desc: "Over 500 users open Fixwork every single day — and the number keeps climbing as more companies adopt the platform.",
+    title: "Real-Time Fleet Visibility",
+    desc: "Managers can see every vehicle's live location on a map without making a single phone call — no more guessing where the fleet is.",
   },
   {
     icon: (
@@ -121,8 +110,8 @@ const RESULTS = [
         <polyline points="9 12 11 14 15 10"/>
       </svg>
     ),
-    title: "Attendance That's Fraud-Proof",
-    desc: "Face recognition and geofencing make check-ins quick and impossible to fake — no more proxy attendance or location spoofing.",
+    title: "Data-Driven Driver Accountability",
+    desc: "Driving behavior scores give companies a clear, objective view of how each driver performs — making it easy to reward good driving and address unsafe habits.",
   },
   {
     icon: (
@@ -132,8 +121,32 @@ const RESULTS = [
         <polyline points="9 12 11 14 15 10"/>
       </svg>
     ),
-    title: "Every Request Done in Seconds",
-    desc: "Leave, permits, overtime, visits — everything that used to require back-and-forth is now a few taps. No paperwork, no queuing.",
+    title: "Zero Manual Trip Logging",
+    desc: "Automated recording eliminated the need for manual logbooks entirely. Every trip is captured accurately in the background — saving hours of admin work each week.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+        <line x1="6" y1="1" x2="6" y2="4"/>
+        <line x1="10" y1="1" x2="10" y2="4"/>
+        <line x1="14" y1="1" x2="14" y2="4"/>
+      </svg>
+    ),
+    title: "Instant Security Alerts",
+    desc: "Geofence violations and after-hours usage are flagged immediately — giving companies the ability to respond before situations escalate.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10"/>
+        <line x1="12" y1="20" x2="12" y2="4"/>
+        <line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+    ),
+    title: "Smarter Fleet Decisions",
+    desc: "Analytics surfaced patterns that were invisible before — which routes waste fuel, which vehicles need attention, and which drivers are consistently performing well.",
   },
   {
     icon: (
@@ -142,36 +155,14 @@ const RESULTS = [
         <circle cx="12" cy="12" r="3"/>
       </svg>
     ),
-    title: "Full Transparency for Every Employee",
-    desc: "Attendance records, leave balance, payslip, and request statuses are always visible to employees — no more chasing HR for data. Confusion drops, trust goes up.",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-        <circle cx="12" cy="7" r="4"/>
-        <polyline points="16 11 18 13 22 9"/>
-      </svg>
-    ),
-    title: "Onboarding Without HR in the Room",
-    desc: "New employees can register themselves end-to-end through the app. HR doesn't need to be present — the process runs itself.",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 3c-1 2-3.5 3-3.5 3S10 7.5 10 9a2 2 0 0 0 4 0c0-1.5 1.5-3 1.5-3S13 3 12 3z"/>
-        <path d="M6.5 14c-1 1-1.5 2.5-1.5 2.5S6.5 17 8 17a2 2 0 0 0 0-4c-.5 0-1 .3-1.5 1z"/>
-        <path d="M17.5 14c1 1 1.5 2.5 1.5 2.5S17.5 17 16 17a2 2 0 0 1 0-4c.5 0 1 .3 1.5 1z"/>
-        <path d="M12 17v4M10 21h4"/>
-      </svg>
-    ),
-    title: "A UI That Feels Natural",
-    desc: "Users noted it doesn't feel like typical enterprise software. Intuitive, approachable, and navigable without a manual or training session.",
+    title: "A UI That Feels Effortless",
+    desc: "Complex GPS and IoT data was distilled into a clean, scannable interface — managers can get the full picture in seconds, without needing training.",
   },
 ];
 
-function AnimatedStat({ value, suffix, label }) {
+function AnimatedStat({ value, suffix, label, display }) {
   const [count, setCount] = useState(0);
+  const [visible, setVisible] = useState(false);
   const ref = useRef(null);
   const triggered = useRef(false);
 
@@ -183,6 +174,8 @@ function AnimatedStat({ value, suffix, label }) {
         if (entry.isIntersecting && !triggered.current) {
           triggered.current = true;
           obs.disconnect();
+          setVisible(true);
+          if (display) return; // static display — skip counter
           const duration = 1600;
           const start = performance.now();
           const animate = (now) => {
@@ -200,11 +193,19 @@ function AnimatedStat({ value, suffix, label }) {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [value]);
+  }, [value, display]);
 
   return (
     <div ref={ref} className={styles.statCard}>
-      <div className={styles.statNum}>{count}{suffix}</div>
+      <div className={styles.statNum}>
+        {display ? (
+          <span style={{ opacity: visible ? 1 : 0, transition: "opacity .6s ease" }}>
+            {display}
+          </span>
+        ) : (
+          <>{count}{suffix}</>
+        )}
+      </div>
       <div className={styles.statLabel}>{label}</div>
     </div>
   );
@@ -227,9 +228,8 @@ function useReveal() {
   return ref;
 }
 
-export default function FixworkPage() {
+export default function BiTrackPage() {
   const [modalOpen, setModalOpen] = useState(false);
-  // lightbox: { src, images?, idx? } — images & idx untuk navigasi prev/next
   const [lightbox, setLightbox] = useState(null);
   const [lightboxClosing, setLightboxClosing] = useState(false);
 
@@ -241,7 +241,6 @@ export default function FixworkPage() {
     }, 220);
   };
 
-  // Keyboard: Escape tutup lightbox, arrow kiri/kanan navigasi
   useEffect(() => {
     if (!lightbox) return;
     const onKey = (e) => {
@@ -270,7 +269,6 @@ export default function FixworkPage() {
   const solutionRef = useReveal();
   const imgRef = useReveal();
   const resultsRef = useReveal();
-  const v2Ref = useReveal();
 
   return (
     <>
@@ -279,14 +277,14 @@ export default function FixworkPage() {
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/fixwork_banner.png" alt="Fixwork Hero" />
+          <img src="/assets/bitrack-page-banner.png" alt="BiTrack Hero" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>
             <i />
-            Project · Mobile · HRIS
+            Project · Mobile · IoT
           </div>
-          <h1 className={styles.caseTitle}>Fixwork App</h1>
+          <h1 className={styles.caseTitle}>BiTrack App</h1>
           <div className={styles.metaRow}>
             {META.map((m) => (
               <div key={m.label} className={styles.metaItem}>
@@ -300,36 +298,35 @@ export default function FixworkPage() {
 
       {/* CONTENT */}
       <div className={styles.content}>
+
         {/* Overview */}
-        <section
-          className={`${styles.section} ${styles.reveal}`}
-          ref={overviewRef}
-        >
+        <section className={`${styles.section} ${styles.reveal}`} ref={overviewRef}>
           <div className={styles.sectionLabel}>
             <i />
             Overview
           </div>
           <h2 className={styles.sectionTitle}>
-            A smarter way to manage
+            Know where your vehicle is,
             <br />
-            human resources
+            at all times
           </h2>
           <div className={styles.body}>
             <p>
-              Fixwork is an HRIS mobile application that makes it easy for
-              employees to handle attendance, leave requests, permits, and other
-              work-related needs — all from their phone. Designed to fit
-              companies of any scale, from small startups to large enterprises.
+              BiTrack is the mobile companion app for B-Log's IoT vehicle tracking
+              system. It gives drivers and fleet operators a direct window into every
+              GPS device installed on their vehicles — live location, current status,
+              trip history, and more — all from their phone.
             </p>
             <p>
-              Today, Fixwork has over 500+ active users engaging with the app
-              every single day — a testament to how intuitive and essential it
-              has become in their daily work life.
+              With over 3,000 GPS devices already connected to the system, BiTrack
+              handles everything from real-time tracking and dashcam previews to
+              automated alerts and vehicle registration — built to be fast, reliable,
+              and accurate to 99.9%.
             </p>
           </div>
           <div className={styles.stats}>
             {STATS.map((s) => (
-              <AnimatedStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
+              <AnimatedStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} display={s.display} />
             ))}
           </div>
         </section>
@@ -337,25 +334,27 @@ export default function FixworkPage() {
         <hr className={styles.divider} />
 
         {/* Problem */}
-        <section
-          className={`${styles.section} ${styles.reveal}`}
-          ref={problemRef}
-        >
+        <section className={`${styles.section} ${styles.reveal}`} ref={problemRef}>
           <div className={styles.sectionLabel}>
             <i />
             The Problem
           </div>
           <h2 className={styles.sectionTitle}>
-            HR processes were slow,
+            Everything was chained
             <br />
-            manual, and frustrating
+            to a desktop screen
           </h2>
           <div className={styles.body}>
             <p>
-              Before Fixwork, companies relied on spreadsheets, physical forms,
-              and manual approvals to manage their workforce. This created
-              bottlenecks, errors, and a poor experience for both HR teams and
-              employees.
+              Before BiTrack existed, all fleet monitoring relied entirely on a
+              desktop dashboard. There was no mobility — operators had to be at
+              their computer to monitor vehicles, respond to alerts, check trips,
+              or register new units.
+            </p>
+            <p>
+              This dependency on desktop created a real bottleneck: the moment an
+              operator stepped away from the PC, all critical information became
+              completely out of reach.
             </p>
           </div>
           <div className={styles.challenges}>
@@ -372,24 +371,22 @@ export default function FixworkPage() {
         <hr className={styles.divider} />
 
         {/* Solution */}
-        <section
-          className={`${styles.section} ${styles.reveal}`}
-          ref={solutionRef}
-        >
+        <section className={`${styles.section} ${styles.reveal}`} ref={solutionRef}>
           <div className={styles.sectionLabel}>
             <i />
             The Solution
           </div>
           <h2 className={styles.sectionTitle}>
-            Designing with clarity
+            Designed to give clarity
             <br />
-            and purpose
+            at every layer
           </h2>
           <div className={styles.body}>
             <p>
-              The design approach focused on reducing cognitive load at every
-              step — clear visual hierarchy, a task-first home screen, and a
-              consistent component system that scaled across all features.
+              The design challenge was translating dense IoT data — live GPS
+              coordinates, sensor readings, driver events — into a mobile UI that
+              felt effortless to use. Every screen was built around a single
+              question: what does the manager need to know right now?
             </p>
           </div>
           <div className={styles.solutions}>
@@ -412,7 +409,9 @@ export default function FixworkPage() {
         <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={imgRef}>
           <div className={styles.sectionLabel}><i />UI Preview</div>
           <h2 className={styles.sectionTitle}>
-            Designed for real<br />everyday use
+            Complex data,
+            <br />
+            made simple
           </h2>
         </div>
         <div className={styles.marqueeWrap}>
@@ -471,25 +470,22 @@ export default function FixworkPage() {
         <hr className={styles.divider} />
 
         {/* Results */}
-        <section
-          className={`${styles.section} ${styles.reveal}`}
-          ref={resultsRef}
-        >
+        <section className={`${styles.section} ${styles.reveal}`} ref={resultsRef}>
           <div className={styles.sectionLabel}>
             <i />
             Results
           </div>
           <h2 className={styles.sectionTitle}>
-            Impact that speaks
+            From guesswork
             <br />
-            for itself
+            to full control
           </h2>
           <div className={styles.body}>
             <p>
-              Fixwork launched to real users and quickly became an essential
-              tool in their daily work life. The design decisions made
-              throughout the process directly contributed to adoption and
-              retention.
+              BiTrack gave fleet managers something they never had before —
+              complete, real-time visibility into their operations. The design
+              decisions that shaped every screen directly contributed to faster
+              adoption and a measurable shift in how fleets are managed.
             </p>
           </div>
           <div className={styles.results}>
@@ -504,34 +500,10 @@ export default function FixworkPage() {
         </section>
       </div>
 
-      {/* V2 SNEAK PEEK */}
-      <section className={styles.v2Section}>
-        <div className={`${styles.v2Inner} ${styles.reveal}`} ref={v2Ref}>
-          <div className={styles.v2Badge}>
-            <span className={styles.v2Pulse} />
-            Coming Soon
-          </div>
-          <h2 className={styles.v2Title}>
-            Fixwork is getting<br />a major upgrade.
-          </h2>
-          <p className={styles.v2Sub}>
-            A complete redesign with smarter flows, a more intuitive experience,
-            and major improvements across every feature.
-          </p>
-        </div>
-        <div className={styles.v2Screens}>
-          {V2_SCREENS.map((src, i) => (
-            <div key={i} className={styles.v2Phone} onClick={() => setLightbox({ src })}>
-              <img src={src} alt={`Fixwork V2 screen ${i + 1}`} className={styles.v2PhoneImg} />
-            </div>
-          ))}
-        </div>
-        <div className={styles.v2BottomFade} />
-      </section>
-
       {/* CAROUSEL */}
-      <ProjectCarousel currentId="fixwork" />
+      <ProjectCarousel currentId="bitrack" />
 
+      {/* LIGHTBOX */}
       {lightbox && (
         <div
           className={`${styles.lightboxOverlay} ${lightboxClosing ? styles.lightboxOverlayOut : ""}`}
@@ -539,7 +511,6 @@ export default function FixworkPage() {
         >
           <button className={styles.lightboxClose} onClick={closeLightbox}>✕</button>
 
-          {/* Navigasi prev/next (hanya untuk UI_SCREENS yang punya images array) */}
           {lightbox.images && (
             <>
               <button
@@ -578,8 +549,8 @@ export default function FixworkPage() {
           )}
 
           <img
-            key={lightbox.src || lightbox}
-            src={lightbox.src || lightbox}
+            key={lightbox.src}
+            src={lightbox.src}
             alt="UI Preview"
             className={styles.lightboxImg}
             onClick={(e) => e.stopPropagation()}

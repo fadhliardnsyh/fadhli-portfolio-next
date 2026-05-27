@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
 
 /* ── DATA — ganti dengan info yang sesuai ───────────────────── */
@@ -103,11 +103,18 @@ const EDU = [
   },
 ];
 
+const STATS = [
+  { value: 3,  suffix: "+", label: "Years of experience" },
+  { value: 15, suffix: "+", label: "Projects shipped" },
+  { value: 6,  suffix: "+", label: "Industries designed for" },
+];
+
 const SKILLS = [
   "UI Design", "UX Design", "User Research", "Wireframing",
   "Comparative Research", "Qualitative Research", "Game User Interface",
   "Product Design", "Usability Testing", "Slicing",
   "User Acceptance Testing", "Product Management", "3D Design",
+  "Vibe Coding",
 ];
 
 const TOOLS = [
@@ -116,9 +123,51 @@ const TOOLS = [
   { name: "Maze",    logo: "/assets/logo-maze.png",    color: "#FF4747" },
   { name: "Miro",    logo: "/assets/logo-miro.png",    color: "#FFDD00" },
   { name: "Blender", logo: "/assets/logo-blender.png", color: "#EA7600" },
+  { name: "VS Code", logo: "/assets/logo-vscode.svg",  color: "#007ACC" },
+  { name: "Claude",  logo: "/assets/logo-claude.svg",  color: "#D97706" },
 ];
 
 /* ─────────────────────────────────────────────────────────── */
+
+function AnimatedStat({ value, suffix, label }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const triggered = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !triggered.current) {
+          triggered.current = true;
+          obs.disconnect();
+          const duration = 1800;
+          const start = performance.now();
+          const animate = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(eased * value));
+            if (progress < 1) requestAnimationFrame(animate);
+            else setCount(value);
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [value]);
+
+  return (
+    <div ref={ref} className={styles.statCard}>
+      <div className={styles.statNum}>{count}{suffix}</div>
+      <div className={styles.statLabel}>{label}</div>
+    </div>
+  );
+}
 
 export default function AboutPage() {
   const refs = useRef([]);
@@ -165,6 +214,15 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ── STATS ────────────────────────────────────────────── */}
+      <div className={`${styles.statsRow} ${styles.reveal}`} ref={r(6)}>
+        <div className={styles.statsInner}>
+          {STATS.map((s) => (
+            <AnimatedStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
+          ))}
+        </div>
+      </div>
 
       {/* ── BIODATA ──────────────────────────────────────────── */}
       <section className={`${styles.section} ${styles.reveal}`} ref={r(2)}>
