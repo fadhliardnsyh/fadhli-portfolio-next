@@ -22,7 +22,9 @@ const EXPERIENCE = [
     company: "Treffix.id",
     position: "UI/UX Designer",
     period: "Nov 2024 – Present",
-    location: "Tangerang",
+    location: "Tangerang, Banten",
+    type: "Full-time",
+    arrangement: "On-site",
     logo: "/assets/treffix-logo.png",
     bullets: [
       "Designed UI for web dashboards including HRMS, Fleet Management, and Warehouse Management systems.",
@@ -35,7 +37,9 @@ const EXPERIENCE = [
     company: "Tekuton",
     position: "UI/UX Designer",
     period: "Apr 2024 – Jul 2024",
-    location: "South Tangerang, Banten",
+    location: "Tangerang, Banten",
+    type: "Freelance",
+    arrangement: "Remote",
     logo: "/assets/tekuton-logo.png",
     bullets: [
       "Created UI designs for Creoplay, a Web3 marketplace.",
@@ -47,7 +51,9 @@ const EXPERIENCE = [
     company: "Nomina Games",
     position: "UI/UX Designer",
     period: "Nov 2022 – Nov 2023",
-    location: "South Tangerang, Banten",
+    location: "Tangerang, Banten",
+    type: "Full-time",
+    arrangement: "On-site",
     logo: "/assets/nomina-logo.png",
     bullets: [
       "Created UI designs for landing pages, dashboards, mobile apps, Web3 marketplace, and game UI.",
@@ -59,7 +65,9 @@ const EXPERIENCE = [
     company: "DjuBli",
     position: "UI/UX Designer",
     period: "May 2022 – Oct 2022",
-    location: "Jakarta Metropolitan Area",
+    location: "Jakarta, DKI Jakarta",
+    type: "Full-time",
+    arrangement: "On-site",
     logo: "/assets/djubli-logo.png",
     bullets: [
       "Created UI design for DjuBli website and mobile apps (marketplace).",
@@ -71,7 +79,9 @@ const EXPERIENCE = [
     company: "Universitas Gunadarma",
     position: "IT Support · Laboratory Assistant",
     period: "Oct 2018 – Oct 2020",
-    location: "Depok, West Java",
+    location: "Depok, Jawa Barat",
+    type: "Part-time",
+    arrangement: "On-site",
     logo: "/assets/logo-gunadarma-alt.png",
     bullets: [
       "Conducted maintenance and troubleshooting on laboratory computers.",
@@ -283,7 +293,11 @@ export default function AboutPage() {
                   </div>
                   <div className={styles.expMeta}>
                     <span className={styles.expPeriod}>{exp.period}</span>
-                    <span className={styles.expLocation}>{exp.location}</span>
+                    <div className={styles.expTags}>
+                      <span className={styles.expTag}>{exp.location}</span>
+                      <span className={styles.expTag}>{exp.type}</span>
+                      <span className={styles.expTag}>{exp.arrangement}</span>
+                    </div>
                   </div>
                 </div>
                 <ul className={styles.expBullets}>

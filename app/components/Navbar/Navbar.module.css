@@ -196,6 +196,36 @@
   color: var(--y) !important;
 }
 
+/* ── MOBILE CLOSE BUTTON ───────────────────────────────────── */
+.mobClose {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  z-index: 10;
+}
+
+.mobClose:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(245, 197, 24, 0.4);
+  color: var(--y);
+}
+
+.mobClose svg {
+  width: 18px;
+  height: 18px;
+}
+
 /* ── MOBILE SOCIALS ────────────────────────────────────────── */
 .mobSocials {
   display: flex;
