@@ -32,6 +32,7 @@
   max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   position: relative;
   transform: translateY(20px) scale(0.97);
   transition: transform 0.35s ease;
@@ -41,6 +42,10 @@
 .overlay.open .box {
   transform: translateY(0) scale(1);
 }
+
+/* Sembunyikan scrollbar tapi tetap bisa scroll */
+.box::-webkit-scrollbar { display: none; }
+.box { scrollbar-width: none; }
 
 /* ── CLOSE BUTTON ──────────────────────────────────────────── */
 .closeBtn {
@@ -314,12 +319,61 @@
 }
 
 /* ── RESPONSIVE ────────────────────────────────────────────── */
-@media (max-width: 600px) {
+
+/* Tablet: pastikan box bisa scroll kalau konten terlalu panjang */
+@media (max-width: 1024px) {
+  .overlay {
+    align-items: center;
+    padding: 1rem;
+  }
+  .box {
+    max-height: calc(92vh - 2rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Mobile: bottom sheet slide dari bawah */
+@media (max-width: 767px) {
+  .overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .box {
+    max-width: 100%;
+    width: 100%;
+    max-height: 92dvh;
+    border-radius: 20px 20px 0 0;
+    padding: 0 1.25rem calc(1.75rem + env(safe-area-inset-bottom, 0px));
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .overlay.open .box {
+    transform: translateY(0);
+  }
+
+  /* Drag handle di atas */
+  .box::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 1rem auto 1.5rem;
+  }
+
   .formRow {
     grid-template-columns: 1fr;
   }
-  .box {
-    padding: 1.5rem;
+
+  .closeBtn {
+    top: 1rem;
+    right: 1rem;
   }
 }
 
