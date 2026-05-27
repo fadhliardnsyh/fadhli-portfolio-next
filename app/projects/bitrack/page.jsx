@@ -51,45 +51,46 @@ const CHALLENGES = [
 const SOLUTIONS = [
   {
     num: "01",
-    title: "Live GPS tracking on an interactive map",
-    desc: "Every vehicle's real-time location is displayed on a live map with route tracing, giving fleet managers instant visibility at any time — from the office or on the go.",
+    title: "Vehicle tracking, now in your pocket",
+    desc: "Managers can monitor every vehicle's live location directly from their smartphone — no PC required. Whether in the office or out in the field, full fleet visibility is always one tap away.",
   },
   {
     num: "02",
-    title: "Driver behavior monitoring",
-    desc: "The app tracks key metrics like speed, harsh braking, rapid acceleration, and idle time — helping companies identify risky drivers, reduce fuel waste, and improve road safety.",
+    title: "Driver behavior, visible from your phone",
+    desc: "Speed patterns, harsh braking, rapid acceleration, and idle time are all tracked and surfaced in the app. Teams get a clear picture of how each vehicle is being driven — without being physically present.",
   },
   {
     num: "03",
-    title: "Automated trip recording",
-    desc: "Every trip is automatically recorded with timestamps, routes, distance, and duration. No manual input needed — drivers focus on driving, managers get accurate data instantly.",
+    title: "Full trip history on mobile",
+    desc: "Every trip — route taken, distance, duration, and timestamps — is logged automatically and accessible straight from the app. No need to open a dashboard or sit at a desk to review the data.",
   },
   {
     num: "04",
-    title: "Geofencing with instant alerts",
-    desc: "Managers can draw custom zones on the map. The app triggers push notifications the moment a vehicle enters or exits a defined area — without having to check manually.",
+    title: "Real-time alerts, straight to your device",
+    desc: "Critical events like overspeeding, geofence violations, and unauthorized usage trigger instant push notifications to the manager's phone — so action can be taken immediately, from anywhere.",
   },
   {
     num: "05",
-    title: "Fleet analytics and reports",
-    desc: "A built-in analytics module summarizes trips, driving scores, fuel efficiency trends, and fleet utilization — turning raw GPS data into actionable insights, all from a single screen.",
-  },
-  {
-    num: "06",
-    title: "Real-time notifications for critical events",
-    desc: "Get alerted for overspeeding, geofence violations, unauthorized usage, and more — instantly delivered to the manager's device so nothing slips through the cracks.",
+    title: "Register vehicles on the spot",
+    desc: "Adding a new unit to the system can now be done directly from the field. No more going back to the desk — managers can register a vehicle right where it's parked, the moment the GPS device is installed.",
   },
 ];
 
+const V2_SCREENS = [
+  "/assets/bitrack-saas-1.png",
+  "/assets/bitrack-saas-2.png",
+  "/assets/bitrack-saas-3.png",
+  "/assets/bitrack-saas-4.png",
+];
+
 const UI_SCREENS = [
-  { src: "/assets/BiTrack-App-UI01.png", label: "Live Map" },
-  { src: "/assets/BiTrack-App-UI02.png", label: "Vehicle List" },
-  { src: "/assets/BiTrack-App-UI03.png", label: "Trip History" },
-  { src: "/assets/BiTrack-App-UI04.png", label: "Driver Profile" },
-  { src: "/assets/BiTrack-App-UI05.png", label: "Analytics" },
-  { src: "/assets/BiTrack-App-UI06.png", label: "Geofence" },
-  { src: "/assets/BiTrack-App-UI07.png", label: "Notifications" },
-  { src: "/assets/BiTrack-App-UI08.png", label: "Settings" },
+  { src: "/assets/bitrack-ui-01.png", label: "Tracker Page" },
+  { src: "/assets/bitrack-ui-02.png", label: "Vehicle Tracker" },
+  { src: "/assets/bitrack-ui-03.png", label: "Vehicle Information" },
+  { src: "/assets/bitrack-ui-04.png", label: "Dashcam Page" },
+  { src: "/assets/bitrack-ui-05.png", label: "Trip History" },
+  { src: "/assets/bitrack-ui-06.png", label: "Alert" },
+  { src: "/assets/bitrack-ui-07.png", label: "Vehicle List" },
 ];
 
 const RESULTS = [
@@ -269,6 +270,7 @@ export default function BiTrackPage() {
   const solutionRef = useReveal();
   const imgRef = useReveal();
   const resultsRef = useReveal();
+  const v2Ref = useReveal();
 
   return (
     <>
@@ -377,16 +379,16 @@ export default function BiTrackPage() {
             The Solution
           </div>
           <h2 className={styles.sectionTitle}>
-            Designed to give clarity
+            Everything the desktop
             <br />
-            at every layer
+            did — now on mobile
           </h2>
           <div className={styles.body}>
             <p>
-              The design challenge was translating dense IoT data — live GPS
-              coordinates, sensor readings, driver events — into a mobile UI that
-              felt effortless to use. Every screen was built around a single
-              question: what does the manager need to know right now?
+              BiTrack was designed to break the dependency on desktop entirely.
+              Every feature that previously required sitting at a PC was
+              reimagined for mobile — built around speed, clarity, and the
+              reality of working on the go.
             </p>
           </div>
           <div className={styles.solutions}>
@@ -409,9 +411,9 @@ export default function BiTrackPage() {
         <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={imgRef}>
           <div className={styles.sectionLabel}><i />UI Preview</div>
           <h2 className={styles.sectionTitle}>
-            Complex data,
+            Your fleet,
             <br />
-            made simple
+            one tap away.
           </h2>
         </div>
         <div className={styles.marqueeWrap}>
@@ -499,6 +501,36 @@ export default function BiTrackPage() {
           </div>
         </section>
       </div>
+
+      {/* V2 COMING SOON */}
+      <section className={styles.v2Section}>
+        <div className={`${styles.v2Inner} ${styles.reveal}`} ref={v2Ref}>
+          <div className={styles.v2Badge}>
+            <span className={styles.v2Pulse} />
+            Coming Soon
+          </div>
+          <h2 className={styles.v2Title}>
+            Redesigned.<br />Refined.
+          </h2>
+          <p className={styles.v2Sub}>
+            BiTrack is evolving into a full SaaS product under{" "}
+            <a href="https://treffix.id" target="_blank" rel="noopener noreferrer" className={styles.v2Link}>
+              treffix.id
+            </a>{" "}
+            — a platform built for fleet businesses of any size. New features,
+            sharper insights, and a more powerful experience, all built around
+            how fleet operators actually work in the field.
+          </p>
+        </div>
+        <div className={styles.v2Screens}>
+          {V2_SCREENS.map((src, i) => (
+            <div key={i} className={styles.v2Phone} onClick={() => setLightbox({ src })}>
+              <img src={src} alt={`BiTrack V2 screen ${i + 1}`} className={styles.v2PhoneImg} />
+            </div>
+          ))}
+        </div>
+        <div className={styles.v2BottomFade} />
+      </section>
 
       {/* CAROUSEL */}
       <ProjectCarousel currentId="bitrack" />

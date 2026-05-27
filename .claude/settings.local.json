@@ -3,7 +3,8 @@
     "allow": [
       "Bash(node screenshot-script.cjs)",
       "Bash(git add *)",
-      "Bash(git commit -m 'add bitrack app case study, update about stats & tools, hero visibility fix, infinite carousel *)"
+      "Bash(git commit -m 'add bitrack app case study, update about stats & tools, hero visibility fix, infinite carousel *)",
+      "Bash(git push *)"
     ]
   }
 }
