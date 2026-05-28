@@ -1,40 +1,88 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useEffect, useRef } from 'react';
 import styles from './Approach.module.css';
 
-const STEPS = [
+const IconLayout = (p) => (
+  <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2" />
+    <path d="M3 9h18M9 21V9" />
+  </svg>
+);
+const IconResearch = (p) => (
+  <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="7" />
+    <path d="m21 21-4.3-4.3" />
+    <path d="M8 11h6M11 8v6" />
+  </svg>
+);
+const IconTeam = (p) => (
+  <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+  </svg>
+);
+const IconProduct = (p) => (
+  <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="12" r="6" />
+    <circle cx="12" cy="12" r="2" />
+  </svg>
+);
+const IconDecision = (p) => (
+  <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 18h6" />
+    <path d="M10 22h4" />
+    <path d="M15.09 14a5 5 0 1 0-6.18 0c.49.4.88.91 1.15 1.49.27.58.41 1.21.41 1.85v.16h3.06v-.16c0-.64.14-1.27.41-1.85.27-.58.66-1.09 1.15-1.49z" />
+  </svg>
+);
+const IconMetrics = (p) => (
+  <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="18" y1="20" x2="18" y2="10" />
+    <line x1="12" y1="20" x2="12" y2="4" />
+    <line x1="6" y1="20" x2="6" y2="14" />
+    <line x1="3" y1="20" x2="21" y2="20" />
+  </svg>
+);
+
+const SKILLS = [
   {
-    num: '01',
-    name: 'User Research',
-    text: 'Everything starts with understanding people. I conduct interviews, usability tests, and competitive analysis to uncover real user needs, mental models, and pain points — before writing a single spec.',
+    name: 'UI/UX Design',
+    Icon: IconLayout,
+    text: 'Crafting interfaces that feel as good as they look. I design systems and screens that are intuitive, accessible, and built to scale — from first sketch to developer handoff.',
   },
   {
-    num: '02',
-    name: 'Define',
-    text: 'I synthesize research into clear problem statements, user personas, and journey maps. This phase transforms scattered insights into a focused design brief — the North Star for every decision that follows.',
+    name: 'In-Depth Research',
+    Icon: IconResearch,
+    text: 'Decisions rooted in evidence, not opinions. I dig into user behavior through interviews, usability testing, and competitive analysis to surface insights that move the product forward.',
   },
   {
-    num: '03',
-    name: 'Design',
-    text: 'From rough sketches to high-fidelity prototypes, I craft interfaces that are intuitive, accessible, and visually coherent. I build design systems, not one-off screens — scalable, consistent, and developer-friendly.',
+    name: 'Team Collaboration',
+    Icon: IconTeam,
+    text: 'Great products are built together. I work closely with PMs, engineers, and stakeholders — translating intent into clarity, and clarity into shipped product.',
   },
   {
-    num: '04',
-    name: 'Test & Iterate',
-    text: 'Design never ships perfect — it ships validated. I test prototypes with real users, gather feedback, and iterate fast. Every round brings the product closer to something people genuinely love.',
+    name: 'Product Management',
+    Icon: IconProduct,
+    text: 'Bridging design and business. I structure PRDs, prioritize feature scope, and align teams around what matters most — making sure the right things get built, in the right order.',
+  },
+  {
+    name: 'Design Decision',
+    Icon: IconDecision,
+    text: 'Every pixel earns its place. I make trade-offs based on user impact, technical reality, and business goals — and I can articulate the why behind every call.',
+  },
+  {
+    name: 'UX Metrics',
+    Icon: IconMetrics,
+    text: 'What gets measured gets improved. I define success metrics for every flow — task completion, drop-off, time-on-task — and use them to validate that design changes actually deliver value.',
   },
 ];
 
-const DURATION = 5000;
-
 export default function Approach() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const stickyRef = useRef(null);
-  const rightRef = useRef(null);
-  const trackFillRef = useRef(null);
-  const activeIdxRef = useRef(0);
+  const headerRef = useRef(null);
+  const gridRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,102 +91,45 @@ export default function Approach() {
       }),
       { threshold: 0.07, rootMargin: '0px 0px -40px 0px' }
     );
-    if (stickyRef.current) observer.observe(stickyRef.current);
-    if (rightRef.current) observer.observe(rightRef.current);
+    if (headerRef.current) observer.observe(headerRef.current);
+    if (gridRef.current) observer.observe(gridRef.current);
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    const start = Date.now();
-    let raf;
-
-    const tick = () => {
-      const t = Math.min((Date.now() - start) / DURATION, 1);
-      const raw = ((activeIdxRef.current + t) / (STEPS.length - 1)) * 100;
-
-      if (trackFillRef.current) {
-        trackFillRef.current.style.width = `${Math.min(raw, 100)}%`;
-      }
-
-      if (t < 1) {
-        raf = requestAnimationFrame(tick);
-      } else {
-        const next = (activeIdxRef.current + 1) % STEPS.length;
-        activeIdxRef.current = next;
-        setActiveIndex(next);
-      }
-    };
-
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [activeIndex]);
-
-  const handleClick = (i) => {
-    activeIdxRef.current = i;
-    setActiveIndex(i);
-  };
 
   return (
     <section className={styles.section} id="approach">
       <div className={styles.inner}>
-        <div className={styles.layout}>
 
-          {/* LEFT sticky */}
-          <div className={`${styles.sticky} ${styles.reveal}`} ref={stickyRef}>
-            <div className={styles.sectionLabel}><i />My Process</div>
-            <h2 className={styles.sectionTitle}>How I design with purpose</h2>
-            <p className={styles.sectionSub}>
-              A structured approach that turns ambiguity into clarity — and clarity into products people love.
-            </p>
+        {/* HEADER */}
+        <div className={`${styles.header} ${styles.reveal}`} ref={headerRef}>
+          <div className={styles.headerLeft}>
+            <div className={styles.sectionLabel}>Skills &amp; Expertise</div>
+            <h2 className={styles.sectionTitle}>
+              What I bring<br />to the table
+            </h2>
           </div>
-
-          {/* RIGHT: horizontal steps + panel */}
-          <div className={`${styles.stepsWrap} ${styles.reveal} ${styles.revealD2}`} ref={rightRef}>
-
-            {/* Step nav */}
-            <div className={styles.stepNav}>
-              <div className={styles.track}>
-                <div className={styles.trackFill} ref={trackFillRef} />
-              </div>
-              {STEPS.map((step, i) => (
-                <button
-                  key={step.num}
-                  className={[
-                    styles.stepBtn,
-                    i === activeIndex ? styles.stepActive : '',
-                    i < activeIndex ? styles.stepPast : '',
-                  ].join(' ')}
-                  onClick={() => handleClick(i)}
-                >
-                  <span className={styles.dot} />
-                  <span className={styles.stepNum}>{step.num}</span>
-                  <span className={styles.stepLabel}>{step.name}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Content panel */}
-            <div className={styles.panel}>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeIndex}
-                  className={styles.panelInner}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <span className={styles.panelBg}>{STEPS[activeIndex].num}</span>
-                  <h3 className={styles.panelName}>{STEPS[activeIndex].name}</h3>
-                  <p className={styles.panelText}>{STEPS[activeIndex].text}</p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-          </div>
+          <p className={styles.sectionSub}>
+            The disciplines I&apos;ve sharpened over years of shipping products —
+            each one earned through real projects, real teams, and real users.
+          </p>
         </div>
+
+        {/* GRID 3x2 */}
+        <div className={`${styles.grid} ${styles.reveal} ${styles.revealD2}`} ref={gridRef}>
+          {SKILLS.map((s, i) => {
+            const Icon = s.Icon;
+            return (
+              <div key={s.name} className={styles.card} style={{ '--d': `${i * 0.06}s` }}>
+                <div className={styles.cardIcon}>
+                  <Icon width="44" height="44" />
+                </div>
+                <h3 className={styles.cardTitle}>{s.name}</h3>
+                <p className={styles.cardText}>{s.text}</p>
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );

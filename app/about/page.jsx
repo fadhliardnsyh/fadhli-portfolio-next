@@ -12,9 +12,9 @@ const BIODATA = {
 };
 
 const RUNNING_PHOTOS = [
-  { src: "/assets/running-1.webp", alt: "Running" },
-  { src: "/assets/running-2.webp", alt: "Running" },
-  { src: "/assets/running-3.webp", alt: "Running" },
+  { src: "/assets/about/running-1.webp", alt: "Running" },
+  { src: "/assets/about/running-2.webp", alt: "Running" },
+  { src: "/assets/about/running-3.webp", alt: "Running" },
 ];
 
 const EXPERIENCE = [
@@ -25,7 +25,7 @@ const EXPERIENCE = [
     location: "Tangerang, Banten",
     type: "Full-time",
     arrangement: "On-site",
-    logo: "/assets/treffix-logo.png",
+    logo: "/assets/logos/companies/treffix-logo.png",
     bullets: [
       "Designed UI for web dashboards including HRMS, Fleet Management, and Warehouse Management systems.",
       "Conducted UAT directly with end users using positive and negative test scenarios.",
@@ -40,7 +40,7 @@ const EXPERIENCE = [
     location: "Tangerang, Banten",
     type: "Freelance",
     arrangement: "Remote",
-    logo: "/assets/tekuton-logo.png",
+    logo: "/assets/logos/companies/tekuton-logo.png",
     bullets: [
       "Created UI designs for Creoplay, a Web3 marketplace.",
       "Conducted client interviews to understand needs and provided design recommendations.",
@@ -54,7 +54,7 @@ const EXPERIENCE = [
     location: "Tangerang, Banten",
     type: "Full-time",
     arrangement: "On-site",
-    logo: "/assets/nomina-logo.png",
+    logo: "/assets/logos/companies/nomina-logo.png",
     bullets: [
       "Created UI designs for landing pages, dashboards, mobile apps, Web3 marketplace, and game UI.",
       "Developed user flows and information architecture for both users and product teams.",
@@ -68,7 +68,7 @@ const EXPERIENCE = [
     location: "Jakarta, DKI Jakarta",
     type: "Full-time",
     arrangement: "On-site",
-    logo: "/assets/djubli-logo.png",
+    logo: "/assets/logos/companies/djubli-logo.png",
     bullets: [
       "Created UI design for DjuBli website and mobile apps (marketplace).",
       "Developed a new design system for website and mobile apps.",
@@ -82,7 +82,7 @@ const EXPERIENCE = [
     location: "Depok, Jawa Barat",
     type: "Part-time",
     arrangement: "On-site",
-    logo: "/assets/logo-gunadarma-alt.png",
+    logo: "/assets/logos/companies/logo-gunadarma-alt.png",
     bullets: [
       "Conducted maintenance and troubleshooting on laboratory computers.",
       "Provided technical support for lab users.",
@@ -95,7 +95,7 @@ const EDU = [
     institution: "Universitas Gunadarma",
     major: "Bachelor's of Engineering, Computer Science",
     period: "2016 – 2020",
-    logo: "/assets/logo-gunadarma-alt.png",
+    logo: "/assets/logos/companies/logo-gunadarma-alt.png",
     bullets: [
       "Served as a lab assistant for 2 years in IT Support for the Intermediate Accounting laboratory.",
       "Final project: an Android-based learning app using Augmented Reality, allowing users to explore historical buildings worldwide in 3D with audio and text explanations. Received an A grade.",
@@ -105,7 +105,7 @@ const EDU = [
     institution: "Purwadhika Digital Technology School",
     major: "UI/UX Designer Job Connector",
     period: "Oct 2021 – Apr 2022",
-    logo: "/assets/logo-purwadhika-icon.jfif",
+    logo: "/assets/logos/companies/logo-purwadhika-icon.jfif",
     bullets: [
       "Studied all aspects of UI/UX Design including fundamentals, UX Research, Ideate & Define, and design execution.",
       "Completed real-case projects and a final graduation project.",
@@ -128,13 +128,13 @@ const SKILLS = [
 ];
 
 const TOOLS = [
-  { name: "Figma",   logo: "/assets/logo-figma.png",   color: "#1ABCFE" },
-  { name: "Jira",    logo: "/assets/logo-jira.png",    color: "#0052CC" },
-  { name: "Maze",    logo: "/assets/logo-maze.png",    color: "#FF4747" },
-  { name: "Miro",    logo: "/assets/logo-miro.png",    color: "#FFDD00" },
-  { name: "Blender", logo: "/assets/logo-blender.png", color: "#EA7600" },
-  { name: "VS Code", logo: "/assets/logo-vscode.svg",  color: "#007ACC" },
-  { name: "Claude",  logo: "/assets/logo-claude.svg",  color: "#D97706" },
+  { name: "Figma",   logo: "/assets/logos/tools/logo-figma.png",   color: "#1ABCFE" },
+  { name: "Jira",    logo: "/assets/logos/tools/logo-jira.png",    color: "#0052CC" },
+  { name: "Maze",    logo: "/assets/logos/tools/logo-maze.png",    color: "#FF4747" },
+  { name: "Miro",    logo: "/assets/logos/tools/logo-miro.png",    color: "#FFDD00" },
+  { name: "Blender", logo: "/assets/logos/tools/logo-blender.png", color: "#EA7600" },
+  { name: "VS Code", logo: "/assets/logos/tools/logo-vscode.svg",  color: "#007ACC" },
+  { name: "Claude",  logo: "/assets/logos/tools/logo-claude.svg",  color: "#D97706" },
 ];
 
 /* ─────────────────────────────────────────────────────────── */
@@ -220,7 +220,7 @@ export default function AboutPage() {
         <div className={`${styles.heroRight} ${styles.reveal} ${styles.revealD1}`} ref={r(1)}>
           <div className={styles.photoAccent} />
           <div className={styles.photoFrame}>
-            <img src="/assets/photo.png" alt="Fadhli Ardiansyah" />
+            <img src="/assets/about/photo.png" alt="Fadhli Ardiansyah" />
           </div>
         </div>
       </section>

@@ -81,25 +81,25 @@ const SOLUTIONS = [
 ];
 
 const V2_SCREENS = [
-  "/assets/fixwork-v2-1.png",
-  "/assets/fixwork-v2-2.png",
-  "/assets/fixwork-v2-3.png",
-  "/assets/fixwork-v2-4.png",
+  "/assets/projects/fixwork/fixwork-v2-1.png",
+  "/assets/projects/fixwork/fixwork-v2-2.png",
+  "/assets/projects/fixwork/fixwork-v2-3.png",
+  "/assets/projects/fixwork/fixwork-v2-4.png",
 ];
 
 const UI_SCREENS = [
-  { src: "/assets/Fixwork-UI01.png", label: "Login" },
-  { src: "/assets/Fixwork-UI02.png", label: "Home" },
-  { src: "/assets/Fixwork-UI03.png", label: "Clock In" },
-  { src: "/assets/Fixwork-UI04.png", label: "Self Onboarding" },
-  { src: "/assets/Fixwork-UI05.png", label: "Attendance" },
-  { src: "/assets/Fixwork-UI06.png", label: "Leave" },
-  { src: "/assets/Fixwork-UI07.png", label: "Payslip" },
-  { src: "/assets/Fixwork-UI08.png", label: "Profile" },
-  { src: "/assets/Fixwork-UI09.png", label: "Schedule" },
-  { src: "/assets/Fixwork-UI10.png", label: "Notification" },
-  { src: "/assets/Fixwork-UI11.png", label: "Overtime" },
-  { src: "/assets/Fixwork-UI12.png", label: "Visit" },
+  { src: "/assets/projects/fixwork/Fixwork-UI01.png", label: "Login" },
+  { src: "/assets/projects/fixwork/Fixwork-UI02.png", label: "Home" },
+  { src: "/assets/projects/fixwork/Fixwork-UI03.png", label: "Clock In" },
+  { src: "/assets/projects/fixwork/Fixwork-UI04.png", label: "Self Onboarding" },
+  { src: "/assets/projects/fixwork/Fixwork-UI05.png", label: "Attendance" },
+  { src: "/assets/projects/fixwork/Fixwork-UI06.png", label: "Leave" },
+  { src: "/assets/projects/fixwork/Fixwork-UI07.png", label: "Payslip" },
+  { src: "/assets/projects/fixwork/Fixwork-UI08.png", label: "Profile" },
+  { src: "/assets/projects/fixwork/Fixwork-UI09.png", label: "Schedule" },
+  { src: "/assets/projects/fixwork/Fixwork-UI10.png", label: "Notification" },
+  { src: "/assets/projects/fixwork/Fixwork-UI11.png", label: "Overtime" },
+  { src: "/assets/projects/fixwork/Fixwork-UI12.png", label: "Visit" },
 ];
 
 const RESULTS = [
@@ -279,7 +279,7 @@ export default function FixworkPage() {
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/fixwork_banner.png" alt="Fixwork Hero" />
+          <img src="/assets/projects/fixwork/fixwork_banner.png" alt="Fixwork Hero" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>

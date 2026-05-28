@@ -77,20 +77,20 @@ const SOLUTIONS = [
 ];
 
 const V2_SCREENS = [
-  "/assets/bitrack-saas-1.png",
-  "/assets/bitrack-saas-2.png",
-  "/assets/bitrack-saas-3.png",
-  "/assets/bitrack-saas-4.png",
+  "/assets/projects/bitrack/bitrack-saas-1.png",
+  "/assets/projects/bitrack/bitrack-saas-2.png",
+  "/assets/projects/bitrack/bitrack-saas-3.png",
+  "/assets/projects/bitrack/bitrack-saas-4.png",
 ];
 
 const UI_SCREENS = [
-  { src: "/assets/bitrack-ui-01.png", label: "Tracker Page" },
-  { src: "/assets/bitrack-ui-02.png", label: "Vehicle Tracker" },
-  { src: "/assets/bitrack-ui-03.png", label: "Vehicle Information" },
-  { src: "/assets/bitrack-ui-04.png", label: "Dashcam Page" },
-  { src: "/assets/bitrack-ui-05.png", label: "Trip History" },
-  { src: "/assets/bitrack-ui-06.png", label: "Alert" },
-  { src: "/assets/bitrack-ui-07.png", label: "Vehicle List" },
+  { src: "/assets/projects/bitrack/bitrack-ui-01.png", label: "Tracker Page" },
+  { src: "/assets/projects/bitrack/bitrack-ui-02.png", label: "Vehicle Tracker" },
+  { src: "/assets/projects/bitrack/bitrack-ui-03.png", label: "Vehicle Information" },
+  { src: "/assets/projects/bitrack/bitrack-ui-04.png", label: "Dashcam Page" },
+  { src: "/assets/projects/bitrack/bitrack-ui-05.png", label: "Trip History" },
+  { src: "/assets/projects/bitrack/bitrack-ui-06.png", label: "Alert" },
+  { src: "/assets/projects/bitrack/bitrack-ui-07.png", label: "Vehicle List" },
 ];
 
 const RESULTS = [
@@ -279,7 +279,7 @@ export default function BiTrackPage() {
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/bitrack-page-banner.png" alt="BiTrack Hero" />
+          <img src="/assets/projects/bitrack/bitrack-page-banner.png" alt="BiTrack Hero" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>

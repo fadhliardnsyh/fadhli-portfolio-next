@@ -66,11 +66,11 @@ const SOLUTIONS = [
 ];
 
 const UI_SCREENS_BEFORE = [
-  // { src: "/assets/bitrackv2-before-01.png", label: "Original Dashboard" },
+  // { src: "/assets/projects/bitrack-dashboard/bitrackv2-before-01.png", label: "Original Dashboard" },
 ];
 
 const UI_SCREENS_NEW = [
-  // { src: "/assets/bitrackv2-after-01.png", label: "Redesigned Dashboard" },
+  // { src: "/assets/projects/bitrack-dashboard/bitrackv2-after-01.png", label: "Redesigned Dashboard" },
 ];
 
 const PLACEHOLDERS = Array.from({ length: 2 });
@@ -232,7 +232,7 @@ export default function BiTrackDashboardPage() {
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/bitrackv2-page-banner.png" alt="BiTrack V2 Dashboard" />
+          <img src="/assets/projects/bitrack-dashboard/bitrackv2-page-banner.png" alt="BiTrack V2 Dashboard" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>

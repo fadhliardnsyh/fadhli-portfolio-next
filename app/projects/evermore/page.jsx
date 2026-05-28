@@ -60,7 +60,7 @@ const SOLUTIONS = [
 ];
 
 const UI_SCREENS = [
-  // { src: "/assets/evermore-ui-01.png", label: "Hero" },
+  // { src: "/assets/projects/evermore/evermore-ui-01.png", label: "Hero" },
 ];
 
 const PLACEHOLDERS = Array.from({ length: 2 });
@@ -174,7 +174,7 @@ export default function EvermorePage() {
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/evermore-page-banner.png" alt="Evermore Knights" />
+          <img src="/assets/projects/evermore/evermore-page-banner.png" alt="Evermore Knights" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>

@@ -3,45 +3,23 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "./Projects.module.css";
+import ALL_PROJECTS from "../../data/projects";
 
-const PROJECTS = [
-  {
-    id: "fixwork",
-    href: "/projects/fixwork",
-    img: "/assets/fixwork_card.png",
-    color: "#286FF3",
-    title: "Fixwork App",
-    cat: "Mobile · HRIS",
-    year: "'26",
-  },
-  {
-    id: "bitrack",
-    href: "/projects/bitrack",
-    img: "/assets/bitrack-card-banner.png",
-    color: "#D84040",
-    title: "BiTrack App",
-    cat: "Mobile · IoT",
-    year: "'25",
-  },
-  {
-    id: "garuda",
-    href: "/projects/garuda",
-    img: "/assets/garuda_eleven.png",
-    color: "#1f6fe2",
-    title: "Garuda Eleven Metaleague",
-    cat: "Web-Based Game · Football Manager",
-    year: "'25",
-  },
-  {
-    id: "treffix",
-    href: "/projects/treffix",
-    img: null,
-    color: "#00c17c",
-    title: "Treffix Company Profile",
-    cat: "Web · Landing Page",
-    year: "'24",
-  },
-];
+const SELECTED_IDS = ["fixwork", "bitrack", "garuda", "treffix"];
+
+const PROJECTS = SELECTED_IDS
+  .map((id) => ALL_PROJECTS.find((p) => p.id === id))
+  .filter(Boolean)
+  .sort((a, b) => Number(b.year) - Number(a.year))
+  .map((p) => ({
+    id: p.id,
+    href: p.href,
+    img: p.img,
+    color: p.color,
+    title: p.title,
+    cat: p.cat,
+    year: `'${String(p.year).slice(-2)}`,
+  }));
 
 export default function Projects() {
   const previewRef = useRef(null);

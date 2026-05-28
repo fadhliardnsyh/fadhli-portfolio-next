@@ -70,7 +70,7 @@ const CONTACT_LINKS = [
   },
   {
     label: "Download CV",
-    href: "/assets/Fadhli_Ardiansyah_CV.pdf",
+    href: "/assets/cv/Fadhli_Ardiansyah_CV.pdf",
     download: true,
   },
 ];

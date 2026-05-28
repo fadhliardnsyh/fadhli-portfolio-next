@@ -8,7 +8,7 @@ const PROJECTS = [
   {
     id: "fixwork",
     href: "/projects/fixwork",
-    img: "/assets/fixwork_card.png",
+    img: "/assets/projects/fixwork/fixwork_card.png",
     emoji: null,
     color: "#286FF3",
     title: "Fixwork App",
@@ -30,7 +30,7 @@ const PROJECTS = [
   {
     id: "treffix",
     href: "/projects/treffix",
-    img: "/assets/treffixid-card-banner.png",
+    img: "/assets/projects/treffix/treffixid-card-banner.png",
     emoji: null,
     color: "#456BF2",
     title: "Treffix Company Profile",
@@ -42,7 +42,7 @@ const PROJECTS = [
   {
     id: "bitrack",
     href: "/projects/bitrack",
-    img: "/assets/bitrack-card-banner.png",
+    img: "/assets/projects/bitrack/bitrack-card-banner.png",
     emoji: null,
     color: "#D84040",
     title: "BiTrack App",
@@ -53,7 +53,7 @@ const PROJECTS = [
   {
     id: "bitrack-dashboard",
     href: "/projects/bitrack-dashboard",
-    img: "/assets/bitrackv2-card-banner.png",
+    img: "/assets/projects/bitrack-dashboard/bitrackv2-card-banner.png",
     emoji: null,
     color: "#CF4747",
     title: "BiTrack V2 Dashboard",
@@ -99,7 +99,7 @@ const PROJECTS = [
   {
     id: "garuda",
     href: "/projects/garuda",
-    img: "/assets/garuda_eleven.png",
+    img: "/assets/projects/garuda/garuda_eleven.png",
     emoji: null,
     color: "#1f6fe2",
     title: "Garuda Eleven Metaleague",
@@ -132,7 +132,7 @@ const PROJECTS = [
   {
     id: "evermore",
     href: "/projects/evermore",
-    img: "/assets/evermore-card-banner.png",
+    img: "/assets/projects/evermore/evermore-card-banner.png",
     emoji: null,
     color: "#F8C383",
     title: "Evermore Knights",

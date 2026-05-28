@@ -61,14 +61,14 @@ const SOLUTIONS = [
 
 // Screenshot desain lama (before redesign)
 const UI_SCREENS_BEFORE = [
-  { src: "/assets/treffix-before-01.png", label: "Original Design" },
-  { src: "/assets/treffix-before-02.png", label: "Original Design" },
+  { src: "/assets/projects/treffix/treffix-before-01.png", label: "Original Design" },
+  { src: "/assets/projects/treffix/treffix-before-02.png", label: "Original Design" },
 ];
 
 // Screenshot desain baru (after redesign)
 const UI_SCREENS_NEW = [
-  { src: "/assets/treffix-after-01.png", label: "Redesign" },
-  { src: "/assets/treffix-after-02.png", label: "Redesign" },
+  { src: "/assets/projects/treffix/treffix-after-01.png", label: "Redesign" },
+  { src: "/assets/projects/treffix/treffix-after-02.png", label: "Redesign" },
 ];
 
 const PLACEHOLDERS = Array.from({ length: 2 });
@@ -180,7 +180,7 @@ export default function TreffixPage() {
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/treffixid-page-banner.png" alt="Treffix Company Profile" />
+          <img src="/assets/projects/treffix/treffixid-page-banner.png" alt="Treffix Company Profile" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>
