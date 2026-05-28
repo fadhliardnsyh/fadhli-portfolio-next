@@ -1,6 +1,6 @@
 /* ============================================================
-   Treffix Company Profile — page.module.css
-   accent: #456BF2 / rgba(69,107,242,...)
+   Evermore Knights — page.module.css
+   accent: #F8C383 / rgba(248,195,131,...)
    ============================================================ */
 
 /* ── HERO ──────────────────────────────────────────────────── */
@@ -51,7 +51,7 @@
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: #456BF2;
+  color: #F8C383;
   margin-bottom: 1.25rem;
   opacity: 0;
   animation: fadeUp .7s .2s ease forwards;
@@ -61,7 +61,7 @@
   display: block;
   width: 2rem;
   height: 1px;
-  background: #456BF2;
+  background: #F8C383;
   font-style: normal;
 }
 
@@ -126,7 +126,7 @@
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: #456BF2;
+  color: #F8C383;
   margin-bottom: 1.25rem;
 }
 
@@ -134,7 +134,7 @@
   display: block;
   width: 1.5rem;
   height: 1px;
-  background: #456BF2;
+  background: #F8C383;
   font-style: normal;
 }
 
@@ -176,7 +176,7 @@
 }
 
 .challengeCard:hover {
-  border-color: rgba(69,107,242,.2);
+  border-color: rgba(248,195,131,.2);
   transform: translateY(-3px);
 }
 
@@ -184,7 +184,7 @@
   font-size: .65rem;
   font-weight: 700;
   letter-spacing: .15em;
-  color: #456BF2;
+  color: #F8C383;
   margin-bottom: .75rem;
 }
 
@@ -223,7 +223,7 @@
 .solutionNum {
   font-size: 3rem;
   font-weight: 700;
-  color: rgba(69,107,242,.15);
+  color: rgba(248,195,131,.15);
   line-height: 1;
   letter-spacing: -.05em;
   padding-top: .25rem;
@@ -253,57 +253,6 @@
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad) 3rem;
-}
-
-.visitBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  margin-top: 1.75rem;
-  padding: .65rem 1.25rem;
-  border: 1px solid rgba(69, 107, 242, 0.4);
-  border-radius: 8px;
-  background: rgba(69, 107, 242, 0.08);
-  color: #456BF2;
-  font-size: .82rem;
-  font-weight: 500;
-  letter-spacing: .01em;
-  text-decoration: none;
-  transition: background 0.18s, border-color 0.18s, color 0.18s;
-}
-
-.visitBtn:hover {
-  background: rgba(69, 107, 242, 0.16);
-  border-color: rgba(69, 107, 242, 0.7);
-}
-
-.marqueeWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
-
-.marqueeRow {
-  overflow: hidden;
-  display: flex;
-}
-
-.marqueeTrack {
-  display: flex;
-  gap: 1.25rem;
-  width: max-content;
-  will-change: transform;
-  animation: scrollLeft 48s linear infinite;
-}
-
-.marqueeReverse .marqueeTrack {
-  animation: scrollRight 48s linear infinite;
-}
-
-.marqueeWrap:hover .marqueeTrack {
-  animation-play-state: paused;
 }
 
 /* ── Screens Grid ──────────────────────────────────────────── */
@@ -338,8 +287,8 @@
 }
 
 .desktopCard:hover {
-  border-color: rgba(69,107,242,.5);
-  box-shadow: 0 0 0 1px rgba(69,107,242,.15), 0 8px 32px rgba(0,0,0,.4);
+  border-color: rgba(248,195,131,.5);
+  box-shadow: 0 0 0 1px rgba(248,195,131,.15), 0 8px 32px rgba(0,0,0,.4);
 }
 
 .desktopCard img {
@@ -437,16 +386,6 @@
   background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,.015) 50%, transparent 70%);
 }
 
-@keyframes scrollLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.333%); }
-}
-
-@keyframes scrollRight {
-  from { transform: translateX(-33.333%); }
-  to   { transform: translateX(0); }
-}
-
 /* ── RESULTS ───────────────────────────────────────────────── */
 .results {
   display: grid;
@@ -467,19 +406,19 @@
 }
 
 .resultCard:hover {
-  border-color: rgba(69,107,242,.25);
+  border-color: rgba(248,195,131,.25);
 }
 
 .resultIcon {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(69,107,242,.08);
-  border: .5px solid rgba(69,107,242,.15);
+  background: rgba(248,195,131,.08);
+  border: .5px solid rgba(248,195,131,.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #456BF2;
+  color: #F8C383;
   flex-shrink: 0;
 }
 

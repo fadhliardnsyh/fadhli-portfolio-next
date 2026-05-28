@@ -7,68 +7,61 @@ import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
 import styles from "./page.module.css";
 
 const META = [
-  { label: "Role", value: "UI/UX Designer" },
+  { label: "Role", value: "UI Designer" },
   { label: "Type", value: "Landing Page" },
-  { label: "Year", value: "2026" },
-  { label: "Platform", value: "Responsive Website" },
+  { label: "Category", value: "Web3 · Game" },
+  { label: "Year", value: "2023" },
+  { label: "Platform", value: "Web" },
 ];
 
 const CHALLENGES = [
   {
     num: "01 — Challenge",
-    title: "No clear narrative about who Treffix is",
-    desc: "The site had content — but no story. There was nothing that connected the pieces into a coherent picture of what Treffix was building, where it was heading, or why any of it mattered to someone visiting for the first time.",
+    title: "The game had no web presence at all",
+    desc: "Evermore Knights existed as a playable game, but there was no website for it. Anyone who heard about the game had nowhere to go to learn more — no page, no introduction, nothing.",
   },
   {
     num: "02 — Challenge",
-    title: "No defined audience to speak to",
-    desc: "The messaging was too broad to resonate with anyone specifically. Enterprise clients, fleet operators, potential partners — none of them felt directly addressed. Without a clear target, the site ended up speaking to no one.",
+    title: "Web3 games face a steep trust barrier",
+    desc: "New players approaching a Web3 game are naturally skeptical. Without a polished, credible first impression, potential players and investors would move on before giving the game a chance.",
   },
   {
     num: "03 — Challenge",
-    title: "Visitors had no path to follow",
-    desc: "Content existed in isolation with no intentional flow between sections. There was no guided journey from landing to understanding — visitors were left to connect the dots themselves, and most wouldn't bother.",
+    title: "Rich lore with no place to live",
+    desc: "Evermore Knights had a fully developed world — characters with backstories, named maps, item systems, and factions. None of it was communicated anywhere accessible to someone discovering the game for the first time.",
   },
   {
     num: "04 — Challenge",
-    title: "The impression didn't match the ambition",
-    desc: "For a company building serious SaaS infrastructure, the site gave no indication of the product's scale or direction. First impressions felt off — and for prospective hires or enterprise clients, that gap was hard to overlook.",
+    title: "No path for new players to follow",
+    desc: "Even if someone discovered the game through word of mouth, there was no clear next step. No way to understand the game, build excitement, or know how to get involved.",
   },
 ];
 
 const SOLUTIONS = [
   {
     num: "01",
-    title: "A single, clear story told from the first scroll",
-    desc: "The redesign opened with a direct answer to the question the old site never addressed: what is Treffix? Every section was written and structured to build on that answer — giving visitors a coherent picture of the company before they got halfway down the page.",
+    title: "A landing page that opens the world of Evermore",
+    desc: "The landing page was designed to be the game's front door — the first place anyone lands when they want to know what Evermore Knights is. Every section answers a question a new visitor would have.",
   },
   {
     num: "02",
-    title: "Messaging written for a specific audience",
-    desc: "Instead of trying to speak to everyone, the copy and layout were shaped around enterprise clients and fleet operators — the people Treffix actually needs to convince. That focus made every word feel intentional rather than generic.",
+    title: "Visual identity built for the Web3 gaming audience",
+    desc: "Dark, immersive aesthetics with fantasy-meets-crypto visual language established the right tone immediately — credible enough to earn trust, dramatic enough to build excitement.",
   },
   {
     num: "03",
-    title: "An intentional flow from landing to understanding",
-    desc: "Sections were ordered to guide visitors through a logical journey: who Treffix is, what they build, why it matters, and what to do next. No dead ends, no orphaned content — just a clear path from arrival to action.",
+    title: "Sections dedicated to the game's world",
+    desc: "Characters, maps, items, and core game mechanics each got their own space on the page. Visitors can explore the lore at their own pace — getting drawn deeper into the world with every scroll.",
   },
   {
     num: "04",
-    title: "A visual identity that earns the first impression",
-    desc: "The design was elevated to match the ambition behind the product — clean typography, purposeful layout, and a visual tone that signals credibility. The kind of site that makes a prospective hire or enterprise client think: this company knows what it's doing.",
+    title: "A clear journey from curiosity to commitment",
+    desc: "The page was structured to guide visitors through a natural progression: discover the world, understand how it works, then take action — whether that's joining the community, minting, or playing.",
   },
 ];
 
-// Screenshot desain lama (before redesign)
-const UI_SCREENS_BEFORE = [
-  { src: "/assets/treffix-before-01.png", label: "Original Design" },
-  { src: "/assets/treffix-before-02.png", label: "Original Design" },
-];
-
-// Screenshot desain baru (after redesign)
-const UI_SCREENS_NEW = [
-  { src: "/assets/treffix-after-01.png", label: "Redesign" },
-  { src: "/assets/treffix-after-02.png", label: "Redesign" },
+const UI_SCREENS = [
+  // { src: "/assets/evermore-ui-01.png", label: "Hero" },
 ];
 
 const PLACEHOLDERS = Array.from({ length: 2 });
@@ -77,39 +70,42 @@ const RESULTS = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
       </svg>
     ),
-    title: "Brand Identity That Matches the Product",
-    desc: "The redesigned profile now communicates Treffix as a modern SaaS company — visually and tonally consistent with the platform being built behind it.",
+    title: "A World Visitors Can Explore",
+    desc: "For the first time, anyone curious about Evermore Knights had a place to land — a page that answered their questions and pulled them into the game's universe.",
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <polyline points="9 12 11 14 15 10"/>
       </svg>
     ),
-    title: "Products Are Instantly Understandable",
-    desc: "A structured information hierarchy means visitors immediately grasp what Treffix offers — no digging, no confusion, no guessing what the company does.",
+    title: "Credibility for a Web3 Audience",
+    desc: "A polished, intentional design gave Evermore Knights the visual weight needed to be taken seriously in a space where first impressions determine everything.",
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+        <line x1="9" y1="9" x2="9.01" y2="9"/>
+        <line x1="15" y1="9" x2="15.01" y2="9"/>
       </svg>
     ),
-    title: "Consistent Design System Across Pages",
-    desc: "Reusable components and design tokens ensure every page feels like part of the same product — making the site scalable as new sections are added.",
+    title: "Lore That Finally Had a Home",
+    desc: "Characters, maps, and game mechanics that previously lived only inside the game were now presented in a way that could excite and educate newcomers before they even played.",
   },
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+        <polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/>
       </svg>
     ),
-    title: "Built for Enterprise First Impressions",
-    desc: "The refined, professional visual tone gives enterprise clients and potential partners the confidence to take Treffix seriously from their very first visit.",
+    title: "A Guided Path from Discovery to Action",
+    desc: "The page naturally moved visitors from curiosity to engagement — giving the game a structured way to grow its community beyond word-of-mouth alone.",
   },
 ];
 
@@ -130,7 +126,7 @@ function useReveal() {
   return ref;
 }
 
-export default function TreffixPage() {
+export default function EvermorePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
   const [lightboxClosing, setLightboxClosing] = useState(false);
@@ -169,8 +165,7 @@ export default function TreffixPage() {
   const overviewRef = useReveal();
   const problemRef = useReveal();
   const solutionRef = useReveal();
-  const imgRef = useReveal();
-  const uiAfterRef = useReveal();
+  const uiRef = useReveal();
   const resultsRef = useReveal();
 
   return (
@@ -180,14 +175,14 @@ export default function TreffixPage() {
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/treffixid-page-banner.png" alt="Treffix Company Profile" />
+          <img src="/assets/evermore-page-banner.png" alt="Evermore Knights" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>
             <i />
-            Project · Web · Company Profile
+            Project · Web · Web3 Game
           </div>
-          <h1 className={styles.caseTitle}>Treffix Company Profile</h1>
+          <h1 className={styles.caseTitle}>Evermore Knights</h1>
           <div className={styles.metaRow}>
             {META.map((m) => (
               <div key={m.label} className={styles.metaItem}>
@@ -207,64 +202,25 @@ export default function TreffixPage() {
             Overview
           </div>
           <h2 className={styles.sectionTitle}>
-            A company profile built
+            Giving a Web3 game
             <br />
-            for what Treffix is becoming
+            its first front door
           </h2>
           <div className={styles.body}>
             <p>
-              Treffix is a fleet and workforce management SaaS company — and its
-              company profile needed to reflect exactly that. The redesign moved
-              away from the old product-company feel and introduced a clean,
-              modern identity that positions Treffix as a credible enterprise tech
-              brand.
+              Evermore Knights is a Web3-based fantasy RPG with a fully developed
+              game world — named characters, distinct maps, item systems, and lore
+              that runs deep. But for all of that, the game had no website. No place
+              for someone curious to land, explore, and understand what it was.
             </p>
             <p>
-              The goal was simple: a visitor should land on the page and immediately
-              understand who Treffix is, what they build, and why it matters — without
-              having to dig through layers of content to find out.
+              The goal of this project was to design a landing page that served as
+              the game's public introduction — a place that could open up the world
+              of Evermore Knights to anyone encountering it for the first time.
             </p>
           </div>
         </section>
-      </div>
 
-      {/* UI SHOWCASE — Before redesign (after Overview) */}
-      <section className={styles.uiShowcase}>
-        <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={imgRef}>
-          <div className={styles.sectionLabel}><i />Original Design</div>
-          <h2 className={styles.sectionTitle}>
-            How it looked
-            <br />
-            before the redesign.
-          </h2>
-        </div>
-        <div className={styles.screensGrid}>
-          {(UI_SCREENS_BEFORE.length > 0 ? UI_SCREENS_BEFORE : PLACEHOLDERS).map((s, i) =>
-            s?.src ? (
-              <div
-                key={i}
-                className={styles.desktopCard}
-                onClick={() => setLightbox({ src: s.src, images: UI_SCREENS_BEFORE, idx: i })}
-              >
-                <img src={s.src} alt={s.label} loading="lazy" />
-                <div className={styles.desktopCardOverlay}>
-                  <span className={styles.desktopCardLabel}>{s.label}</span>
-                </div>
-                <div className={styles.desktopCardZoom}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/>
-                  </svg>
-                </div>
-              </div>
-            ) : (
-              <div key={i} className={styles.desktopCardPlaceholder} />
-            )
-          )}
-        </div>
-      </section>
-
-      {/* PROBLEM + SOLUTION */}
-      <div className={styles.content}>
         <hr className={styles.divider} />
 
         {/* Problem */}
@@ -274,22 +230,15 @@ export default function TreffixPage() {
             The Problem
           </div>
           <h2 className={styles.sectionTitle}>
-            The old site didn't match
+            A game with a world built,
             <br />
-            where the company was heading
+            but no window into it
           </h2>
           <div className={styles.body}>
             <p>
-              When I first visited treffix.id — while applying for a job there —
-              I genuinely wasn't sure what the company did. The site had content,
-              but nothing that clearly answered the most basic question: what is
-              this company, and what do they build?
-            </p>
-            <p>
-              That experience became the starting point for this redesign. If someone
-              motivated enough to apply for a role there was left confused, the site
-              wasn't doing its job. Treffix had grown significantly — but its company
-              profile hadn't kept up.
+              Evermore Knights had everything a game needs to attract players —
+              except a way for people outside the existing community to discover
+              any of it. The game existed, but publicly, it was invisible.
             </p>
           </div>
           <div className={styles.challenges}>
@@ -312,15 +261,15 @@ export default function TreffixPage() {
             The Solution
           </div>
           <h2 className={styles.sectionTitle}>
-            Redesigned from the ground up
+            A landing page that
             <br />
-            for clarity and credibility
+            opens the world
           </h2>
           <div className={styles.body}>
             <p>
-              The redesign prioritized two things above all else: making the brand
-              feel credible to enterprise audiences, and making the product instantly
-              understandable to anyone landing on the page for the first time.
+              The design was built around one core goal: make someone who has
+              never heard of Evermore Knights walk away understanding the game,
+              feeling the atmosphere, and knowing exactly what to do next.
             </p>
           </div>
           <div className={styles.solutions}>
@@ -337,41 +286,30 @@ export default function TreffixPage() {
         </section>
       </div>
 
-      {/* UI SHOWCASE — After redesign (after Solution) */}
+      {/* UI SHOWCASE */}
       <section className={styles.uiShowcase}>
-        <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={uiAfterRef}>
+        <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={uiRef}>
           <div className={styles.sectionLabel}><i />UI Preview</div>
           <h2 className={styles.sectionTitle}>
-            The redesigned
+            The world of Evermore,
             <br />
-            experience.
+            on the web.
           </h2>
           <div className={styles.body}>
             <p>
-              A clean, modern interface that immediately communicates who Treffix is
-              and what they build — designed to give enterprise visitors the confidence
-              to take the next step.
+              An immersive, scroll-driven landing page built to introduce the
+              game's characters, maps, and lore — designed to feel like stepping
+              into the world before you've even played it.
             </p>
           </div>
-          <a
-            href="https://treffix.id/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.visitBtn}
-          >
-            Visit treffix.id
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-            </svg>
-          </a>
         </div>
         <div className={styles.screensGrid}>
-          {(UI_SCREENS_NEW.length > 0 ? UI_SCREENS_NEW : PLACEHOLDERS).map((s, i) =>
+          {(UI_SCREENS.length > 0 ? UI_SCREENS : PLACEHOLDERS).map((s, i) =>
             s?.src ? (
               <div
                 key={i}
                 className={styles.desktopCard}
-                onClick={() => setLightbox({ src: s.src, images: UI_SCREENS_NEW, idx: i })}
+                onClick={() => setLightbox({ src: s.src, images: UI_SCREENS, idx: i })}
               >
                 <img src={s.src} alt={s.label} loading="lazy" />
                 <div className={styles.desktopCardOverlay}>
@@ -400,15 +338,15 @@ export default function TreffixPage() {
             Results
           </div>
           <h2 className={styles.sectionTitle}>
-            A presence that finally
+            The game's world,
             <br />
-            matches the product
+            finally visible
           </h2>
           <div className={styles.body}>
             <p>
-              The redesigned Treffix company profile gave the brand a visual identity
-              that's consistent, credible, and ready to represent a growing SaaS company —
-              both internally and to prospective enterprise clients.
+              The Evermore Knights landing page gave the game a public presence
+              for the first time — turning a rich but invisible game world into
+              something anyone could discover, explore, and get excited about.
             </p>
           </div>
           <div className={styles.results}>
@@ -424,7 +362,7 @@ export default function TreffixPage() {
       </div>
 
       {/* CAROUSEL */}
-      <ProjectCarousel currentId="treffix" />
+      <ProjectCarousel currentId="evermore" />
 
       {/* LIGHTBOX */}
       {lightbox && (

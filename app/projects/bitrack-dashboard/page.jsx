@@ -8,67 +8,70 @@ import styles from "./page.module.css";
 
 const META = [
   { label: "Role", value: "UI/UX Designer" },
-  { label: "Type", value: "Landing Page" },
-  { label: "Year", value: "2026" },
-  { label: "Platform", value: "Responsive Website" },
+  { label: "Type", value: "Web Dashboard" },
+  { label: "Category", value: "IoT · Fleet Management" },
+  { label: "Year", value: "2025" },
+  { label: "Platform", value: "Responsive Web" },
+];
+
+const STATS = [
+  { value: 3000, suffix: "+", label: "GPS devices connected" },
+  { value: 6, suffix: "", label: "Core features" },
+  { display: "99.9%", label: "Tracking accuracy" },
 ];
 
 const CHALLENGES = [
   {
     num: "01 — Challenge",
-    title: "No clear narrative about who Treffix is",
-    desc: "The site had content — but no story. There was nothing that connected the pieces into a coherent picture of what Treffix was building, where it was heading, or why any of it mattered to someone visiting for the first time.",
+    title: "Overwhelming UI with no clear hierarchy",
+    desc: "Everything competed for attention. Alerts, maps, trip data, and vehicle lists were all presented at the same visual weight — making it impossible to quickly find what mattered most.",
   },
   {
     num: "02 — Challenge",
-    title: "No defined audience to speak to",
-    desc: "The messaging was too broad to resonate with anyone specifically. Enterprise clients, fleet operators, potential partners — none of them felt directly addressed. Without a clear target, the site ended up speaking to no one.",
+    title: "Data overload with no actionable insights",
+    desc: "The dashboard surfaced raw GPS data but never helped operators interpret it. Numbers were everywhere; patterns and decisions were nowhere.",
   },
   {
     num: "03 — Challenge",
-    title: "Visitors had no path to follow",
-    desc: "Content existed in isolation with no intentional flow between sections. There was no guided journey from landing to understanding — visitors were left to connect the dots themselves, and most wouldn't bother.",
+    title: "The live map was buried",
+    desc: "Real-time vehicle tracking — the most critical feature — was hidden behind multiple clicks. Finding a vehicle's current location required navigating through layers of menus.",
   },
   {
     num: "04 — Challenge",
-    title: "The impression didn't match the ambition",
-    desc: "For a company building serious SaaS infrastructure, the site gave no indication of the product's scale or direction. First impressions felt off — and for prospective hires or enterprise clients, that gap was hard to overlook.",
+    title: "No responsive experience",
+    desc: "The dashboard only worked properly on large desktop screens. Any operator trying to use it on a smaller display encountered a broken, unusable layout.",
   },
 ];
 
 const SOLUTIONS = [
   {
     num: "01",
-    title: "A single, clear story told from the first scroll",
-    desc: "The redesign opened with a direct answer to the question the old site never addressed: what is Treffix? Every section was written and structured to build on that answer — giving visitors a coherent picture of the company before they got halfway down the page.",
+    title: "Clear hierarchy built around operator priority",
+    desc: "The redesign established a clear information hierarchy: live status first, analytics second, historical data third. Every operator lands on the page and immediately knows where to look.",
   },
   {
     num: "02",
-    title: "Messaging written for a specific audience",
-    desc: "Instead of trying to speak to everyone, the copy and layout were shaped around enterprise clients and fleet operators — the people Treffix actually needs to convince. That focus made every word feel intentional rather than generic.",
+    title: "Analytics that surface decisions, not just data",
+    desc: "Raw numbers were replaced with summarized insights — charts that highlight trends, anomalies, and patterns. Operators get answers, not spreadsheets.",
   },
   {
     num: "03",
-    title: "An intentional flow from landing to understanding",
-    desc: "Sections were ordered to guide visitors through a logical journey: who Treffix is, what they build, why it matters, and what to do next. No dead ends, no orphaned content — just a clear path from arrival to action.",
+    title: "Live tracking front and center",
+    desc: "The real-time map became the centerpiece of the dashboard. Fleet positions, statuses, and active trips are visible the moment the operator opens the page.",
   },
   {
     num: "04",
-    title: "A visual identity that earns the first impression",
-    desc: "The design was elevated to match the ambition behind the product — clean typography, purposeful layout, and a visual tone that signals credibility. The kind of site that makes a prospective hire or enterprise client think: this company knows what it's doing.",
+    title: "Responsive layout for every screen size",
+    desc: "The redesigned dashboard works seamlessly across screen sizes — built with a flexible grid that adapts without breaking, so operators can use it from wherever they work.",
   },
 ];
 
-// Screenshot desain lama (before redesign)
 const UI_SCREENS_BEFORE = [
-  { src: "/assets/treffix-before-01.png", label: "Original Design" },
-  { src: "/assets/treffix-before-02.png", label: "Original Design" },
+  // { src: "/assets/bitrackv2-before-01.png", label: "Original Dashboard" },
 ];
 
-// Screenshot desain baru (after redesign)
 const UI_SCREENS_NEW = [
-  { src: "/assets/treffix-after-01.png", label: "Redesign" },
-  { src: "/assets/treffix-after-02.png", label: "Redesign" },
+  // { src: "/assets/bitrackv2-after-01.png", label: "Redesigned Dashboard" },
 ];
 
 const PLACEHOLDERS = Array.from({ length: 2 });
@@ -77,41 +80,91 @@ const RESULTS = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+      </svg>
+    ),
+    title: "Fleet Visibility in One Glance",
+    desc: "The redesigned dashboard surfaces what matters most immediately — operators can assess the full fleet status without scrolling or digging.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+    ),
+    title: "Faster Incident Response",
+    desc: "With alerts and live tracking in prominent positions, operators can spot issues and respond before situations escalate.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+    ),
+    title: "Data That's Actually Readable",
+    desc: "Complex trip and behavior data is now visualized in a way operators can interpret and act on — not just store and ignore.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
       </svg>
     ),
-    title: "Brand Identity That Matches the Product",
-    desc: "The redesigned profile now communicates Treffix as a modern SaaS company — visually and tonally consistent with the platform being built behind it.",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-      </svg>
-    ),
-    title: "Products Are Instantly Understandable",
-    desc: "A structured information hierarchy means visitors immediately grasp what Treffix offers — no digging, no confusion, no guessing what the company does.",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-      </svg>
-    ),
-    title: "Consistent Design System Across Pages",
-    desc: "Reusable components and design tokens ensure every page feels like part of the same product — making the site scalable as new sections are added.",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>
-    ),
-    title: "Built for Enterprise First Impressions",
-    desc: "The refined, professional visual tone gives enterprise clients and potential partners the confidence to take Treffix seriously from their very first visit.",
+    title: "A Product That Feels Production-Ready",
+    desc: "The redesign elevated BiTrack's dashboard from an internal tool to a polished, enterprise-grade product — ready to be shown to clients.",
   },
 ];
+
+function AnimatedStat({ value, suffix, label, display }) {
+  const [count, setCount] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+  const triggered = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !triggered.current) {
+          triggered.current = true;
+          obs.disconnect();
+          setVisible(true);
+          if (display) return;
+          const duration = 1600;
+          const start = performance.now();
+          const animate = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(eased * value));
+            if (progress < 1) requestAnimationFrame(animate);
+            else setCount(value);
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [value, display]);
+
+  return (
+    <div ref={ref} className={styles.statCard}>
+      <div className={styles.statNum}>
+        {display ? (
+          <span style={{ opacity: visible ? 1 : 0, transition: "opacity .6s ease" }}>
+            {display}
+          </span>
+        ) : (
+          <>{count}{suffix}</>
+        )}
+      </div>
+      <div className={styles.statLabel}>{label}</div>
+    </div>
+  );
+}
 
 function useReveal() {
   const ref = useRef(null);
@@ -130,7 +183,7 @@ function useReveal() {
   return ref;
 }
 
-export default function TreffixPage() {
+export default function BiTrackDashboardPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
   const [lightboxClosing, setLightboxClosing] = useState(false);
@@ -167,9 +220,9 @@ export default function TreffixPage() {
   }, [lightbox]);
 
   const overviewRef = useReveal();
+  const imgBeforeRef = useReveal();
   const problemRef = useReveal();
   const solutionRef = useReveal();
-  const imgRef = useReveal();
   const uiAfterRef = useReveal();
   const resultsRef = useReveal();
 
@@ -180,14 +233,14 @@ export default function TreffixPage() {
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/treffixid-page-banner.png" alt="Treffix Company Profile" />
+          <img src="/assets/bitrackv2-page-banner.png" alt="BiTrack V2 Dashboard" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>
             <i />
-            Project · Web · Company Profile
+            Project · Web · IoT
           </div>
-          <h1 className={styles.caseTitle}>Treffix Company Profile</h1>
+          <h1 className={styles.caseTitle}>BiTrack V2 Dashboard</h1>
           <div className={styles.metaRow}>
             {META.map((m) => (
               <div key={m.label} className={styles.metaItem}>
@@ -207,30 +260,34 @@ export default function TreffixPage() {
             Overview
           </div>
           <h2 className={styles.sectionTitle}>
-            A company profile built
+            From internal tool
             <br />
-            for what Treffix is becoming
+            to fleet command center
           </h2>
           <div className={styles.body}>
             <p>
-              Treffix is a fleet and workforce management SaaS company — and its
-              company profile needed to reflect exactly that. The redesign moved
-              away from the old product-company feel and introduced a clean,
-              modern identity that positions Treffix as a credible enterprise tech
-              brand.
+              BiTrack V2 Dashboard is a complete redesign of B-Log's original fleet
+              monitoring dashboard — rebuilt from the ground up for clarity, speed, and
+              real operational use. The old dashboard worked, but it was built for
+              engineers, not operators.
             </p>
             <p>
-              The goal was simple: a visitor should land on the page and immediately
-              understand who Treffix is, what they build, and why it matters — without
-              having to dig through layers of content to find out.
+              With over 3,000 GPS devices connected to the system, the new dashboard
+              needed to handle serious data at scale — and present it in a way that
+              made fleet operators faster and more confident in every decision they make.
             </p>
+          </div>
+          <div className={styles.stats}>
+            {STATS.map((s) => (
+              <AnimatedStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} display={s.display} />
+            ))}
           </div>
         </section>
       </div>
 
-      {/* UI SHOWCASE — Before redesign (after Overview) */}
+      {/* UI SHOWCASE — Before redesign */}
       <section className={styles.uiShowcase}>
-        <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={imgRef}>
+        <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={imgBeforeRef}>
           <div className={styles.sectionLabel}><i />Original Design</div>
           <h2 className={styles.sectionTitle}>
             How it looked
@@ -274,22 +331,16 @@ export default function TreffixPage() {
             The Problem
           </div>
           <h2 className={styles.sectionTitle}>
-            The old site didn't match
+            Built to work,
             <br />
-            where the company was heading
+            not built to be used
           </h2>
           <div className={styles.body}>
             <p>
-              When I first visited treffix.id — while applying for a job there —
-              I genuinely wasn't sure what the company did. The site had content,
-              but nothing that clearly answered the most basic question: what is
-              this company, and what do they build?
-            </p>
-            <p>
-              That experience became the starting point for this redesign. If someone
-              motivated enough to apply for a role there was left confused, the site
-              wasn't doing its job. Treffix had grown significantly — but its company
-              profile hadn't kept up.
+              The original BiTrack dashboard got the job done technically — but it
+              wasn't designed with operators in mind. Critical information was buried,
+              the interface had no clear focus, and the experience made a complex job
+              even harder than it needed to be.
             </p>
           </div>
           <div className={styles.challenges}>
@@ -312,15 +363,15 @@ export default function TreffixPage() {
             The Solution
           </div>
           <h2 className={styles.sectionTitle}>
-            Redesigned from the ground up
+            Redesigned around
             <br />
-            for clarity and credibility
+            how operators actually work
           </h2>
           <div className={styles.body}>
             <p>
-              The redesign prioritized two things above all else: making the brand
-              feel credible to enterprise audiences, and making the product instantly
-              understandable to anyone landing on the page for the first time.
+              The redesign started with one question: what does an operator need
+              to see the moment they open the dashboard? Everything else followed
+              from that — structure, hierarchy, layout, and the way data is surfaced.
             </p>
           </div>
           <div className={styles.solutions}>
@@ -337,7 +388,7 @@ export default function TreffixPage() {
         </section>
       </div>
 
-      {/* UI SHOWCASE — After redesign (after Solution) */}
+      {/* UI SHOWCASE — After redesign */}
       <section className={styles.uiShowcase}>
         <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={uiAfterRef}>
           <div className={styles.sectionLabel}><i />UI Preview</div>
@@ -348,22 +399,11 @@ export default function TreffixPage() {
           </h2>
           <div className={styles.body}>
             <p>
-              A clean, modern interface that immediately communicates who Treffix is
-              and what they build — designed to give enterprise visitors the confidence
-              to take the next step.
+              A focused, operator-first interface — where the most important
+              information is always one glance away, and complex fleet data
+              becomes something you can actually act on.
             </p>
           </div>
-          <a
-            href="https://treffix.id/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.visitBtn}
-          >
-            Visit treffix.id
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7v10"/>
-            </svg>
-          </a>
         </div>
         <div className={styles.screensGrid}>
           {(UI_SCREENS_NEW.length > 0 ? UI_SCREENS_NEW : PLACEHOLDERS).map((s, i) =>
@@ -400,15 +440,15 @@ export default function TreffixPage() {
             Results
           </div>
           <h2 className={styles.sectionTitle}>
-            A presence that finally
+            A dashboard operators
             <br />
-            matches the product
+            actually want to use
           </h2>
           <div className={styles.body}>
             <p>
-              The redesigned Treffix company profile gave the brand a visual identity
-              that's consistent, credible, and ready to represent a growing SaaS company —
-              both internally and to prospective enterprise clients.
+              The redesigned BiTrack V2 Dashboard transformed the way operators
+              interact with their fleet data — turning a tool people used out of
+              necessity into one they actively rely on.
             </p>
           </div>
           <div className={styles.results}>
@@ -424,7 +464,7 @@ export default function TreffixPage() {
       </div>
 
       {/* CAROUSEL */}
-      <ProjectCarousel currentId="treffix" />
+      <ProjectCarousel currentId="bitrack-dashboard" />
 
       {/* LIGHTBOX */}
       {lightbox && (

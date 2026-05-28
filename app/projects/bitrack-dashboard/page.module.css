@@ -1,6 +1,6 @@
 /* ============================================================
-   Treffix Company Profile — page.module.css
-   accent: #456BF2 / rgba(69,107,242,...)
+   BiTrack V2 Dashboard — page.module.css
+   accent: #CF4747 / rgba(207,71,71,...)
    ============================================================ */
 
 /* ── HERO ──────────────────────────────────────────────────── */
@@ -51,7 +51,7 @@
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: #456BF2;
+  color: #CF4747;
   margin-bottom: 1.25rem;
   opacity: 0;
   animation: fadeUp .7s .2s ease forwards;
@@ -61,7 +61,7 @@
   display: block;
   width: 2rem;
   height: 1px;
-  background: #456BF2;
+  background: #CF4747;
   font-style: normal;
 }
 
@@ -126,7 +126,7 @@
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: #456BF2;
+  color: #CF4747;
   margin-bottom: 1.25rem;
 }
 
@@ -134,7 +134,7 @@
   display: block;
   width: 1.5rem;
   height: 1px;
-  background: #456BF2;
+  background: #CF4747;
   font-style: normal;
 }
 
@@ -159,6 +159,54 @@
   margin-top: 1.25rem;
 }
 
+/* ── STATS ─────────────────────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: .5px solid var(--line);
+  border-bottom: .5px solid var(--line);
+  margin: 3rem 0;
+}
+
+.statCard {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  transition: background .3s;
+}
+
+.statCard:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: .5px;
+  background: var(--line);
+}
+
+.statCard:hover {
+  background: var(--bg2);
+}
+
+.statNum {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #CF4747;
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+
+.statLabel {
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted2);
+}
+
 /* ── CHALLENGES ────────────────────────────────────────────── */
 .challenges {
   display: grid;
@@ -176,7 +224,7 @@
 }
 
 .challengeCard:hover {
-  border-color: rgba(69,107,242,.2);
+  border-color: rgba(207,71,71,.2);
   transform: translateY(-3px);
 }
 
@@ -184,7 +232,7 @@
   font-size: .65rem;
   font-weight: 700;
   letter-spacing: .15em;
-  color: #456BF2;
+  color: #CF4747;
   margin-bottom: .75rem;
 }
 
@@ -223,7 +271,7 @@
 .solutionNum {
   font-size: 3rem;
   font-weight: 700;
-  color: rgba(69,107,242,.15);
+  color: rgba(207,71,71,.15);
   line-height: 1;
   letter-spacing: -.05em;
   padding-top: .25rem;
@@ -253,57 +301,6 @@
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad) 3rem;
-}
-
-.visitBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  margin-top: 1.75rem;
-  padding: .65rem 1.25rem;
-  border: 1px solid rgba(69, 107, 242, 0.4);
-  border-radius: 8px;
-  background: rgba(69, 107, 242, 0.08);
-  color: #456BF2;
-  font-size: .82rem;
-  font-weight: 500;
-  letter-spacing: .01em;
-  text-decoration: none;
-  transition: background 0.18s, border-color 0.18s, color 0.18s;
-}
-
-.visitBtn:hover {
-  background: rgba(69, 107, 242, 0.16);
-  border-color: rgba(69, 107, 242, 0.7);
-}
-
-.marqueeWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
-
-.marqueeRow {
-  overflow: hidden;
-  display: flex;
-}
-
-.marqueeTrack {
-  display: flex;
-  gap: 1.25rem;
-  width: max-content;
-  will-change: transform;
-  animation: scrollLeft 48s linear infinite;
-}
-
-.marqueeReverse .marqueeTrack {
-  animation: scrollRight 48s linear infinite;
-}
-
-.marqueeWrap:hover .marqueeTrack {
-  animation-play-state: paused;
 }
 
 /* ── Screens Grid ──────────────────────────────────────────── */
@@ -338,8 +335,8 @@
 }
 
 .desktopCard:hover {
-  border-color: rgba(69,107,242,.5);
-  box-shadow: 0 0 0 1px rgba(69,107,242,.15), 0 8px 32px rgba(0,0,0,.4);
+  border-color: rgba(207,71,71,.5);
+  box-shadow: 0 0 0 1px rgba(207,71,71,.15), 0 8px 32px rgba(0,0,0,.4);
 }
 
 .desktopCard img {
@@ -437,16 +434,6 @@
   background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,.015) 50%, transparent 70%);
 }
 
-@keyframes scrollLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.333%); }
-}
-
-@keyframes scrollRight {
-  from { transform: translateX(-33.333%); }
-  to   { transform: translateX(0); }
-}
-
 /* ── RESULTS ───────────────────────────────────────────────── */
 .results {
   display: grid;
@@ -467,19 +454,19 @@
 }
 
 .resultCard:hover {
-  border-color: rgba(69,107,242,.25);
+  border-color: rgba(207,71,71,.25);
 }
 
 .resultIcon {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(69,107,242,.08);
-  border: .5px solid rgba(69,107,242,.15);
+  background: rgba(207,71,71,.08);
+  border: .5px solid rgba(207,71,71,.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #456BF2;
+  color: #CF4747;
   flex-shrink: 0;
 }
 
@@ -657,6 +644,8 @@
 @media (max-width: 767px) {
   .caseHeroBg img { height: clamp(200px, 52vw, 300px); }
   .metaRow { gap: 1.5rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stats .statCard:last-child { grid-column: 1 / -1; }
   .challenges { grid-template-columns: 1fr; }
   .results { grid-template-columns: 1fr; }
   .solution { grid-template-columns: 1fr; gap: .75rem; }
