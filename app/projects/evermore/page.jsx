@@ -11,7 +11,6 @@ const META = [
   { label: "Type", value: "Landing Page" },
   { label: "Category", value: "Web3 · Game" },
   { label: "Year", value: "2023" },
-  { label: "Platform", value: "Web" },
 ];
 
 const CHALLENGES = [

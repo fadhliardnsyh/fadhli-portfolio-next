@@ -643,7 +643,7 @@
 
 @media (max-width: 767px) {
   .caseHeroBg img { height: clamp(200px, 52vw, 300px); }
-  .metaRow { gap: 1.5rem; }
+  .metaRow { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
   .stats { grid-template-columns: 1fr 1fr; }
   .stats .statCard:last-child { grid-column: 1 / -1; }
   .challenges { grid-template-columns: 1fr; }

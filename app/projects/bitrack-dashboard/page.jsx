@@ -9,9 +9,8 @@ import styles from "./page.module.css";
 const META = [
   { label: "Role", value: "UI/UX Designer" },
   { label: "Type", value: "Web Dashboard" },
-  { label: "Category", value: "IoT · Fleet Management" },
+  { label: "Category", value: "IoT · Fleet" },
   { label: "Year", value: "2025" },
-  { label: "Platform", value: "Responsive Web" },
 ];
 
 const STATS = [
@@ -262,7 +261,7 @@ export default function BiTrackDashboardPage() {
           <h2 className={styles.sectionTitle}>
             From internal tool
             <br />
-            to fleet command center
+            to command center
           </h2>
           <div className={styles.body}>
             <p>

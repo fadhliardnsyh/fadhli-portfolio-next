@@ -656,7 +656,7 @@
 
 @media (max-width: 767px) {
   .caseHeroBg img { height: clamp(200px, 52vw, 300px); }
-  .metaRow { gap: 1.5rem; }
+  .metaRow { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
   .challenges { grid-template-columns: 1fr; }
   .results { grid-template-columns: 1fr; }
   .solution { grid-template-columns: 1fr; gap: .75rem; }
