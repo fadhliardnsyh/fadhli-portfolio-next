@@ -166,34 +166,47 @@
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  border-top: .5px solid var(--line);
+  border-bottom: .5px solid var(--line);
   margin: 3rem 0;
 }
 
 .statCard {
-  background: var(--bg2);
-  border: .5px solid var(--line);
-  border-radius: var(--radius);
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 2rem;
   text-align: center;
-  transition: border-color .3s;
+  position: relative;
+  transition: background .3s;
+}
+
+.statCard:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: .5px;
+  background: var(--line);
 }
 
 .statCard:hover {
-  border-color: rgba(216,64,64,.3);
+  background: var(--bg2);
 }
 
 .statNum {
-  font-size: 2.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4rem);
   font-weight: 700;
+  letter-spacing: -0.04em;
   color: #D84040;
   line-height: 1;
-  margin-bottom: .4rem;
+  margin-bottom: .5rem;
 }
 
 .statLabel {
-  font-size: .78rem;
-  font-weight: 400;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
   color: var(--muted2);
 }
 
