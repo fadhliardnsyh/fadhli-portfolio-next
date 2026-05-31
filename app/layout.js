@@ -1,4 +1,4 @@
-import { Poppins } from 'next/font/google';
+import { Poppins, Fraunces, JetBrains_Mono } from 'next/font/google';
 import Script from 'next/script';
 import Footer from './components/Footer/Footer';
 import Preloader from './components/Preloader/Preloader';
@@ -12,6 +12,21 @@ const poppins = Poppins({
   style: ['normal', 'italic'],
   display: 'swap',
 });
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['italic', 'normal'],
+  variable: '--font-fraunces',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 export const metadata = {
   title: 'Fadhli Ardiansyah — UI/UX Designer',
   description: 'Portfolio of Fadhli Ardiansyah, UI/UX Designer based in Indonesia.',
@@ -21,7 +36,7 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" className={`${poppins.className} ${fraunces.variable} ${jetbrainsMono.variable}`}>
       <body>
         <CustomCursor />
         <NavbarWrapper />

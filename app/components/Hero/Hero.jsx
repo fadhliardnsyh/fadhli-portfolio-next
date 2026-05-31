@@ -9,16 +9,20 @@ const mask = {
   show: (i) => ({
     y: "0%",
     transition: {
-      duration: 1,
-      delay: 0.3 + i * 0.12,
+      duration: 1.1,
+      delay: 0.35 + i * 0.14,
       ease: [0.22, 1, 0.36, 1],
     },
   }),
 };
 
 const fade = {
-  hidden: { opacity: 0 },
-  show: (d = 0) => ({ opacity: 1, transition: { duration: 1, delay: d } }),
+  hidden: { opacity: 0, y: 12 },
+  show: (d = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, delay: d, ease: [0.22, 1, 0.36, 1] },
+  }),
 };
 
 export default function Hero() {
@@ -28,30 +32,42 @@ export default function Hero() {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y          = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
-  const op         = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const patternY   = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const op = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
 
   return (
     <section className={styles.hero} ref={ref} id="home">
-      <motion.div className={styles.pattern} style={{ y: patternY }} />
-      <div className={styles.orb1} />
-      <div className={styles.orb2} />
-      <div className={styles.orb3} />
-      <div className={styles.noise} />
 
-      {/* top corners */}
-      <motion.div
-        className={styles.cornerTR}
-        variants={fade}
-        initial="hidden"
-        animate="show"
-        custom={0.3}
-      >
-        Bekasi, ID — {new Date().getFullYear()}
-      </motion.div>
+      {/* Top meta — refined, not data-heavy */}
+      <div className={styles.topRow}>
+        <motion.div
+          className={styles.availability}
+          variants={fade}
+          initial="hidden"
+          animate="show"
+          custom={0.2}
+        >
+          <span className={styles.availDot} />
+          Available for new projects
+        </motion.div>
 
-      {/* main */}
+        <motion.a
+          href="https://treffix.id"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.currentlyAt}
+          variants={fade}
+          initial="hidden"
+          animate="show"
+          custom={0.3}
+        >
+          Currently designing at{" "}
+          <span className={styles.currentlyName}>Treffix.id</span>
+          <span className={styles.currentlyArrow}>↗</span>
+        </motion.a>
+      </div>
+
+      {/* Title */}
       <motion.div className={styles.center} style={{ y, opacity: op }}>
         <h1 className={styles.title}>
           <span className={styles.row}>
@@ -90,7 +106,7 @@ export default function Hero() {
         </h1>
       </motion.div>
 
-      {/* bottom */}
+      {/* Bottom */}
       <motion.div
         className={styles.bottom}
         variants={fade}
@@ -99,13 +115,27 @@ export default function Hero() {
         custom={1.3}
       >
         <p className={styles.bio}>
-          I'm Fadhli — a Product &amp; UI/UX Designer crafting digital
+          I&apos;m Fadhli — a Product &amp; UI/UX Designer crafting digital
           experiences that balance business goals with human needs.
         </p>
         <button className={styles.cta} onClick={onConnectClick}>
           <span>Get in touch</span>
           <span className={styles.ctaArrow}>↗</span>
         </button>
+      </motion.div>
+
+      {/* Subtle scroll cue */}
+      <motion.div
+        className={styles.scrollCue}
+        variants={fade}
+        initial="hidden"
+        animate="show"
+        custom={1.6}
+      >
+        <span className={styles.scrollLabel}>Scroll</span>
+        <span className={styles.scrollLine}>
+          <span className={styles.scrollLineDot} />
+        </span>
       </motion.div>
     </section>
   );

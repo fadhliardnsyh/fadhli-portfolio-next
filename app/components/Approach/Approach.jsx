@@ -103,7 +103,10 @@ export default function Approach() {
         {/* HEADER */}
         <div className={`${styles.header} ${styles.reveal}`} ref={headerRef}>
           <div className={styles.headerLeft}>
-            <div className={styles.sectionLabel}>Skills &amp; Expertise</div>
+            <div className={styles.sectionLabel}>
+              <i />
+              Skills &amp; Expertise
+            </div>
             <h2 className={styles.sectionTitle}>
               What I bring<br />to the table
             </h2>

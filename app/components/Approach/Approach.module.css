@@ -4,7 +4,29 @@
 
 .section {
   padding: clamp(4rem, 8vw, 7rem) var(--pad);
-  background: var(--bg2);
+  position: relative;
+}
+
+/* Soft local accent — gentle warmth at top-right, blends with global canvas */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 60%;
+  background: radial-gradient(
+    ellipse 50% 70% at 80% 30%,
+    rgba(245, 197, 24, 0.035),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .inner {
@@ -24,12 +46,23 @@
 }
 
 .sectionLabel {
-  font-size: 0.72rem;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted2);
-  margin-bottom: 1.5rem;
+  color: var(--y);
+  margin-bottom: 1.25rem;
+}
+
+.sectionLabel i {
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--y);
+  font-style: normal;
 }
 
 .sectionTitle {
