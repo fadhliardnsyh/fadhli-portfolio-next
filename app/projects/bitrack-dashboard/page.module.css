@@ -20,17 +20,41 @@
 
 .caseHeroBg img {
   width: 100%;
-  height: clamp(320px, 48vw, 560px);
+  height: clamp(360px, 52vw, 600px);
   object-fit: cover;
   object-position: center;
   display: block;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 6%,
+    #000 18%,
+    #000 65%,
+    rgba(0, 0, 0, 0.55) 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 6%,
+    #000 18%,
+    #000 65%,
+    rgba(0, 0, 0, 0.55) 88%,
+    transparent 100%
+  );
 }
 
 .caseHeroBg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(8,8,8,.45) 0%, transparent 30%, transparent 50%, var(--bg) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 8, 8, 0.55) 0%,
+    rgba(8, 8, 8, 0.15) 30%,
+    transparent 60%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 

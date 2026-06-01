@@ -50,21 +50,6 @@ export default function Hero() {
           <span className={styles.availDot} />
           Available for new projects
         </motion.div>
-
-        <motion.a
-          href="https://treffix.id"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.currentlyAt}
-          variants={fade}
-          initial="hidden"
-          animate="show"
-          custom={0.3}
-        >
-          Currently designing at{" "}
-          <span className={styles.currentlyName}>Treffix.id</span>
-          <span className={styles.currentlyArrow}>↗</span>
-        </motion.a>
       </div>
 
       {/* Title */}
@@ -120,7 +105,20 @@ export default function Hero() {
         </p>
         <button className={styles.cta} onClick={onConnectClick}>
           <span>Get in touch</span>
-          <span className={styles.ctaArrow}>↗</span>
+          <svg
+            className={styles.ctaArrow}
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 17L17 7M17 7H7M17 7v10" />
+          </svg>
         </button>
       </motion.div>
 

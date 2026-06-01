@@ -53,7 +53,8 @@ const SOCIALS = [
 ];
 
 const NAV_LINKS = [
-  { label: "About Me", href: "/about" },
+  { label: "Home",     href: "/"         },
+  { label: "About Me", href: "/about"    },
   { label: "Projects", href: "/projects" },
 ];
 

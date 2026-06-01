@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import ContactModal from "../../components/ContactModal/ContactModal";
 import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
+import useMarqueeSlowOnHover from "../../hooks/useMarqueeSlowOnHover";
 import styles from "./page.module.css";
 
 const META = [
@@ -272,6 +273,9 @@ export default function FixworkPage() {
   const resultsRef = useReveal();
   const v2Ref = useReveal();
 
+  const marqueeWrapRef = useRef(null);
+  useMarqueeSlowOnHover(marqueeWrapRef);
+
   return (
     <>
       <Navbar onConnectClick={() => setModalOpen(true)} />
@@ -415,7 +419,7 @@ export default function FixworkPage() {
             Designed for real<br />everyday use
           </h2>
         </div>
-        <div className={styles.marqueeWrap}>
+        <div className={styles.marqueeWrap} ref={marqueeWrapRef}>
           {/* Row 1 — kiri */}
           <div className={styles.marqueeRow}>
             <div className={styles.marqueeTrack}>

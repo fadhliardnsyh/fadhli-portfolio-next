@@ -109,9 +109,6 @@
   animation: slideLeft 38s linear infinite;
 }
 
-.track:hover {
-  animation-play-state: paused;
-}
 
 /* ── ITEM ────────────────────────────────────────────────── */
 .item {

@@ -41,34 +41,9 @@ body {
   position: relative;
 }
 
-/* ── UNIFIED ATMOSPHERIC CANVAS ────────────────────────────
-   Fixed multi-layered glows that anchor to the viewport,
-   so the same warm atmosphere shows behind every section
-   instead of each section being a flat slab.
-   ──────────────────────────────────────────────────────── */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 60% 45% at 8% 4%, rgba(245, 197, 24, 0.13), transparent 65%),
-    radial-gradient(ellipse 40% 32% at 88% 28%, rgba(245, 197, 24, 0.06), transparent 62%),
-    radial-gradient(ellipse 46% 34% at 18% 70%, rgba(245, 197, 24, 0.07), transparent 65%),
-    radial-gradient(ellipse 38% 30% at 82% 96%, rgba(255, 220, 80, 0.045), transparent 65%);
-  background-attachment: fixed;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.028;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+/* Atmospheric canvas (warm glows + noise) is rendered via
+   the <Atmosphere /> component in layout.js, fixed behind
+   all content with animated drifting blobs. */
 
 /* ── CUSTOM CURSOR ─────────────────────────────────────────── */
 #cursor,
@@ -844,9 +819,6 @@ a.proj-card {
   animation: slideLeft 32s linear infinite;
 }
 
-.testi-track:hover {
-  animation-play-state: paused;
-}
 
 .testi-card {
   flex-shrink: 0;
@@ -1438,10 +1410,11 @@ footer {
   .stat-card-wide { grid-column: auto; }
   .hero-right { gap: 0.75rem; }
 }
-body {
-  cursor: none;
-}
-
-a, button {
-  cursor: none;
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button {
+    cursor: none;
+  }
 }

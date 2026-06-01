@@ -19,17 +19,41 @@
 
 .caseHeroBg img {
   width: 100%;
-  height: clamp(320px, 48vw, 560px);
+  height: clamp(360px, 52vw, 600px);
   object-fit: cover;
   object-position: center;
   display: block;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 6%,
+    #000 18%,
+    #000 65%,
+    rgba(0, 0, 0, 0.55) 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 6%,
+    #000 18%,
+    #000 65%,
+    rgba(0, 0, 0, 0.55) 88%,
+    transparent 100%
+  );
 }
 
 .caseHeroBg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(8,8,8,.45) 0%, transparent 30%, transparent 50%, var(--bg) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 8, 8, 0.55) 0%,
+    rgba(8, 8, 8, 0.15) 30%,
+    transparent 60%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
@@ -342,10 +366,6 @@
   animation: scrollRight 36s linear infinite;
 }
 
-/* Pause on hover */
-.marqueeWrap:hover .marqueeTrack {
-  animation-play-state: paused;
-}
 
 /* ── Phone Card ─────────────────────────────────────────────── */
 .phoneCard {
@@ -500,8 +520,6 @@
   position: relative;
   padding: 6rem 0 0;
   overflow: hidden;
-  background: var(--bg2);
-  border-top: .5px solid var(--line);
 }
 
 .v2Inner {
@@ -599,7 +617,7 @@
   left: 0;
   right: 0;
   height: 260px;
-  background: linear-gradient(to bottom, transparent, var(--bg2));
+  background: linear-gradient(to bottom, transparent, var(--bg));
   pointer-events: none;
 }
 

@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Preloader from './components/Preloader/Preloader';
 import CustomCursor from './components/CustomCursor/CustomCursor';
 import NavbarWrapper from './components/NavbarWrapper/NavbarWrapper';
+import Atmosphere from './components/Atmosphere/Atmosphere';
 import './globals.css';
 
 const poppins = Poppins({
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${poppins.className} ${fraunces.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <Atmosphere />
         <CustomCursor />
         <NavbarWrapper />
         <Preloader />

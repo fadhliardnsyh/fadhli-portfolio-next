@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import useMarqueeSlowOnHover from "../../hooks/useMarqueeSlowOnHover";
 import styles from "./Companies.module.css";
 
 const COMPANIES = [
@@ -19,6 +20,8 @@ const COMPANIES = [
 export default function Companies() {
   const headerRef = useRef(null);
   const trackRef = useRef(null);
+  const trackWrapRef = useRef(null);
+  useMarqueeSlowOnHover(trackWrapRef);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,7 +64,10 @@ export default function Companies() {
 
       <div
         className={`${styles.trackWrap} ${styles.reveal} ${styles.revealD2}`}
-        ref={trackRef}
+        ref={(el) => {
+          trackRef.current = el;
+          trackWrapRef.current = el;
+        }}
       >
         <div className={styles.track}>
           {items.map((c, i) => (
