@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "./Projects.module.css";
 import ALL_PROJECTS from "../../data/projects";
 
-const SELECTED_IDS = ["fixwork", "bitrack", "garuda", "treffix"];
+const SELECTED_IDS = ["fixtrack", "fixwork", "bitrack", "garuda"];
 
 const PROJECTS = SELECTED_IDS
   .map((id) => ALL_PROJECTS.find((p) => p.id === id))
@@ -32,29 +32,58 @@ export default function Projects() {
   const rowsRef = useRef([]);
 
   useEffect(() => {
-    tx.current = window.innerWidth / 2;
-    ty.current = window.innerHeight / 2;
-    px.current = tx.current;
-    py.current = ty.current;
+    // Skip mouse-following preview entirely on touch/coarse-pointer devices.
+    // The cursor preview only makes sense with a mouse; on touch it just
+    // adds overhead and can render at a stale position.
+    const isFinePointer =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-    const onMove = (e) => {
-      tx.current = e.clientX;
-      ty.current = e.clientY;
-    };
-    window.addEventListener("mousemove", onMove);
+    if (isFinePointer) {
+      tx.current = window.innerWidth / 2;
+      ty.current = window.innerHeight / 2;
+      px.current = tx.current;
+      py.current = ty.current;
 
-    const loop = () => {
-      px.current += (tx.current - px.current) * 0.12;
-      py.current += (ty.current - py.current) * 0.12;
-      if (previewRef.current) {
-        previewRef.current.style.left = px.current + "px";
-        previewRef.current.style.top = py.current + "px";
-      }
+      const onMove = (e) => {
+        tx.current = e.clientX;
+        ty.current = e.clientY;
+      };
+      window.addEventListener("mousemove", onMove);
+
+      const loop = () => {
+        px.current += (tx.current - px.current) * 0.12;
+        py.current += (ty.current - py.current) * 0.12;
+        if (previewRef.current) {
+          previewRef.current.style.left = px.current + "px";
+          previewRef.current.style.top = py.current + "px";
+        }
+        raf.current = requestAnimationFrame(loop);
+      };
       raf.current = requestAnimationFrame(loop);
-    };
-    raf.current = requestAnimationFrame(loop);
 
-    // Scroll reveal for rows
+      // Scroll reveal for rows
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add(styles.visible);
+              io.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.1 }
+      );
+      rowsRef.current.forEach((el) => el && io.observe(el));
+
+      return () => {
+        window.removeEventListener("mousemove", onMove);
+        cancelAnimationFrame(raf.current);
+        io.disconnect();
+      };
+    }
+
+    // Touch fallback: keep reveal but no mouse tracking.
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
@@ -67,11 +96,7 @@ export default function Projects() {
     );
     rowsRef.current.forEach((el) => el && io.observe(el));
 
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(raf.current);
-      io.disconnect();
-    };
+    return () => io.disconnect();
   }, []);
 
   const handleEnter = (p) => {
@@ -97,9 +122,20 @@ export default function Projects() {
       </div>
 
       <div className={styles.inner}>
-        <div className={styles.sectionLabel}>
-          <i />
-          Selected Work
+        <div className={styles.header}>
+          <div className={styles.sectionLabel}>
+            <i />
+            Selected Work
+          </div>
+          <h2 className={styles.sectionTitle}>
+            A closer look at
+            <br />
+            what I&apos;ve built
+          </h2>
+          <p className={styles.sectionSub}>
+            A handful of the projects I&apos;m most proud of, across product,
+            landing pages, and dashboards. Each one shaped how I design today.
+          </p>
         </div>
 
         <div className={styles.list}>

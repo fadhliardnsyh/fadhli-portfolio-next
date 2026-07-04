@@ -115,15 +115,17 @@
   pointer-events: none;
 }
 
-.card:hover {
-  border-color: rgba(245, 197, 24, 0.18);
-  background: rgba(255, 255, 255, 0.012);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-}
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    border-color: rgba(245, 197, 24, 0.18);
+    background: rgba(255, 255, 255, 0.012);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  }
 
-.card:hover::before {
-  opacity: 1;
+  .card:hover::before {
+    opacity: 1;
+  }
 }
 
 .cardIcon {
@@ -142,12 +144,14 @@
   transition: filter 0.45s ease;
 }
 
-.card:hover .cardIcon {
-  transform: scale(1.08) rotate(-4deg);
-}
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .cardIcon {
+    transform: scale(1.08) rotate(-4deg);
+  }
 
-.card:hover .cardIcon svg {
-  filter: drop-shadow(0 0 10px rgba(245, 197, 24, 0.45));
+  .card:hover .cardIcon svg {
+    filter: drop-shadow(0 0 10px rgba(245, 197, 24, 0.45));
+  }
 }
 
 /* SVG path draw-in animation */
@@ -193,8 +197,10 @@
   transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.card:hover .cardTitle::after {
-  width: 28px;
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .cardTitle::after {
+    width: 28px;
+  }
 }
 
 .cardText {

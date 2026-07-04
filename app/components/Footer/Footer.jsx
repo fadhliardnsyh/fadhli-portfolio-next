@@ -90,14 +90,14 @@ export default function Footer() {
         <div className={styles.inner}>
           {/* ── TOP ── */}
           <div className={styles.top}>
-            {/* Col 1 — Logo + desc + socials */}
+            {/* Col 1, Logo + desc + socials */}
             <div>
               <div className={styles.logoWrap}>
                 <img
                   src="/assets/logo.svg"
                   alt="Fadhli Logo"
-                  width={28}
-                  height={28}
+                  width={44}
+                  height={44}
                 />
               </div>
               <p className={styles.desc}>
@@ -121,7 +121,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Col 2 — Navigation */}
+            {/* Col 2, Navigation */}
             <div>
               <div className={styles.colTitle}>Navigation</div>
               <div className={styles.links}>
@@ -133,7 +133,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Col 3 — Get In Touch */}
+            {/* Col 3, Get In Touch */}
             <div>
               <div className={styles.colTitle}>Get In Touch</div>
               <div className={styles.links}>

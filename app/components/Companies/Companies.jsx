@@ -6,15 +6,15 @@ import useMarqueeSlowOnHover from "../../hooks/useMarqueeSlowOnHover";
 import styles from "./Companies.module.css";
 
 const COMPANIES = [
-  { name: "Treffix.id",       logo: "/assets/companies/company-treffix.png" },
-  { name: "Tekuton",          logo: "/assets/companies/company-tekuton.png" },
-  { name: "Nomina Games",     logo: "/assets/companies/company-nomina.png" },
-  { name: "DjuBli",           logo: "/assets/companies/company-djubli.png" },
-  { name: "Universitas Gunadarma", logo: "/assets/companies/company-gunadarma.png" },
-  { name: "CreoEngine",       logo: "/assets/companies/company-creoengine.png" },
-  { name: "Garuda Eleven",    logo: "/assets/companies/company-garudaeleven.png" },
-  { name: "Tag-Tag",          logo: "/assets/companies/company-tagtag.png" },
-  { name: "BLog",             logo: "/assets/companies/company-blog.png" },
+  { name: "Treffix.id",       logo: "/assets/companies/company-treffix.webp" },
+  { name: "Tekuton",          logo: "/assets/companies/company-tekuton.webp" },
+  { name: "Nomina Games",     logo: "/assets/companies/company-nomina.webp" },
+  { name: "DjuBli",           logo: "/assets/companies/company-djubli.webp" },
+  { name: "Universitas Gunadarma", logo: "/assets/companies/company-gunadarma.webp" },
+  { name: "CreoEngine",       logo: "/assets/companies/company-creoengine.webp" },
+  { name: "Garuda Eleven",    logo: "/assets/companies/company-garudaeleven.webp" },
+  { name: "Tag-Tag",          logo: "/assets/companies/company-tagtag.webp" },
+  { name: "BLog",             logo: "/assets/companies/company-blog.webp" },
 ];
 
 export default function Companies() {
@@ -56,7 +56,7 @@ export default function Companies() {
             worked with
           </h2>
           <p className={styles.sectionSub}>
-            Across startups, agencies, game studios, and enterprise — every
+            Across startups, agencies, game studios, and enterprise, every
             collaboration shaped the way I design today.
           </p>
         </div>
@@ -75,8 +75,8 @@ export default function Companies() {
               <Image
                 src={c.logo}
                 alt={c.name}
-                width={260}
-                height={110}
+                width={320}
+                height={140}
                 className={styles.logo}
                 unoptimized
               />

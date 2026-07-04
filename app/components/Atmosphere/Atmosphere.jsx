@@ -5,7 +5,7 @@ import styles from "./Atmosphere.module.css";
 
 export default function Atmosphere() {
   const pathname = usePathname() || "";
-  // Atmosphere only on the home page — other pages get a clean solid
+  // Atmosphere only on the home page, other pages get a clean solid
   // canvas so banners, content, and the footer sit on consistent dark.
   if (pathname !== "/") return null;
 

@@ -147,27 +147,39 @@
   align-items: center;
   gap: 0.6rem;
   background: var(--y);
-  color: var(--bg);
+  color: #0a0a0a;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 0.85rem;
   padding: 0.875rem 1.75rem;
   border-radius: 100px;
+  border: 1.5px solid var(--y);
   text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
   white-space: nowrap;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    gap 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 8px 24px rgba(245, 197, 24, 0.18);
 }
 
 .btnPrimary:hover {
-  background: var(--y2);
+  background: transparent;
+  color: var(--y);
+  gap: 0.95rem;
   transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(245, 197, 24, 0.25);
 }
 
 .btnPrimary svg {
   width: 14px;
   height: 14px;
   flex-shrink: 0;
-  transition: transform 0.2s;
+  fill: none;
+  stroke: currentColor;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btnPrimary:hover svg {

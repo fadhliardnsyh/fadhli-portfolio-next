@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
 
-// Nav links config — sesuaikan href kalau struktur routing berubah
+// Nav links config, sesuaikan href kalau struktur routing berubah
 const NAV_LINKS = [
   { label: 'Home',      href: '/'         },
   { label: 'About Me',  href: '/about'    },
@@ -122,8 +122,8 @@ export default function Navbar({ onConnectClick }) {
       {/* ── NAV BAR ──────────────────────────────────────────────────────── */}
       <nav className={navClass} id="nav">
         {/* Logo kiri */}
-        <Link href="/" className={styles.navLogo} aria-label="Fadhli Ardiansyah — Home">
-          <Image src="/assets/logo.svg" alt="Fadhli Logo" width={36} height={36} priority unoptimized />
+        <Link href="/" className={styles.navLogo} aria-label="Fadhli Ardiansyah, Home">
+          <Image src="/assets/logo.svg" alt="Fadhli Logo" width={48} height={48} priority unoptimized />
         </Link>
 
         {/* Center pill */}
@@ -139,7 +139,7 @@ export default function Navbar({ onConnectClick }) {
           ))}
         </div>
 
-        {/* CTA kanan — desktop */}
+        {/* CTA kanan, desktop */}
         <div className={styles.navRight}>
           <button
             className={styles.navConnectBtn}
@@ -151,7 +151,7 @@ export default function Navbar({ onConnectClick }) {
           </button>
         </div>
 
-        {/* Hamburger — mobile */}
+        {/* Hamburger, mobile */}
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
           id="hamburger"

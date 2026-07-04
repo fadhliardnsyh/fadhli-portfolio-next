@@ -6,7 +6,7 @@ import styles from "./ProjectCarousel.module.css";
 import ALL_PROJECTS from "../../data/projects";
 
 export default function ProjectCarousel({ currentId }) {
-  const projects = ALL_PROJECTS.filter((p) => p.id !== currentId);
+  const projects = ALL_PROJECTS.filter((p) => p.id !== currentId && !p.hidden);
   const trackRef  = useRef(null);
   const idxRef    = useRef(0);   // 0 … projects.length-1 (posisi di set real)
   const timerRef  = useRef(null);
@@ -123,7 +123,7 @@ export default function ProjectCarousel({ currentId }) {
         </div>
       </div>
 
-      {/* Track — tripled list */}
+      {/* Track, tripled list */}
       <div className={styles.track} ref={trackRef}>
         {tripled.map((p, i) => (
           <Link key={`${p.id}-${i}`} href={p.href} className={styles.card}>

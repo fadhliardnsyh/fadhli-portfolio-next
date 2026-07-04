@@ -151,10 +151,12 @@
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease;
 }
-.card:hover {
-  border-color: var(--accent, var(--y));
-  transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    border-color: var(--accent, var(--y));
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  }
 }
 
 /* ── CARD IMAGE ─────────────────────────────────────────────── */
@@ -172,8 +174,10 @@
   transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
   display: block;
 }
-.card:hover .cardImg img {
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .cardImg img {
+    transform: scale(1.05);
+  }
 }
 
 .cardImgFallback {
@@ -231,10 +235,12 @@
   border-radius: 100px;
   transition: color 0.25s, border-color 0.25s;
 }
-.card:hover .tag {
-  color: var(--accent, var(--y));
-  border-color: var(--accent, var(--y));
-  opacity: 0.8;
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .tag {
+    color: var(--accent, var(--y));
+    border-color: var(--accent, var(--y));
+    opacity: 0.8;
+  }
 }
 
 .cardYear {
@@ -242,6 +248,50 @@
   font-weight: 400;
   color: var(--muted);
   flex-shrink: 0;
+}
+
+/* Discipline tags: highlight the "what did Fadhli do" info */
+.tagDesign {
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.35);
+}
+
+.tagVibe {
+  color: var(--y);
+  background: rgba(245, 197, 24, 0.08);
+  border-color: rgba(245, 197, 24, 0.35);
+}
+
+/* In-progress status pill */
+.cardStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4ade80;
+  padding: 0.15rem 0.55rem;
+  border: 0.5px solid rgba(74, 222, 128, 0.35);
+  border-radius: 100px;
+  background: rgba(74, 222, 128, 0.05);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulseInProgress 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseInProgress {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
+  50%      { box-shadow: 0 0 0 5px rgba(74, 222, 128, 0); }
 }
 
 .cardBottom {
@@ -268,9 +318,11 @@
   transition: color 0.25s, transform 0.25s;
   line-height: 1;
 }
-.card:hover .arrow {
-  color: var(--accent, var(--y));
-  transform: translate(2px, -2px);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .arrow {
+    color: var(--accent, var(--y));
+    transform: translate(2px, -2px);
+  }
 }
 
 @keyframes cardIn {

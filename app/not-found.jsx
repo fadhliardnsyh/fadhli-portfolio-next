@@ -99,7 +99,7 @@ export default function NotFound() {
         </h1>
 
         <p className={styles.desc}>
-          I'm working on this — check back soon.
+          I'm working on this, check back soon.
           <br />
           Good things take time, and this is no exception.
         </p>

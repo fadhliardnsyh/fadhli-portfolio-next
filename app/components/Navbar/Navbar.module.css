@@ -87,22 +87,31 @@
   align-items: center;
   gap: 0.5rem;
   background: var(--y);
-  color: var(--bg);
+  color: #0a0a0a;
   font-family: "Poppins", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   padding: 0.6rem 1.4rem;
   border-radius: 100px;
-  border: none;
+  border: 1.5px solid var(--y);
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
   white-space: nowrap;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    gap 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 6px 20px rgba(245, 197, 24, 0.15);
 }
 
 .navConnectBtn:hover {
-  background: var(--y2);
-  transform: translateY(-1px);
+  background: transparent;
+  color: var(--y);
+  gap: 0.8rem;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(245, 197, 24, 0.25);
 }
 
 /* ── HAMBURGER ─────────────────────────────────────────────── */

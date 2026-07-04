@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import ContactModal from "../../components/ContactModal/ContactModal";
 import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
 import useMarqueeSlowOnHover from "../../hooks/useMarqueeSlowOnHover";
 import styles from "./page.module.css";
@@ -23,27 +21,27 @@ const STATS = [
 
 const CHALLENGES = [
   {
-    num: "01 — Challenge",
+    num: "01, Challenge",
     title: "Vehicle monitoring was locked to a desktop dashboard",
-    desc: "All fleet monitoring could only be done through a desktop-based dashboard. Operators had to sit in front of a PC to see vehicle conditions — there was simply no other way.",
+    desc: "All fleet monitoring could only be done through a desktop-based dashboard. Operators had to sit in front of a PC to see vehicle conditions, there was simply no other way.",
   },
   {
-    num: "02 — Challenge",
+    num: "02, Challenge",
     title: "Real-time alerts went unnoticed",
-    desc: "GPS alerts and notifications only appeared on the desktop dashboard. If no one was at the PC when an alert came in, the response was delayed — and critical moments were missed entirely.",
+    desc: "GPS alerts and notifications only appeared on the desktop dashboard. If no one was at the PC when an alert came in, the response was delayed, and critical moments were missed entirely.",
   },
   {
-    num: "03 — Challenge",
+    num: "03, Challenge",
     title: "Operators had to stay glued to their PC",
     desc: "There was no mobility. Operators' ability to monitor the fleet was completely tied to being at a computer. Remote monitoring or checking in while on the field was simply not possible.",
   },
   {
-    num: "04 — Challenge",
+    num: "04, Challenge",
     title: "Registering new vehicles was an awkward process",
-    desc: "Adding a new unit to the system required access to the desktop dashboard — but the vehicle being registered was out in the field. Two things that couldn't be done at the same place at the same time.",
+    desc: "Adding a new unit to the system required access to the desktop dashboard, but the vehicle being registered was out in the field. Two things that couldn't be done at the same place at the same time.",
   },
   {
-    num: "05 — Challenge",
+    num: "05, Challenge",
     title: "Checking trip data required going back to the desk",
     desc: "Viewing trip history or real-time trip status meant accessing the dashboard. There was no quick way to check vehicle movement while away from the computer.",
   },
@@ -53,45 +51,45 @@ const SOLUTIONS = [
   {
     num: "01",
     title: "Vehicle tracking, now in your pocket",
-    desc: "Managers can monitor every vehicle's live location directly from their smartphone — no PC required. Whether in the office or out in the field, full fleet visibility is always one tap away.",
+    desc: "Managers can monitor every vehicle's live location directly from their smartphone, no PC required. Whether in the office or out in the field, full fleet visibility is always one tap away.",
   },
   {
     num: "02",
     title: "Driver behavior, visible from your phone",
-    desc: "Speed patterns, harsh braking, rapid acceleration, and idle time are all tracked and surfaced in the app. Teams get a clear picture of how each vehicle is being driven — without being physically present.",
+    desc: "Speed patterns, harsh braking, rapid acceleration, and idle time are all tracked and surfaced in the app. Teams get a clear picture of how each vehicle is being driven, without being physically present.",
   },
   {
     num: "03",
     title: "Full trip history on mobile",
-    desc: "Every trip — route taken, distance, duration, and timestamps — is logged automatically and accessible straight from the app. No need to open a dashboard or sit at a desk to review the data.",
+    desc: "Every trip, route taken, distance, duration, and timestamps, is logged automatically and accessible straight from the app. No need to open a dashboard or sit at a desk to review the data.",
   },
   {
     num: "04",
     title: "Real-time alerts, straight to your device",
-    desc: "Critical events like overspeeding, geofence violations, and unauthorized usage trigger instant push notifications to the manager's phone — so action can be taken immediately, from anywhere.",
+    desc: "Critical events like overspeeding, geofence violations, and unauthorized usage trigger instant push notifications to the manager's phone, so action can be taken immediately, from anywhere.",
   },
   {
     num: "05",
     title: "Register vehicles on the spot",
-    desc: "Adding a new unit to the system can now be done directly from the field. No more going back to the desk — managers can register a vehicle right where it's parked, the moment the GPS device is installed.",
+    desc: "Adding a new unit to the system can now be done directly from the field. No more going back to the desk, managers can register a vehicle right where it's parked, the moment the GPS device is installed.",
   },
 ];
 
 const V2_SCREENS = [
-  "/assets/projects/bitrack/bitrack-saas-1.png",
-  "/assets/projects/bitrack/bitrack-saas-2.png",
-  "/assets/projects/bitrack/bitrack-saas-3.png",
-  "/assets/projects/bitrack/bitrack-saas-4.png",
+  "/assets/projects/bitrack/bitrack-saas-1.webp",
+  "/assets/projects/bitrack/bitrack-saas-2.webp",
+  "/assets/projects/bitrack/bitrack-saas-3.webp",
+  "/assets/projects/bitrack/bitrack-saas-4.webp",
 ];
 
 const UI_SCREENS = [
-  { src: "/assets/projects/bitrack/bitrack-ui-01.png", label: "Tracker Page" },
-  { src: "/assets/projects/bitrack/bitrack-ui-02.png", label: "Vehicle Tracker" },
-  { src: "/assets/projects/bitrack/bitrack-ui-03.png", label: "Vehicle Information" },
-  { src: "/assets/projects/bitrack/bitrack-ui-04.png", label: "Dashcam Page" },
-  { src: "/assets/projects/bitrack/bitrack-ui-05.png", label: "Trip History" },
-  { src: "/assets/projects/bitrack/bitrack-ui-06.png", label: "Alert" },
-  { src: "/assets/projects/bitrack/bitrack-ui-07.png", label: "Vehicle List" },
+  { src: "/assets/projects/bitrack/bitrack-ui-01.webp", label: "Tracker Page" },
+  { src: "/assets/projects/bitrack/bitrack-ui-02.webp", label: "Vehicle Tracker" },
+  { src: "/assets/projects/bitrack/bitrack-ui-03.webp", label: "Vehicle Information" },
+  { src: "/assets/projects/bitrack/bitrack-ui-04.webp", label: "Dashcam Page" },
+  { src: "/assets/projects/bitrack/bitrack-ui-05.webp", label: "Trip History" },
+  { src: "/assets/projects/bitrack/bitrack-ui-06.webp", label: "Alert" },
+  { src: "/assets/projects/bitrack/bitrack-ui-07.webp", label: "Vehicle List" },
 ];
 
 const RESULTS = [
@@ -103,7 +101,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Real-Time Fleet Visibility",
-    desc: "Managers can see every vehicle's live location on a map without making a single phone call — no more guessing where the fleet is.",
+    desc: "Managers can see every vehicle's live location on a map without making a single phone call, no more guessing where the fleet is.",
   },
   {
     icon: (
@@ -113,7 +111,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Data-Driven Driver Accountability",
-    desc: "Driving behavior scores give companies a clear, objective view of how each driver performs — making it easy to reward good driving and address unsafe habits.",
+    desc: "Driving behavior scores give companies a clear, objective view of how each driver performs, making it easy to reward good driving and address unsafe habits.",
   },
   {
     icon: (
@@ -124,7 +122,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Zero Manual Trip Logging",
-    desc: "Automated recording eliminated the need for manual logbooks entirely. Every trip is captured accurately in the background — saving hours of admin work each week.",
+    desc: "Automated recording eliminated the need for manual logbooks entirely. Every trip is captured accurately in the background, saving hours of admin work each week.",
   },
   {
     icon: (
@@ -137,7 +135,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Instant Security Alerts",
-    desc: "Geofence violations and after-hours usage are flagged immediately — giving companies the ability to respond before situations escalate.",
+    desc: "Geofence violations and after-hours usage are flagged immediately, giving companies the ability to respond before situations escalate.",
   },
   {
     icon: (
@@ -148,7 +146,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Smarter Fleet Decisions",
-    desc: "Analytics surfaced patterns that were invisible before — which routes waste fuel, which vehicles need attention, and which drivers are consistently performing well.",
+    desc: "Analytics surfaced patterns that were invisible before, which routes waste fuel, which vehicles need attention, and which drivers are consistently performing well.",
   },
   {
     icon: (
@@ -158,7 +156,7 @@ const RESULTS = [
       </svg>
     ),
     title: "A UI That Feels Effortless",
-    desc: "Complex GPS and IoT data was distilled into a clean, scannable interface — managers can get the full picture in seconds, without needing training.",
+    desc: "Complex GPS and IoT data was distilled into a clean, scannable interface, managers can get the full picture in seconds, without needing training.",
   },
 ];
 
@@ -177,7 +175,7 @@ function AnimatedStat({ value, suffix, label, display }) {
           triggered.current = true;
           obs.disconnect();
           setVisible(true);
-          if (display) return; // static display — skip counter
+          if (display) return; // static display, skip counter
           const duration = 1600;
           const start = performance.now();
           const animate = (now) => {
@@ -231,7 +229,6 @@ function useReveal() {
 }
 
 export default function BiTrackPage() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
   const [lightboxClosing, setLightboxClosing] = useState(false);
 
@@ -278,12 +275,10 @@ export default function BiTrackPage() {
 
   return (
     <>
-      <Navbar onConnectClick={() => setModalOpen(true)} />
-
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/projects/bitrack/bitrack-page-banner.png" alt="BiTrack Hero" />
+          <img src="/assets/projects/bitrack/bitrack-page-banner.webp" alt="BiTrack Hero" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>
@@ -320,13 +315,13 @@ export default function BiTrackPage() {
             <p>
               BiTrack is the mobile companion app for B-Log's IoT vehicle tracking
               system. It gives drivers and fleet operators a direct window into every
-              GPS device installed on their vehicles — live location, current status,
-              trip history, and more — all from their phone.
+              GPS device installed on their vehicles, live location, current status,
+              trip history, and more, all from their phone.
             </p>
             <p>
               With over 3,000 GPS devices already connected to the system, BiTrack
               handles everything from real-time tracking and dashcam previews to
-              automated alerts and vehicle registration — built to be fast, reliable,
+              automated alerts and vehicle registration, built to be fast, reliable,
               and accurate to 99.9%.
             </p>
           </div>
@@ -353,7 +348,7 @@ export default function BiTrackPage() {
           <div className={styles.body}>
             <p>
               Before BiTrack existed, all fleet monitoring relied entirely on a
-              desktop dashboard. There was no mobility — operators had to be at
+              desktop dashboard. There was no mobility, operators had to be at
               their computer to monitor vehicles, respond to alerts, check trips,
               or register new units.
             </p>
@@ -385,13 +380,13 @@ export default function BiTrackPage() {
           <h2 className={styles.sectionTitle}>
             Everything the desktop
             <br />
-            did — now on mobile
+            did, now on mobile
           </h2>
           <div className={styles.body}>
             <p>
               BiTrack was designed to break the dependency on desktop entirely.
               Every feature that previously required sitting at a PC was
-              reimagined for mobile — built around speed, clarity, and the
+              reimagined for mobile, built around speed, clarity, and the
               reality of working on the go.
             </p>
           </div>
@@ -421,7 +416,7 @@ export default function BiTrackPage() {
           </h2>
         </div>
         <div className={styles.marqueeWrap} ref={marqueeWrapRef}>
-          {/* Row 1 — kiri */}
+          {/* Row 1, kiri */}
           <div className={styles.marqueeRow}>
             <div className={styles.marqueeTrack}>
               {[...UI_SCREENS, ...UI_SCREENS, ...UI_SCREENS].map((s, i) => (
@@ -445,7 +440,7 @@ export default function BiTrackPage() {
               ))}
             </div>
           </div>
-          {/* Row 2 — kanan */}
+          {/* Row 2, kanan */}
           <div className={`${styles.marqueeRow} ${styles.marqueeReverse}`}>
             <div className={styles.marqueeTrack}>
               {[...UI_SCREENS, ...UI_SCREENS, ...UI_SCREENS].map((s, i) => (
@@ -488,7 +483,7 @@ export default function BiTrackPage() {
           </h2>
           <div className={styles.body}>
             <p>
-              BiTrack gave fleet managers something they never had before —
+              BiTrack gave fleet managers something they never had before , 
               complete, real-time visibility into their operations. The design
               decisions that shaped every screen directly contributed to faster
               adoption and a measurable shift in how fleets are managed.
@@ -521,7 +516,7 @@ export default function BiTrackPage() {
             <a href="https://treffix.id" target="_blank" rel="noopener noreferrer" className={styles.v2Link}>
               treffix.id
             </a>{" "}
-            — a platform built for fleet businesses of any size. New features,
+           , a platform built for fleet businesses of any size. New features,
             sharper insights, and a more powerful experience, all built around
             how fleet operators actually work in the field.
           </p>
@@ -593,8 +588,6 @@ export default function BiTrackPage() {
           />
         </div>
       )}
-
-      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

@@ -62,7 +62,7 @@ export default function Preloader() {
             <span>©2026</span>
           </motion.div>
 
-          {/* Center — welcome (home) or crafting (other pages) */}
+          {/* Center, welcome (home) or crafting (other pages) */}
           <div className={styles.center}>
             {isHome ? (
               <div className={styles.welcomeWrap}>

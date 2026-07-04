@@ -52,7 +52,7 @@ export default function ParticleCanvas() {
       const warp = s * s * 18;
 
       stars.forEach(p => {
-        // move downward — closer stars faster (parallax)
+        // move downward, closer stars faster (parallax)
         p.y += (0.00008 + s * 0.004) * p.speed * (0.2 + p.z * 0.8);
         if (p.y > 1.02) {
           p.y = -0.02;
@@ -67,7 +67,7 @@ export default function ParticleCanvas() {
         const twink = 0.75 + 0.25 * Math.sin(t * (0.8 + p.z * 1.2) + p.phase);
         const alpha = (0.2 + p.z * 0.75) * twink;
 
-        // trail on scroll — length grows with warp
+        // trail on scroll, length grows with warp
         const trailLen = warp * p.speed * (0.4 + p.z * 0.6) * 6;
         if (trailLen > 1) {
           const grad = ctx.createLinearGradient(x, y - trailLen, x, y);

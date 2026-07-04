@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <section className={styles.hero} ref={ref} id="home">
 
-      {/* Top meta — refined, not data-heavy */}
+      {/* Top meta, refined, not data-heavy */}
       <div className={styles.topRow}>
         <motion.div
           className={styles.availability}
@@ -63,7 +63,7 @@ export default function Hero() {
               initial="hidden"
               animate="show"
             >
-              Product
+              <em className={styles.serif}>UI/UX</em> designer
             </motion.span>
           </span>
           <span className={styles.row}>
@@ -74,7 +74,7 @@ export default function Hero() {
               initial="hidden"
               animate="show"
             >
-              &amp; <em className={styles.serif}>UI/UX</em> designer
+              &amp; <em className={styles.serif}>vibe coder</em>
             </motion.span>
           </span>
           <span className={styles.row}>
@@ -100,7 +100,7 @@ export default function Hero() {
         custom={1.3}
       >
         <p className={styles.bio}>
-          I&apos;m Fadhli — a Product &amp; UI/UX Designer crafting digital
+          I&apos;m Fadhli, a UI/UX Designer and vibe coder, crafting digital
           experiences that balance business goals with human needs.
         </p>
         <button className={styles.cta} onClick={onConnectClick}>

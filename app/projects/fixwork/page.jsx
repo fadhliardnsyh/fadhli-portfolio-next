@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import ContactModal from "../../components/ContactModal/ContactModal";
 import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
 import useMarqueeSlowOnHover from "../../hooks/useMarqueeSlowOnHover";
 import styles from "./page.module.css";
@@ -22,29 +20,29 @@ const STATS = [
 
 const CHALLENGES = [
   {
-    num: "01 — Challenge",
+    num: "01, Challenge",
     title: "Still relying on conventional fingerprint attendance",
-    desc: "Companies using Fixwork previously relied on fingerprint scanners for attendance. In larger organizations, this created long queues — employees who arrived on time were marked late simply because of the line.",
+    desc: "Companies using Fixwork previously relied on fingerprint scanners for attendance. In larger organizations, this created long queues, employees who arrived on time were marked late simply because of the line.",
   },
   {
-    num: "02 — Challenge",
+    num: "02, Challenge",
     title: "No visibility into personal attendance data",
     desc: "Attendance data was held exclusively by HR. Employees had no way to check their own records, which frequently led to conflicts over disputed tardiness that could have been avoided with simple transparency.",
   },
   {
-    num: "03 — Challenge",
+    num: "03, Challenge",
     title: "Manual and fragmented leave & permit requests",
-    desc: "Leave and permit requests were still handled manually — employees had to personally approach their supervisor, then HR, going through multiple steps just to get approval.",
+    desc: "Leave and permit requests were still handled manually, employees had to personally approach their supervisor, then HR, going through multiple steps just to get approval.",
   },
   {
-    num: "04 — Challenge",
+    num: "04, Challenge",
     title: "Tedious manual process for out-of-office visits",
-    desc: "When employees needed to visit a client or attend an external meeting, the process was painfully manual — they had to take a photo with GPS metadata enabled, then manually send it to HR as proof of location.",
+    desc: "When employees needed to visit a client or attend an external meeting, the process was painfully manual, they had to take a photo with GPS metadata enabled, then manually send it to HR as proof of location.",
   },
   {
-    num: "05 — Challenge",
+    num: "05, Challenge",
     title: "Overtime requests still done the old-fashioned way",
-    desc: "Overtime requests were handled conventionally — through paper forms or direct messages to supervisors. There was no centralized system to track, approve, or monitor overtime.",
+    desc: "Overtime requests were handled conventionally, through paper forms or direct messages to supervisors. There was no centralized system to track, approve, or monitor overtime.",
   },
 ];
 
@@ -52,12 +50,12 @@ const SOLUTIONS = [
   {
     num: "01",
     title: "Digitized attendance via smartphone",
-    desc: "Attendance is powered by face recognition and geofencing to prevent fraud. The system is also tied to each employee's work schedule — so clock-ins outside their shift hours are automatically flagged.",
+    desc: "Attendance is powered by face recognition and geofencing to prevent fraud. The system is also tied to each employee's work schedule, so clock-ins outside their shift hours are automatically flagged.",
   },
   {
     num: "02",
     title: "Full attendance history at a glance",
-    desc: "Employees can view their complete clock-in and clock-out history directly from their smartphone — no more asking HR for data that should've always been theirs.",
+    desc: "Employees can view their complete clock-in and clock-out history directly from their smartphone, no more asking HR for data that should've always been theirs.",
   },
   {
     num: "03",
@@ -67,7 +65,7 @@ const SOLUTIONS = [
   {
     num: "04",
     title: "Visit feature with multi-location support",
-    desc: "Employees can log visits with full location history. Multi-location support means field teams and those with back-to-back client visits can track every stop in a single session — no manual logging required.",
+    desc: "Employees can log visits with full location history. Multi-location support means field teams and those with back-to-back client visits can track every stop in a single session, no manual logging required.",
   },
   {
     num: "05",
@@ -77,30 +75,30 @@ const SOLUTIONS = [
   {
     num: "06",
     title: "Real-time notifications for everything",
-    desc: "Employees receive instant updates on every request status — approved, pending, or rejected. On top of that, reminders for clock-in and clock-out keep them on track, while company-wide announcements, holiday notices, and broadcasts are all delivered through the same notification system.",
+    desc: "Employees receive instant updates on every request status, approved, pending, or rejected. On top of that, reminders for clock-in and clock-out keep them on track, while company-wide announcements, holiday notices, and broadcasts are all delivered through the same notification system.",
   },
 ];
 
 const V2_SCREENS = [
-  "/assets/projects/fixwork/fixwork-v2-1.png",
-  "/assets/projects/fixwork/fixwork-v2-2.png",
-  "/assets/projects/fixwork/fixwork-v2-3.png",
-  "/assets/projects/fixwork/fixwork-v2-4.png",
+  "/assets/projects/fixwork/fixwork-v2-1.webp",
+  "/assets/projects/fixwork/fixwork-v2-2.webp",
+  "/assets/projects/fixwork/fixwork-v2-3.webp",
+  "/assets/projects/fixwork/fixwork-v2-4.webp",
 ];
 
 const UI_SCREENS = [
-  { src: "/assets/projects/fixwork/Fixwork-UI01.png", label: "Login" },
-  { src: "/assets/projects/fixwork/Fixwork-UI02.png", label: "Home" },
-  { src: "/assets/projects/fixwork/Fixwork-UI03.png", label: "Clock In" },
-  { src: "/assets/projects/fixwork/Fixwork-UI04.png", label: "Self Onboarding" },
-  { src: "/assets/projects/fixwork/Fixwork-UI05.png", label: "Attendance" },
-  { src: "/assets/projects/fixwork/Fixwork-UI06.png", label: "Leave" },
-  { src: "/assets/projects/fixwork/Fixwork-UI07.png", label: "Payslip" },
-  { src: "/assets/projects/fixwork/Fixwork-UI08.png", label: "Profile" },
-  { src: "/assets/projects/fixwork/Fixwork-UI09.png", label: "Schedule" },
-  { src: "/assets/projects/fixwork/Fixwork-UI10.png", label: "Notification" },
-  { src: "/assets/projects/fixwork/Fixwork-UI11.png", label: "Overtime" },
-  { src: "/assets/projects/fixwork/Fixwork-UI12.png", label: "Visit" },
+  { src: "/assets/projects/fixwork/Fixwork-UI01.webp", label: "Login" },
+  { src: "/assets/projects/fixwork/Fixwork-UI02.webp", label: "Home" },
+  { src: "/assets/projects/fixwork/Fixwork-UI03.webp", label: "Clock In" },
+  { src: "/assets/projects/fixwork/Fixwork-UI04.webp", label: "Self Onboarding" },
+  { src: "/assets/projects/fixwork/Fixwork-UI05.webp", label: "Attendance" },
+  { src: "/assets/projects/fixwork/Fixwork-UI06.webp", label: "Leave" },
+  { src: "/assets/projects/fixwork/Fixwork-UI07.webp", label: "Payslip" },
+  { src: "/assets/projects/fixwork/Fixwork-UI08.webp", label: "Profile" },
+  { src: "/assets/projects/fixwork/Fixwork-UI09.webp", label: "Schedule" },
+  { src: "/assets/projects/fixwork/Fixwork-UI10.webp", label: "Notification" },
+  { src: "/assets/projects/fixwork/Fixwork-UI11.webp", label: "Overtime" },
+  { src: "/assets/projects/fixwork/Fixwork-UI12.webp", label: "Visit" },
 ];
 
 const RESULTS = [
@@ -113,7 +111,7 @@ const RESULTS = [
       </svg>
     ),
     title: "500+ Active Users & Growing",
-    desc: "Over 500 users open Fixwork every single day — and the number keeps climbing as more companies adopt the platform.",
+    desc: "Over 500 users open Fixwork every single day, and the number keeps climbing as more companies adopt the platform.",
   },
   {
     icon: (
@@ -123,7 +121,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Attendance That's Fraud-Proof",
-    desc: "Face recognition and geofencing make check-ins quick and impossible to fake — no more proxy attendance or location spoofing.",
+    desc: "Face recognition and geofencing make check-ins quick and impossible to fake, no more proxy attendance or location spoofing.",
   },
   {
     icon: (
@@ -134,7 +132,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Every Request Done in Seconds",
-    desc: "Leave, permits, overtime, visits — everything that used to require back-and-forth is now a few taps. No paperwork, no queuing.",
+    desc: "Leave, permits, overtime, visits, everything that used to require back-and-forth is now a few taps. No paperwork, no queuing.",
   },
   {
     icon: (
@@ -144,7 +142,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Full Transparency for Every Employee",
-    desc: "Attendance records, leave balance, payslip, and request statuses are always visible to employees — no more chasing HR for data. Confusion drops, trust goes up.",
+    desc: "Attendance records, leave balance, payslip, and request statuses are always visible to employees, no more chasing HR for data. Confusion drops, trust goes up.",
   },
   {
     icon: (
@@ -155,7 +153,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Onboarding Without HR in the Room",
-    desc: "New employees can register themselves end-to-end through the app. HR doesn't need to be present — the process runs itself.",
+    desc: "New employees can register themselves end-to-end through the app. HR doesn't need to be present, the process runs itself.",
   },
   {
     icon: (
@@ -229,8 +227,7 @@ function useReveal() {
 }
 
 export default function FixworkPage() {
-  const [modalOpen, setModalOpen] = useState(false);
-  // lightbox: { src, images?, idx? } — images & idx untuk navigasi prev/next
+  // lightbox: { src, images?, idx? }, images & idx untuk navigasi prev/next
   const [lightbox, setLightbox] = useState(null);
   const [lightboxClosing, setLightboxClosing] = useState(false);
 
@@ -278,12 +275,10 @@ export default function FixworkPage() {
 
   return (
     <>
-      <Navbar onConnectClick={() => setModalOpen(true)} />
-
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/projects/fixwork/fixwork_banner.png" alt="Fixwork Hero" />
+          <img src="/assets/projects/fixwork/fixwork_banner.webp" alt="Fixwork Hero" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>
@@ -322,12 +317,12 @@ export default function FixworkPage() {
             <p>
               Fixwork is an HRIS mobile application that makes it easy for
               employees to handle attendance, leave requests, permits, and other
-              work-related needs — all from their phone. Designed to fit
+              work-related needs, all from their phone. Designed to fit
               companies of any scale, from small startups to large enterprises.
             </p>
             <p>
               Today, Fixwork has over 500+ active users engaging with the app
-              every single day — a testament to how intuitive and essential it
+              every single day, a testament to how intuitive and essential it
               has become in their daily work life.
             </p>
           </div>
@@ -392,7 +387,7 @@ export default function FixworkPage() {
           <div className={styles.body}>
             <p>
               The design approach focused on reducing cognitive load at every
-              step — clear visual hierarchy, a task-first home screen, and a
+              step, clear visual hierarchy, a task-first home screen, and a
               consistent component system that scaled across all features.
             </p>
           </div>
@@ -420,7 +415,7 @@ export default function FixworkPage() {
           </h2>
         </div>
         <div className={styles.marqueeWrap} ref={marqueeWrapRef}>
-          {/* Row 1 — kiri */}
+          {/* Row 1, kiri */}
           <div className={styles.marqueeRow}>
             <div className={styles.marqueeTrack}>
               {[...UI_SCREENS, ...UI_SCREENS, ...UI_SCREENS].map((s, i) => (
@@ -444,7 +439,7 @@ export default function FixworkPage() {
               ))}
             </div>
           </div>
-          {/* Row 2 — kanan */}
+          {/* Row 2, kanan */}
           <div className={`${styles.marqueeRow} ${styles.marqueeReverse}`}>
             <div className={styles.marqueeTrack}>
               {[...UI_SCREENS, ...UI_SCREENS, ...UI_SCREENS].map((s, i) => (
@@ -590,8 +585,6 @@ export default function FixworkPage() {
           />
         </div>
       )}
-
-      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

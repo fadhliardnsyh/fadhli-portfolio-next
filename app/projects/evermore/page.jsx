@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import ContactModal from "../../components/ContactModal/ContactModal";
 import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
 import styles from "./page.module.css";
 
@@ -15,22 +13,22 @@ const META = [
 
 const CHALLENGES = [
   {
-    num: "01 — Challenge",
+    num: "01, Challenge",
     title: "The game had no web presence at all",
-    desc: "Evermore Knights existed as a playable game, but there was no website for it. Anyone who heard about the game had nowhere to go to learn more — no page, no introduction, nothing.",
+    desc: "Evermore Knights existed as a playable game, but there was no website for it. Anyone who heard about the game had nowhere to go to learn more, no page, no introduction, nothing.",
   },
   {
-    num: "02 — Challenge",
+    num: "02, Challenge",
     title: "Web3 games face a steep trust barrier",
     desc: "New players approaching a Web3 game are naturally skeptical. Without a polished, credible first impression, potential players and investors would move on before giving the game a chance.",
   },
   {
-    num: "03 — Challenge",
+    num: "03, Challenge",
     title: "Rich lore with no place to live",
-    desc: "Evermore Knights had a fully developed world — characters with backstories, named maps, item systems, and factions. None of it was communicated anywhere accessible to someone discovering the game for the first time.",
+    desc: "Evermore Knights had a fully developed world, characters with backstories, named maps, item systems, and factions. None of it was communicated anywhere accessible to someone discovering the game for the first time.",
   },
   {
-    num: "04 — Challenge",
+    num: "04, Challenge",
     title: "No path for new players to follow",
     desc: "Even if someone discovered the game through word of mouth, there was no clear next step. No way to understand the game, build excitement, or know how to get involved.",
   },
@@ -40,27 +38,27 @@ const SOLUTIONS = [
   {
     num: "01",
     title: "A landing page that opens the world of Evermore",
-    desc: "The landing page was designed to be the game's front door — the first place anyone lands when they want to know what Evermore Knights is. Every section answers a question a new visitor would have.",
+    desc: "The landing page was designed to be the game's front door, the first place anyone lands when they want to know what Evermore Knights is. Every section answers a question a new visitor would have.",
   },
   {
     num: "02",
     title: "Visual identity built for the Web3 gaming audience",
-    desc: "Dark, immersive aesthetics with fantasy-meets-crypto visual language established the right tone immediately — credible enough to earn trust, dramatic enough to build excitement.",
+    desc: "Dark, immersive aesthetics with fantasy-meets-crypto visual language established the right tone immediately, credible enough to earn trust, dramatic enough to build excitement.",
   },
   {
     num: "03",
     title: "Sections dedicated to the game's world",
-    desc: "Characters, maps, items, and core game mechanics each got their own space on the page. Visitors can explore the lore at their own pace — getting drawn deeper into the world with every scroll.",
+    desc: "Characters, maps, items, and core game mechanics each got their own space on the page. Visitors can explore the lore at their own pace, getting drawn deeper into the world with every scroll.",
   },
   {
     num: "04",
     title: "A clear journey from curiosity to commitment",
-    desc: "The page was structured to guide visitors through a natural progression: discover the world, understand how it works, then take action — whether that's joining the community, minting, or playing.",
+    desc: "The page was structured to guide visitors through a natural progression: discover the world, understand how it works, then take action, whether that's joining the community, minting, or playing.",
   },
 ];
 
 const UI_SCREENS = [
-  // { src: "/assets/projects/evermore/evermore-ui-01.png", label: "Hero" },
+  // { src: "/assets/projects/evermore/evermore-ui-01.webp", label: "Hero" },
 ];
 
 const PLACEHOLDERS = Array.from({ length: 2 });
@@ -73,7 +71,7 @@ const RESULTS = [
       </svg>
     ),
     title: "A World Visitors Can Explore",
-    desc: "For the first time, anyone curious about Evermore Knights had a place to land — a page that answered their questions and pulled them into the game's universe.",
+    desc: "For the first time, anyone curious about Evermore Knights had a place to land, a page that answered their questions and pulled them into the game's universe.",
   },
   {
     icon: (
@@ -104,7 +102,7 @@ const RESULTS = [
       </svg>
     ),
     title: "A Guided Path from Discovery to Action",
-    desc: "The page naturally moved visitors from curiosity to engagement — giving the game a structured way to grow its community beyond word-of-mouth alone.",
+    desc: "The page naturally moved visitors from curiosity to engagement, giving the game a structured way to grow its community beyond word-of-mouth alone.",
   },
 ];
 
@@ -126,7 +124,6 @@ function useReveal() {
 }
 
 export default function EvermorePage() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
   const [lightboxClosing, setLightboxClosing] = useState(false);
 
@@ -169,12 +166,10 @@ export default function EvermorePage() {
 
   return (
     <>
-      <Navbar onConnectClick={() => setModalOpen(true)} />
-
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/projects/evermore/evermore-page-banner.png" alt="Evermore Knights" />
+          <img src="/assets/projects/evermore/evermore-page-banner.webp" alt="Evermore Knights" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>
@@ -208,13 +203,13 @@ export default function EvermorePage() {
           <div className={styles.body}>
             <p>
               Evermore Knights is a Web3-based fantasy RPG with a fully developed
-              game world — named characters, distinct maps, item systems, and lore
+              game world, named characters, distinct maps, item systems, and lore
               that runs deep. But for all of that, the game had no website. No place
               for someone curious to land, explore, and understand what it was.
             </p>
             <p>
               The goal of this project was to design a landing page that served as
-              the game's public introduction — a place that could open up the world
+              the game's public introduction, a place that could open up the world
               of Evermore Knights to anyone encountering it for the first time.
             </p>
           </div>
@@ -235,7 +230,7 @@ export default function EvermorePage() {
           </h2>
           <div className={styles.body}>
             <p>
-              Evermore Knights had everything a game needs to attract players —
+              Evermore Knights had everything a game needs to attract players , 
               except a way for people outside the existing community to discover
               any of it. The game existed, but publicly, it was invisible.
             </p>
@@ -297,7 +292,7 @@ export default function EvermorePage() {
           <div className={styles.body}>
             <p>
               An immersive, scroll-driven landing page built to introduce the
-              game's characters, maps, and lore — designed to feel like stepping
+              game's characters, maps, and lore, designed to feel like stepping
               into the world before you've even played it.
             </p>
           </div>
@@ -344,7 +339,7 @@ export default function EvermorePage() {
           <div className={styles.body}>
             <p>
               The Evermore Knights landing page gave the game a public presence
-              for the first time — turning a rich but invisible game world into
+              for the first time, turning a rich but invisible game world into
               something anyone could discover, explore, and get excited about.
             </p>
           </div>
@@ -417,8 +412,6 @@ export default function EvermorePage() {
           />
         </div>
       )}
-
-      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

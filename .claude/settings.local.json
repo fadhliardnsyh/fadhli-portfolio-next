@@ -4,7 +4,20 @@
       "Bash(node screenshot-script.cjs)",
       "Bash(git add *)",
       "Bash(git commit -m 'add bitrack app case study, update about stats & tools, hero visibility fix, infinite carousel *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(Get-ChildItem -Path \"e:\\\\fadhli-portfolio-next\\\\app\\\\projects\" -Recurse -Filter \"*.jsx\")",
+      "Bash(Select-Object FullName)",
+      "Bash(git commit -m ' *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(npx playwright *)",
+      "Bash(npm install *)",
+      "Bash(node -e ' *)",
+      "Bash(cd \"C:/Users/Fadhli\" && npm install playwright 2>&1 | tail -5)",
+      "Read(//c/Users/Fadhli/**)",
+      "Bash(git mv *)",
+      "Bash(mkdir -p projects/blog-ocs projects/warehouse projects/fixwork-dashboard projects/creoplay-v2 projects/tagtag projects/creoengine projects/creoplay-v1 projects/djubli-web projects/djubli-app reviews)",
+      "Bash(touch projects/blog-ocs/.gitkeep projects/warehouse/.gitkeep projects/fixwork-dashboard/.gitkeep projects/creoplay-v2/.gitkeep projects/tagtag/.gitkeep projects/creoengine/.gitkeep projects/creoplay-v1/.gitkeep projects/djubli-web/.gitkeep projects/djubli-app/.gitkeep reviews/.gitkeep)"
     ]
   }
 }

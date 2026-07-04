@@ -163,7 +163,7 @@ body {
   height: 46px;
   border-radius: 50%;
   background: var(--y);
-  border: none;
+  border: 1.5px solid var(--y);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -171,9 +171,15 @@ body {
   z-index: 99;
   opacity: 0;
   transform: translateY(12px) scale(0.9);
-  transition: opacity 0.35s, transform 0.35s, background 0.2s;
   pointer-events: none;
-  box-shadow: 0 4px 20px rgba(245, 197, 24, 0.3);
+  box-shadow: 0 8px 24px rgba(245, 197, 24, 0.18);
+  transition:
+    opacity 0.35s,
+    transform 0.4s ease,
+    background 0.4s ease,
+    color 0.4s ease,
+    box-shadow 0.4s ease;
+  color: #0a0a0a;
 }
 
 #scrolltop.visible {
@@ -183,13 +189,17 @@ body {
 }
 
 #scrolltop:hover {
-  background: var(--y2);
+  background: transparent;
+  color: var(--y);
+  transform: translateY(-2px) scale(1);
+  box-shadow: 0 14px 36px rgba(245, 197, 24, 0.25);
 }
 
 #scrolltop svg {
   width: 15px;
   height: 15px;
-  stroke: var(--bg);
+  stroke: currentColor;
+  transition: stroke 0.4s ease;
 }
 
 /* ── REVEAL ANIMATIONS ─────────────────────────────────────── */
@@ -265,7 +275,7 @@ body {
   align-items: center;
   gap: 0.6rem;
   background: var(--y);
-  color: var(--bg);
+  color: #0a0a0a;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 0.85rem;
@@ -273,24 +283,33 @@ body {
   padding: 0.9rem 2rem;
   border-radius: 100px;
   text-decoration: none;
-  border: none;
+  border: 1.5px solid var(--y);
   cursor: pointer;
-  transition: all 0.25s;
   white-space: nowrap;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    gap 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 8px 24px rgba(245, 197, 24, 0.18);
 }
 
 .btn-primary:hover {
-  background: var(--y2);
+  background: transparent;
+  color: var(--y);
+  gap: 0.95rem;
   transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(245, 197, 24, 0.25);
 }
 
 .btn-primary svg {
   width: 14px;
   height: 14px;
-  transition: transform 0.2s;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), stroke 0.4s ease;
   flex-shrink: 0;
   fill: none;
-  stroke: var(--bg);
+  stroke: currentColor;
   stroke-width: 2.5;
 }
 
@@ -1175,21 +1194,30 @@ footer {
   justify-content: center;
   gap: 0.6rem;
   background: var(--y);
-  color: var(--bg);
+  color: #0a0a0a;
   font-family: "Poppins", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   padding: 1rem 2rem;
   border-radius: 100px;
-  border: none;
+  border: 1.5px solid var(--y);
   cursor: pointer;
-  transition: all 0.25s;
   margin-top: 0.5rem;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    gap 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 8px 24px rgba(245, 197, 24, 0.18);
 }
 
 .form-submit:hover {
-  background: var(--y2);
+  background: transparent;
+  color: var(--y);
+  gap: 0.95rem;
   transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(245, 197, 24, 0.25);
 }
 
 .form-submit svg {
@@ -1309,21 +1337,28 @@ footer {
   align-items: center;
   justify-content: center;
   background: var(--y);
-  color: var(--bg);
+  color: #0a0a0a;
   font-family: "Poppins", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   padding: 0.875rem 2.5rem;
   border-radius: 100px;
-  border: none;
+  border: 1.5px solid var(--y);
   cursor: pointer;
-  transition: all 0.25s;
   width: 100%;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 8px 24px rgba(245, 197, 24, 0.18);
 }
 
 .success-btn:hover {
-  background: var(--y2);
+  background: transparent;
+  color: var(--y);
   transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(245, 197, 24, 0.25);
 }
 
 /* ── KEYFRAMES ─────────────────────────────────────────────── */

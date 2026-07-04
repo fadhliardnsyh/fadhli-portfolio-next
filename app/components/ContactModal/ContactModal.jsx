@@ -32,7 +32,7 @@ export default function ContactModal({ isOpen, onClose }) {
     setStatus("loading");
 
     try {
-      // EmailJS send — pakai config yang sama dari portfolio lama
+      // EmailJS send, pakai config yang sama dari portfolio lama
       const res = await window.emailjs.send(
         "service_jsg8yed",
         "template_c61ojyw",

@@ -5,8 +5,10 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import PROJECTS from "../data/projects";
 
+const VISIBLE_PROJECTS = PROJECTS.filter((p) => !p.hidden);
+
 const ALL_FILTERS = ["All", ...Array.from(new Set(
-  PROJECTS.flatMap((p) => p.cat.split(" · "))
+  VISIBLE_PROJECTS.flatMap((p) => p.cat.split(" · "))
 ))];
 
 export default function ProjectsPage() {
@@ -30,8 +32,8 @@ export default function ProjectsPage() {
 
   const filtered =
     active === "All"
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.cat.split(" · ").includes(active));
+      ? VISIBLE_PROJECTS
+      : VISIBLE_PROJECTS.filter((p) => p.cat.split(" · ").includes(active));
 
   return (
     <main className={styles.main}>
@@ -44,7 +46,7 @@ export default function ProjectsPage() {
             Work built over<br /><em>3+ years</em> of design
           </h1>
           <p className={styles.heroSub}>
-            Every project here is a real problem I helped solve — across mobile apps,
+            Every project here is a real problem I helped solve, across mobile apps,
             web platforms, game UI, and IoT products.
           </p>
           <div className={styles.heroBadges}>
@@ -94,10 +96,28 @@ export default function ProjectsPage() {
                 <div className={styles.cardTop}>
                   <div className={styles.cardTags}>
                     {p.cat.split(" · ").map((t) => (
-                      <span key={t} className={styles.tag}>{t}</span>
+                      <span
+                        key={t}
+                        className={`${styles.tag} ${
+                          t === "Vibe Coding"
+                            ? styles.tagVibe
+                            : t === "UI/UX Design"
+                            ? styles.tagDesign
+                            : ""
+                        }`}
+                      >
+                        {t}
+                      </span>
                     ))}
                   </div>
-                  <span className={styles.cardYear}>{p.year}</span>
+                  {p.status ? (
+                    <span className={styles.cardStatus}>
+                      <span className={styles.statusDot} />
+                      {p.status}
+                    </span>
+                  ) : (
+                    <span className={styles.cardYear}>{p.year}</span>
+                  )}
                 </div>
                 <div className={styles.cardBottom}>
                   <h2 className={styles.cardTitle}>{p.title}</h2>

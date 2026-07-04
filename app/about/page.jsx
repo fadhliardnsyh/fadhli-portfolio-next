@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
 
-/* ── DATA — ganti dengan info yang sesuai ───────────────────── */
+/* ── DATA, ganti dengan info yang sesuai ───────────────────── */
 
 const BIODATA = {
   born: "Batam, December 14, 1998",
@@ -25,12 +25,16 @@ const EXPERIENCE = [
     location: "Tangerang, Banten",
     type: "Full-time",
     arrangement: "On-site",
-    logo: "/assets/logos/companies/treffix-logo.png",
+    logo: "/assets/logos/companies/treffix-logo.webp",
     bullets: [
-      "Designed UI for web dashboards including HRMS, Fleet Management, and Warehouse Management systems.",
+      "Designed UI across the full Treffix product suite, spanning HR (HRIS mobile app, HRMS dashboard), fleet (Vehicle Tracker app, Fleet Management dashboard), and logistics (Delivery Order and Warehouse Management dashboards).",
+      "Vibe-coded landing pages and internal dashboards, turning designs into working, shippable interfaces alongside the engineering team.",
+      "Performed QA on developer output, catching potential bugs, UI inconsistencies, and edge cases before features shipped.",
       "Conducted UAT directly with end users using positive and negative test scenarios.",
+      "Onboarded new clients to Treffix products, walking them through workflows and surfacing real-world friction that fed back into design improvements.",
       "Structured PRDs to define features, user flows, and technical requirements.",
       "Led cross-functional collaboration across designers and developers to ensure efficient workflow.",
+      "Built 3D warehouse visualizations inside the Warehouse Management dashboard so users can monitor their entire warehouse at a glance, with a clearer view of the whole space.",
     ],
   },
   {
@@ -40,7 +44,7 @@ const EXPERIENCE = [
     location: "Tangerang, Banten",
     type: "Freelance",
     arrangement: "Remote",
-    logo: "/assets/logos/companies/tekuton-logo.png",
+    logo: "/assets/logos/companies/tekuton-logo.webp",
     bullets: [
       "Created UI designs for Creoplay, a Web3 marketplace.",
       "Conducted client interviews to understand needs and provided design recommendations.",
@@ -54,7 +58,7 @@ const EXPERIENCE = [
     location: "Tangerang, Banten",
     type: "Full-time",
     arrangement: "On-site",
-    logo: "/assets/logos/companies/nomina-logo.png",
+    logo: "/assets/logos/companies/nomina-logo.webp",
     bullets: [
       "Created UI designs for landing pages, dashboards, mobile apps, Web3 marketplace, and game UI.",
       "Developed user flows and information architecture for both users and product teams.",
@@ -68,7 +72,7 @@ const EXPERIENCE = [
     location: "Jakarta, DKI Jakarta",
     type: "Full-time",
     arrangement: "On-site",
-    logo: "/assets/logos/companies/djubli-logo.png",
+    logo: "/assets/logos/companies/djubli-logo.webp",
     bullets: [
       "Created UI design for DjuBli website and mobile apps (marketplace).",
       "Developed a new design system for website and mobile apps.",
@@ -82,7 +86,7 @@ const EXPERIENCE = [
     location: "Depok, Jawa Barat",
     type: "Part-time",
     arrangement: "On-site",
-    logo: "/assets/logos/companies/logo-gunadarma-alt.png",
+    logo: "/assets/logos/companies/logo-gunadarma-alt.webp",
     bullets: [
       "Conducted maintenance and troubleshooting on laboratory computers.",
       "Provided technical support for lab users.",
@@ -95,7 +99,7 @@ const EDU = [
     institution: "Universitas Gunadarma",
     major: "Bachelor's of Engineering, Computer Science",
     period: "2016 – 2020",
-    logo: "/assets/logos/companies/logo-gunadarma-alt.png",
+    logo: "/assets/logos/companies/logo-gunadarma-alt.webp",
     bullets: [
       "Served as a lab assistant for 2 years in IT Support for the Intermediate Accounting laboratory.",
       "Final project: an Android-based learning app using Augmented Reality, allowing users to explore historical buildings worldwide in 3D with audio and text explanations. Received an A grade.",
@@ -128,11 +132,11 @@ const SKILLS = [
 ];
 
 const TOOLS = [
-  { name: "Figma",   logo: "/assets/logos/tools/logo-figma.png",   color: "#1ABCFE" },
-  { name: "Jira",    logo: "/assets/logos/tools/logo-jira.png",    color: "#0052CC" },
-  { name: "Maze",    logo: "/assets/logos/tools/logo-maze.png",    color: "#FF4747" },
-  { name: "Miro",    logo: "/assets/logos/tools/logo-miro.png",    color: "#FFDD00" },
-  { name: "Blender", logo: "/assets/logos/tools/logo-blender.png", color: "#EA7600" },
+  { name: "Figma",   logo: "/assets/logos/tools/logo-figma.webp",   color: "#1ABCFE" },
+  { name: "Jira",    logo: "/assets/logos/tools/logo-jira.webp",    color: "#0052CC" },
+  { name: "Maze",    logo: "/assets/logos/tools/logo-maze.webp",    color: "#FF4747" },
+  { name: "Miro",    logo: "/assets/logos/tools/logo-miro.webp",    color: "#FFDD00" },
+  { name: "Blender", logo: "/assets/logos/tools/logo-blender.webp", color: "#EA7600" },
   { name: "VS Code", logo: "/assets/logos/tools/logo-vscode.svg",  color: "#007ACC" },
   { name: "Claude",  logo: "/assets/logos/tools/logo-claude.svg",  color: "#D97706" },
 ];
@@ -209,18 +213,19 @@ export default function AboutPage() {
           <h1 className={styles.heroName}>
             Fadhli<br />Ardiansyah
           </h1>
-          <p className={styles.heroRole}>Product Designer · UI/UX Designer · Bekasi, Indonesia</p>
+          <p className={styles.heroRole}>UI/UX Designer · Vibe Coder · Bekasi, Indonesia</p>
           <p className={styles.heroSummary}>
-            I'm a product designer who bridges the gap between business goals
-            and human needs. With 3+ years of experience across mobile and web,
-            I craft digital products that feel intuitive and actually work.
+            I&apos;m a UI/UX designer who also vibe-codes, bridging the gap
+            between business goals and human needs, and then bridging the gap
+            between design and code. 3+ years across mobile and web, crafting
+            digital products that feel intuitive and actually ship.
           </p>
         </div>
 
         <div className={`${styles.heroRight} ${styles.reveal} ${styles.revealD1}`} ref={r(1)}>
           <div className={styles.photoAccent} />
           <div className={styles.photoFrame}>
-            <img src="/assets/about/photo.png" alt="Fadhli Ardiansyah" />
+            <img src="/assets/about/photo.webp" alt="Fadhli Ardiansyah" />
           </div>
         </div>
       </section>

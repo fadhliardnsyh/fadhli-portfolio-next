@@ -124,7 +124,8 @@
   height: 46px;
   border-radius: 50%;
   background: var(--y);
-  border: none;
+  border: 1.5px solid var(--y);
+  color: #0a0a0a;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -132,9 +133,14 @@
   z-index: 99;
   opacity: 0;
   transform: translateY(12px) scale(0.9);
-  transition: opacity 0.35s, transform 0.35s, background 0.2s;
   pointer-events: none;
-  box-shadow: 0 4px 20px rgba(245, 197, 24, 0.3);
+  box-shadow: 0 8px 24px rgba(245, 197, 24, 0.18);
+  transition:
+    opacity 0.35s,
+    transform 0.4s ease,
+    background 0.4s ease,
+    color 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .scrollTopVisible {
@@ -144,13 +150,17 @@
 }
 
 .scrollTop:hover {
-  background: var(--y2);
+  background: transparent;
+  color: var(--y);
+  transform: translateY(-2px) scale(1);
+  box-shadow: 0 14px 36px rgba(245, 197, 24, 0.25);
 }
 
 .scrollTop svg {
   width: 15px;
   height: 15px;
-  stroke: var(--bg);
+  stroke: currentColor;
+  transition: stroke 0.4s ease;
 }
 
 /* ── RESPONSIVE ────────────────────────────────────────────── */

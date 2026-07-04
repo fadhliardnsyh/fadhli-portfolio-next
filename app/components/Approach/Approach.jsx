@@ -38,12 +38,17 @@ const IconDecision = (p) => (
     <path d="M15.09 14a5 5 0 1 0-6.18 0c.49.4.88.91 1.15 1.49.27.58.41 1.21.41 1.85v.16h3.06v-.16c0-.64.14-1.27.41-1.85.27-.58.66-1.09 1.15-1.49z" />
   </svg>
 );
-const IconMetrics = (p) => (
+const IconVibeCoding = (p) => (
   <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="18" y1="20" x2="18" y2="10" />
-    <line x1="12" y1="20" x2="12" y2="4" />
-    <line x1="6" y1="20" x2="6" y2="14" />
-    <line x1="3" y1="20" x2="21" y2="20" />
+    <path d="M15 4V2" />
+    <path d="M15 16v-2" />
+    <path d="M8 9h2" />
+    <path d="M20 9h2" />
+    <path d="M17.8 11.8 19 13" />
+    <path d="M15 9h.01" />
+    <path d="M17.8 6.2 19 5" />
+    <path d="m3 21 9-9" />
+    <path d="M12.2 6.2 11 5" />
   </svg>
 );
 
@@ -51,7 +56,7 @@ const SKILLS = [
   {
     name: 'UI/UX Design',
     Icon: IconLayout,
-    text: 'Crafting interfaces that feel as good as they look. I design systems and screens that are intuitive, accessible, and built to scale — from first sketch to developer handoff.',
+    text: 'Crafting interfaces that feel as good as they look. I design systems and screens that are intuitive, accessible, and built to scale, from first sketch to developer handoff.',
   },
   {
     name: 'In-Depth Research',
@@ -61,22 +66,22 @@ const SKILLS = [
   {
     name: 'Team Collaboration',
     Icon: IconTeam,
-    text: 'Great products are built together. I work closely with PMs, engineers, and stakeholders — translating intent into clarity, and clarity into shipped product.',
+    text: 'Great products are built together. I work closely with PMs, engineers, and stakeholders, translating intent into clarity, and clarity into shipped product.',
   },
   {
     name: 'Product Management',
     Icon: IconProduct,
-    text: 'Bridging design and business. I structure PRDs, prioritize feature scope, and align teams around what matters most — making sure the right things get built, in the right order.',
+    text: 'Bridging design and business. I structure PRDs, prioritize feature scope, and align teams around what matters most, making sure the right things get built, in the right order.',
   },
   {
     name: 'Design Decision',
     Icon: IconDecision,
-    text: 'Every pixel earns its place. I make trade-offs based on user impact, technical reality, and business goals — and I can articulate the why behind every call.',
+    text: 'Every pixel earns its place. I make trade-offs based on user impact, technical reality, and business goals, and I can articulate the why behind every call.',
   },
   {
-    name: 'UX Metrics',
-    Icon: IconMetrics,
-    text: 'What gets measured gets improved. I define success metrics for every flow — task completion, drop-off, time-on-task — and use them to validate that design changes actually deliver value.',
+    name: 'Vibe Coding',
+    Icon: IconVibeCoding,
+    text: 'Design doesn’t stop at the handoff. I build with intuition and AI as a collaborator, turning ideas into working prototypes and shipped features when code is what stands between concept and reality.',
   },
 ];
 
@@ -112,7 +117,7 @@ export default function Approach() {
             </h2>
           </div>
           <p className={styles.sectionSub}>
-            The disciplines I&apos;ve sharpened over years of shipping products —
+            The disciplines I&apos;ve sharpened over years of shipping products , 
             each one earned through real projects, real teams, and real users.
           </p>
         </div>

@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import ContactModal from "../../components/ContactModal/ContactModal";
 import ProjectCarousel from "../../components/ProjectCarousel/ProjectCarousel";
 import styles from "./page.module.css";
 
@@ -21,22 +19,22 @@ const STATS = [
 
 const CHALLENGES = [
   {
-    num: "01 — Challenge",
+    num: "01, Challenge",
     title: "Overwhelming UI with no clear hierarchy",
-    desc: "Everything competed for attention. Alerts, maps, trip data, and vehicle lists were all presented at the same visual weight — making it impossible to quickly find what mattered most.",
+    desc: "Everything competed for attention. Alerts, maps, trip data, and vehicle lists were all presented at the same visual weight, making it impossible to quickly find what mattered most.",
   },
   {
-    num: "02 — Challenge",
+    num: "02, Challenge",
     title: "Data overload with no actionable insights",
     desc: "The dashboard surfaced raw GPS data but never helped operators interpret it. Numbers were everywhere; patterns and decisions were nowhere.",
   },
   {
-    num: "03 — Challenge",
+    num: "03, Challenge",
     title: "The live map was buried",
-    desc: "Real-time vehicle tracking — the most critical feature — was hidden behind multiple clicks. Finding a vehicle's current location required navigating through layers of menus.",
+    desc: "Real-time vehicle tracking, the most critical feature, was hidden behind multiple clicks. Finding a vehicle's current location required navigating through layers of menus.",
   },
   {
-    num: "04 — Challenge",
+    num: "04, Challenge",
     title: "No responsive experience",
     desc: "The dashboard only worked properly on large desktop screens. Any operator trying to use it on a smaller display encountered a broken, unusable layout.",
   },
@@ -51,7 +49,7 @@ const SOLUTIONS = [
   {
     num: "02",
     title: "Analytics that surface decisions, not just data",
-    desc: "Raw numbers were replaced with summarized insights — charts that highlight trends, anomalies, and patterns. Operators get answers, not spreadsheets.",
+    desc: "Raw numbers were replaced with summarized insights, charts that highlight trends, anomalies, and patterns. Operators get answers, not spreadsheets.",
   },
   {
     num: "03",
@@ -61,16 +59,16 @@ const SOLUTIONS = [
   {
     num: "04",
     title: "Responsive layout for every screen size",
-    desc: "The redesigned dashboard works seamlessly across screen sizes — built with a flexible grid that adapts without breaking, so operators can use it from wherever they work.",
+    desc: "The redesigned dashboard works seamlessly across screen sizes, built with a flexible grid that adapts without breaking, so operators can use it from wherever they work.",
   },
 ];
 
 const UI_SCREENS_BEFORE = [
-  // { src: "/assets/projects/bitrack-dashboard/bitrackv2-before-01.png", label: "Original Dashboard" },
+  // { src: "/assets/projects/bitrack-dashboard/bitrackv2-before-01.webp", label: "Original Dashboard" },
 ];
 
 const UI_SCREENS_NEW = [
-  // { src: "/assets/projects/bitrack-dashboard/bitrackv2-after-01.png", label: "Redesigned Dashboard" },
+  // { src: "/assets/projects/bitrack-dashboard/bitrackv2-after-01.webp", label: "Redesigned Dashboard" },
 ];
 
 const PLACEHOLDERS = Array.from({ length: 2 });
@@ -83,7 +81,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Fleet Visibility in One Glance",
-    desc: "The redesigned dashboard surfaces what matters most immediately — operators can assess the full fleet status without scrolling or digging.",
+    desc: "The redesigned dashboard surfaces what matters most immediately, operators can assess the full fleet status without scrolling or digging.",
   },
   {
     icon: (
@@ -101,7 +99,7 @@ const RESULTS = [
       </svg>
     ),
     title: "Data That's Actually Readable",
-    desc: "Complex trip and behavior data is now visualized in a way operators can interpret and act on — not just store and ignore.",
+    desc: "Complex trip and behavior data is now visualized in a way operators can interpret and act on, not just store and ignore.",
   },
   {
     icon: (
@@ -110,7 +108,7 @@ const RESULTS = [
       </svg>
     ),
     title: "A Product That Feels Production-Ready",
-    desc: "The redesign elevated BiTrack's dashboard from an internal tool to a polished, enterprise-grade product — ready to be shown to clients.",
+    desc: "The redesign elevated BiTrack's dashboard from an internal tool to a polished, enterprise-grade product, ready to be shown to clients.",
   },
 ];
 
@@ -183,7 +181,6 @@ function useReveal() {
 }
 
 export default function BiTrackDashboardPage() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
   const [lightboxClosing, setLightboxClosing] = useState(false);
 
@@ -227,12 +224,10 @@ export default function BiTrackDashboardPage() {
 
   return (
     <>
-      <Navbar onConnectClick={() => setModalOpen(true)} />
-
       {/* HERO */}
       <section className={styles.caseHero}>
         <div className={styles.caseHeroBg}>
-          <img src="/assets/projects/bitrack-dashboard/bitrackv2-page-banner.png" alt="BiTrack V2 Dashboard" />
+          <img src="/assets/projects/bitrack-dashboard/bitrackv2-page-banner.webp" alt="BiTrack V2 Dashboard" />
         </div>
         <div className={styles.caseHeroContent}>
           <div className={styles.eyebrow}>
@@ -266,13 +261,13 @@ export default function BiTrackDashboardPage() {
           <div className={styles.body}>
             <p>
               BiTrack V2 Dashboard is a complete redesign of B-Log's original fleet
-              monitoring dashboard — rebuilt from the ground up for clarity, speed, and
+              monitoring dashboard, rebuilt from the ground up for clarity, speed, and
               real operational use. The old dashboard worked, but it was built for
               engineers, not operators.
             </p>
             <p>
               With over 3,000 GPS devices connected to the system, the new dashboard
-              needed to handle serious data at scale — and present it in a way that
+              needed to handle serious data at scale, and present it in a way that
               made fleet operators faster and more confident in every decision they make.
             </p>
           </div>
@@ -284,7 +279,7 @@ export default function BiTrackDashboardPage() {
         </section>
       </div>
 
-      {/* UI SHOWCASE — Before redesign */}
+      {/* UI SHOWCASE, Before redesign */}
       <section className={styles.uiShowcase}>
         <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={imgBeforeRef}>
           <div className={styles.sectionLabel}><i />Original Design</div>
@@ -336,7 +331,7 @@ export default function BiTrackDashboardPage() {
           </h2>
           <div className={styles.body}>
             <p>
-              The original BiTrack dashboard got the job done technically — but it
+              The original BiTrack dashboard got the job done technically, but it
               wasn't designed with operators in mind. Critical information was buried,
               the interface had no clear focus, and the experience made a complex job
               even harder than it needed to be.
@@ -370,7 +365,7 @@ export default function BiTrackDashboardPage() {
             <p>
               The redesign started with one question: what does an operator need
               to see the moment they open the dashboard? Everything else followed
-              from that — structure, hierarchy, layout, and the way data is surfaced.
+              from that, structure, hierarchy, layout, and the way data is surfaced.
             </p>
           </div>
           <div className={styles.solutions}>
@@ -387,7 +382,7 @@ export default function BiTrackDashboardPage() {
         </section>
       </div>
 
-      {/* UI SHOWCASE — After redesign */}
+      {/* UI SHOWCASE, After redesign */}
       <section className={styles.uiShowcase}>
         <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={uiAfterRef}>
           <div className={styles.sectionLabel}><i />UI Preview</div>
@@ -398,7 +393,7 @@ export default function BiTrackDashboardPage() {
           </h2>
           <div className={styles.body}>
             <p>
-              A focused, operator-first interface — where the most important
+              A focused, operator-first interface, where the most important
               information is always one glance away, and complex fleet data
               becomes something you can actually act on.
             </p>
@@ -446,7 +441,7 @@ export default function BiTrackDashboardPage() {
           <div className={styles.body}>
             <p>
               The redesigned BiTrack V2 Dashboard transformed the way operators
-              interact with their fleet data — turning a tool people used out of
+              interact with their fleet data, turning a tool people used out of
               necessity into one they actively rely on.
             </p>
           </div>
@@ -519,8 +514,6 @@ export default function BiTrackDashboardPage() {
           />
         </div>
       )}
-
-      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }

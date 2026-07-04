@@ -103,9 +103,9 @@
 .track {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: clamp(2rem, 3.5vw, 3.5rem);
   width: max-content;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   animation: slideLeft 38s linear infinite;
 }
 
@@ -115,8 +115,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: clamp(80px, 9vw, 110px);
-  min-width: clamp(120px, 12vw, 170px);
+  height: clamp(100px, 11vw, 140px);
+  min-width: clamp(160px, 16vw, 220px);
   flex-shrink: 0;
   transition: transform 0.4s ease;
 }
@@ -128,7 +128,7 @@
 .logo {
   height: 100%;
   width: auto;
-  max-width: 260px;
+  max-width: 320px;
   object-fit: contain;
   filter: grayscale(1) brightness(0.95) contrast(0.9);
   opacity: 0.55;
@@ -168,7 +168,10 @@
 
 @media (max-width: 767px) {
   .item {
-    height: 70px;
-    min-width: 110px;
+    height: 90px;
+    min-width: 140px;
+  }
+  .track {
+    gap: 1.75rem;
   }
 }
