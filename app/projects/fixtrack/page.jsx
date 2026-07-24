@@ -18,8 +18,16 @@ const STATS = [
 ];
 
 const STACK = [
-  { name: "Next.js", logo: "/assets/logos/tools/logo-nextjs.svg", color: "#ffffff" },
-  { name: "Tailwind CSS", logo: "/assets/logos/tools/logo-tailwind.svg", color: "#38BDF8" },
+  {
+    name: "Next.js",
+    logo: "/assets/logos/tools/logo-nextjs.svg",
+    color: "#ffffff",
+  },
+  {
+    name: "Tailwind CSS",
+    logo: "/assets/logos/tools/logo-tailwind.svg",
+    color: "#38BDF8",
+  },
 ];
 
 const CHALLENGES = [
@@ -71,7 +79,16 @@ const SOLUTIONS = [
 const RESULTS = [
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         <polyline points="9 12 11 14 15 10" />
       </svg>
@@ -81,7 +98,16 @@ const RESULTS = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
         <circle cx="9" cy="7" r="4" />
         <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
@@ -92,7 +118,16 @@ const RESULTS = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
         <polyline points="22 4 12 14.01 9 11.01" />
       </svg>
@@ -102,7 +137,16 @@ const RESULTS = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
       </svg>
     ),
@@ -150,11 +194,16 @@ function AnimatedStat({ value, suffix, label, display }) {
     <div ref={ref} className={styles.statCard}>
       <div className={styles.statNum}>
         {display ? (
-          <span style={{ opacity: visible ? 1 : 0, transition: "opacity .6s ease" }}>
+          <span
+            style={{ opacity: visible ? 1 : 0, transition: "opacity .6s ease" }}
+          >
             {display}
           </span>
         ) : (
-          <>{count}{suffix}</>
+          <>
+            {count}
+            {suffix}
+          </>
         )}
       </div>
       <div className={styles.statLabel}>{label}</div>
@@ -216,21 +265,24 @@ export default function FixTrackPage() {
 
       {/* OVERVIEW */}
       <div className={styles.content}>
-        <section className={`${styles.section} ${styles.reveal}`} ref={overviewRef}>
+        <section
+          className={`${styles.section} ${styles.reveal}`}
+          ref={overviewRef}
+        >
           <div className={styles.sectionLabel}>
             <i />
             Overview
           </div>
           <h2 className={styles.sectionTitle}>
             A landing page built to sell
-            <br />
-            a technically deep product
+            <br />a technically deep product
           </h2>
           <div className={styles.body}>
             <p>
-              FixTrack is a GPS fleet and asset tracking platform with AI-powered
-              analytics, serving industries from logistics and mining to hazmat
-              transport. It is a serious B2B product with a lot to explain.
+              FixTrack is a GPS fleet and asset tracking platform with
+              AI-powered analytics, serving industries from logistics and mining
+              to hazmat transport. It is a serious B2B product with a lot to
+              explain.
             </p>
             <p>
               This landing page was designed and vibe-coded end-to-end to turn
@@ -240,7 +292,13 @@ export default function FixTrackPage() {
           </div>
           <div className={styles.stats}>
             {STATS.map((s) => (
-              <AnimatedStat key={s.label} value={s.value} suffix={s.suffix} label={s.label} display={s.display} />
+              <AnimatedStat
+                key={s.label}
+                value={s.value}
+                suffix={s.suffix}
+                label={s.label}
+                display={s.display}
+              />
             ))}
           </div>
 
@@ -268,7 +326,10 @@ export default function FixTrackPage() {
         <hr className={styles.divider} />
 
         {/* Problem */}
-        <section className={`${styles.section} ${styles.reveal}`} ref={problemRef}>
+        <section
+          className={`${styles.section} ${styles.reveal}`}
+          ref={problemRef}
+        >
           <div className={styles.sectionLabel}>
             <i />
             The Problem
@@ -300,7 +361,10 @@ export default function FixTrackPage() {
         <hr className={styles.divider} />
 
         {/* Solution */}
-        <section className={`${styles.section} ${styles.reveal}`} ref={solutionRef}>
+        <section
+          className={`${styles.section} ${styles.reveal}`}
+          ref={solutionRef}
+        >
           <div className={styles.sectionLabel}>
             <i />
             The Solution
@@ -334,11 +398,15 @@ export default function FixTrackPage() {
 
       {/* LIVE SITE — showcase with browser preview */}
       <section className={styles.uiShowcase}>
-        <div className={`${styles.uiShowcaseHeader} ${styles.reveal}`} ref={previewRef}>
-          <div className={styles.sectionLabel}><i />Live Site</div>
-          <h2 className={styles.sectionTitle}>
-            See it in the wild.
-          </h2>
+        <div
+          className={`${styles.uiShowcaseHeader} ${styles.reveal}`}
+          ref={previewRef}
+        >
+          <div className={styles.sectionLabel}>
+            <i />
+            Live Site
+          </div>
+          <h2 className={styles.sectionTitle}>See it in the wild.</h2>
           <div className={styles.body}>
             <p>
               The page is live and driving trial signups. Best experienced by
@@ -347,20 +415,29 @@ export default function FixTrackPage() {
             </p>
           </div>
           <a
-            href="https://treffix.id/fixtrack"
+            href="https://fixtrack.id"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.visitBtn}
           >
             Visit FixTrack
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="M7 17L17 7M17 7H7M17 7v10" />
             </svg>
           </a>
         </div>
 
         <a
-          href="https://treffix.id/fixtrack"
+          href="https://fixtrack.id"
           target="_blank"
           rel="noopener noreferrer"
           className={`${styles.browser} ${styles.reveal}`}
@@ -372,11 +449,21 @@ export default function FixTrackPage() {
             <span className={styles.dot} />
             <span className={styles.dot} />
             <span className={styles.urlBar}>
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
-              treffix.id/fixtrack
+              fixtrack.id
             </span>
             <span className={styles.chromeSpacer} />
           </div>
@@ -389,7 +476,16 @@ export default function FixTrackPage() {
             <div className={styles.browserOverlay}>
               <span className={styles.overlayPill}>
                 Open live site
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </span>
@@ -402,7 +498,10 @@ export default function FixTrackPage() {
         <hr className={styles.divider} />
 
         {/* Results */}
-        <section className={`${styles.section} ${styles.reveal}`} ref={resultsRef}>
+        <section
+          className={`${styles.section} ${styles.reveal}`}
+          ref={resultsRef}
+        >
           <div className={styles.sectionLabel}>
             <i />
             Results
